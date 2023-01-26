@@ -1,0 +1,135 @@
+1:
+  status: unknown
+  argument:
+    - The @EnableZuulProxy annotation is present,
+    - The @EnableResourceServer annotation is present,
+    - Article of application does access authorization server directly instead over Gateway.
+  artifacts:
+    - file: microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+      lines: [18]
+
+2:
+  status: disregarded
+  argument: Only API gateway, product composite service and authorization server (which is accesses by other services) have @EnableResourceServer, other downstream services do not authorize the requests
+  artifacts:
+    - file: microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+      lines: [16]
+    - file: microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+      lines: [19]
+    - file: microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+      lines: [21]
+
+3:
+  status: unknown
+  argument:
+    - The @EnableAuthorizationServer annotation is present,
+    - No JwtAccessTokenConverter, thus issues opaque token,
+    - Endpoint for validating token present,
+    - Endpoint mentioned at YML-Configuration of Resource Server.
+  artifacts:
+    - file: microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+      lines: [17]
+    - file: edge-server.yml
+      lines: [15]
+      repository: callistaenterprise/blog-microservices-config
+
+4:
+  status: disregarded
+  argument:
+    - Identity representations are present in form of opaque tokens per Rule 3,
+    - No transformation present,
+    - No @EnableResourceServer present at every downstream service.
+
+5:
+  status: observed
+  argument: Token are being validated on endpoint at authorization server and endpoint specified at server with @EnableResourceServer annotation.
+
+6:
+  status: disregarded
+  argument: No mechanism in place for multiple failed login attempts.
+
+7:
+  status: observed
+  argument: Keystore and Truststore of API Gateway has certificate included.
+  artifacts:
+    - file: edge-server.yml
+      lines: [4]
+      repository: callistaenterprise/blog-microservices-config
+
+8:
+  status: unknown
+  argument: Only edge-server, auth-server and config service have keystores included in their yml-configuration.
+  artifacts:
+    - file: auth-server.yml
+      lines: [5]
+      repository: callistaenterprise/blog-microservices-config
+    - file: edge-server.yml
+      lines: [4]
+      repository: callistaenterprise/blog-microservices-config
+    - file: microservices/support/config-server/src/main/resources/application.yml
+      lines: [3]
+
+9:
+  status: observed
+  argument: This microservice application deploys the ELK stack (Elasticsearch, Logstash, Kibana) as a logging mechanism. Logstash is deployed as a central logging subsystem. Logstash then sends the formatted data to an Elasticsearch indexing server. Additionally Kibana is deployed as a monitoring dashboard on top of the indexing server.
+  artifacts:
+    - file: docker-compose-with-elk.yml
+      lines: [5]
+
+10:
+  status: observed
+  argument: The syslog driver at docker containers present.
+  artifacts:
+    - file: docker-compose-with-elk.yml
+      lines: [81]
+
+11:
+  status: disregarded
+  argument: Logs are not explicitly sanitized.
+
+12:
+  status: observed
+  argument: RabbitMQ present but not used for logging subsystem.
+
+13:
+  status: observed
+  argument: The @EnableZuulProxy at the API Gateway enables Hystrix circuit breaker functionality.
+  artifacts:
+    - file: microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+      lines: [18]
+
+14:
+  status: observed
+  argument: The @EnableZuulProxy at the API Gateway enables Ribbon load balancing functionality.
+  artifacts:
+    - file: microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+      lines: [18]
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: observed
+  argument:
+    - Registry Service (Eureka Server) with @EnableEurekaServer present.
+    - Started in Docker Container through Compose, thus deployable on dedicated server
+  artifacts:
+    - file: microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java
+      lines: [9]
+    - file: docker-compose-with-elk.yml
+      lines: [51]
+
+17:
+  status: disregarded
+  argument: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+  artifacts:
+    - file: microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java
+      lines: [9]
+    - file: edge-server.yml
+      lines: [45]
+      repository: callistaenterprise/blog-microservices-config
+
+18:
+  status: disregarded
+  argument: No secret manager is deployed.

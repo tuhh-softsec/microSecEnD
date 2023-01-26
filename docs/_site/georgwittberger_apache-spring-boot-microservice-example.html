@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="apache_httpdmaven,  model">
+<title>georgwittberger/apache-spring-boot-microservice-example | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the georgwittberger/apache-spring-boot-microservice-example page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="georgwittberger/apache-spring-boot-microservice-example">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">georgwittberger/apache-spring-boot-microservice-example</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/georgwittberger">Georg Wittberger</a></p>
+
+<p>The repository has 7 stars and was forked 9 times. The codebase consists of 604 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_apache_httpd.html">Apache httpd</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_maven.html">Maven</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Source: https://github.com/georgwittberger/apache-spring-boot-microservice-example
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"georgwittberger_apache-spring-boot-microservice-example"</span>
+
+
+<span class="s">"""
+Components:
+    - Web Server (Apache httpd)
+    - user and connection to apache-configuration (implicit for web server)
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/README.adoc
+Artifact:
+"Copy the file apache-configuration/httpd-microservice-example.conf from this project to your Apache conf directory.
+[...]
+Start the web server or reload the configuration if it is already running."
+"""</span>
+
+<span class="n">apache_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"apache-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">web_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Web Server'</span><span class="p">:</span> <span class="s">"Apache httpd"</span><span class="p">})</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">apache_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache_server</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: content-service (internal), port 11080
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/content-service/src/main/java/io/github/georgwittberger/microserviceexample/contentservice/Application.java
+Artifact (line 6):
+    @SpringBootApplication
+And file: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/content-service/src/main/resources/application.yml
+Artifact (lines[1:2]):
+server:
+  port: 11080
+"""</span>
+
+<span class="n">content_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"content-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">11080</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: product-service (internal), port 11081
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/product-service/src/main/java/io/github/georgwittberger/microserviceexample/productservice/Application.java
+Artifact (line 6):
+    @SpringBootApplication
+And file: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/product-service/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+      port: 11081
+"""</span>
+
+<span class="n">product_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"product-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">11081</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: cart-service (internal), port 11082
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/cart-service/src/main/java/io/github/georgwittberger/microserviceexample/cartservice/Application.java
+Artifact (line 8):
+    @SpringBootApplication
+And file: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/cart-service/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+      port: 11082
+"""</span>
+
+<span class="n">cart_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"cart-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">11082</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection cart-service to product-service
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/cart-service/src/main/java/io/github/georgwittberger/microserviceexample/cartservice/cart/CartService.java
+Artifact (line 26):
+        Product product = restTemplate.getForObject(productServiceURL + productSeoName, Product.class);
+And artifact (lines[17:18]):
+    @Value("${service.product.url}")
+    private String productServiceURL;
+And file: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/cart-service/src/main/resources/application.yml
+Artifact (lines[9:11]):
+    service:
+      product:
+        url: http://localhost:11081
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">cart_service</span><span class="p">:</span> <span class="n">product_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection web server to product-service
+    - connection web server to cart-service
+    - connection web server to content-service
+File: https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf
+Artifact lines([26:36]):
+    # Pass requests to the product service.
+    ProxyPass "${PRODUCT_SERVICE_ROUTE}" "http://localhost:11081"
+    ProxyPassReverse "${PRODUCT_SERVICE_ROUTE}" "http://localhost:11081"
+
+    # Pass requests to the cart service.
+    ProxyPass "${CART_SERVICE_ROUTE}" "http://localhost:11082"
+    ProxyPassReverse "${CART_SERVICE_ROUTE}" "http://localhost:11082"
+
+    # Pass any other requests to the content service (must be last).
+    ProxyPass "/" "http://localhost:11080/"
+    ProxyPassReverse "/" "http://localhost:11080/"
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache_server</span><span class="p">:</span> <span class="n">cart_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache_server</span><span class="p">:</span> <span class="n">product_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache_server</span><span class="p">:</span> <span class="n">content_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">apache_server</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 29 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>29</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example/georgwittberger_apache-spring-boot-microservice-example.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is observed: The application uses Apache httpd as a gateway server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>httpd-microservice-example.conf: Line: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L22">22</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Services communicate internally over plain HTTP (See example artifacts). The communication is not authenticated.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>httpd-microservice-example.conf: Lines: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L27">27</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L31">31</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L35">35</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server. Note, that the server has a user-service, that is not used for authentication purposes.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>httpd-microservice-example.conf: Line: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L22">22</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/cart-service/src/main/resources/application.yml#L2">2</a></li>
+  <li>application.yml: Line: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/content-service/src/main/resources/application.yml#L2">2</a></li>
+  <li>application.yml: Line: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/product-service/src/main/resources/application.yml#L2">2</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: No logs are generated by the application.</p>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: No message broker is deployed and no logging is performed.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is disregarded: No explicit circuit breaker is deployed.</p>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is disregarded: No load balancing is deployed.</p>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is disregarded: No service registry service is deployed. Services are statically linked.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>httpd-microservice-example.conf: Lines: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L27">27</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L31">31</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L35">35</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No service registry service is deployed. Services are statically linked.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>httpd-microservice-example.conf: Lines: <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L27">27</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L31">31</a>, <a href="https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L35">35</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed.</p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_apache_httpd.html" class="btn btn-default navbar-btn cursorNorm" role="button">apache_httpd</a>
+        
+        
+        
+        <a href="tag_maven.html" class="btn btn-default navbar-btn cursorNorm" role="button">maven</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

@@ -1,0 +1,1168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="consuldockerdocker_composeelasticsearchkibanalogstashnginxrabbitmqweave_scopezuul,  model">
+<title>mudigal-technologies/microservices-sample | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the mudigal-technologies/microservices-sample page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="mudigal-technologies/microservices-sample">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">mudigal-technologies/microservices-sample</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/mudigal-technologies/microservices-sample">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/mudigal-technologies">Mudigal Technologies</a></p>
+
+<p>The repository has 304 stars and was forked 314 times. The codebase consists of 14527 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_consul.html">Consul</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_elasticsearch.html">Elasticsearch</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_kibana.html">Kibana</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_logstash.html">Logstash</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_nginx.html">Nginx</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_rabbitmq.html">RabbitMQ</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_weave_scope.html">Weave Scope</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Source: https://github.com/mudigal-technologies/microservices-sample
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"mudigal-technologies_microservices-sample"</span>
+
+
+<span class="s">"""
+Components:
+    - discovery service instance 1 (Consul), "consul", port 8500
+    - discovery service instance 2 (Consul), "consul2", port 8500
+    - discovery service instance 3 (Consul), "consul3", port 8500
+    - connections between the instances
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[149:186]):
+    consul:
+        image: consul:1.7.3
+        [...]
+        command: consul agent -server -client 0.0.0.0 -ui -bootstrap-expect=3 -data-dir=/consul/data -retry-join=consul2 -retry-join=consul3 -datacenter=blr
+        ports:
+          - "8500:8500"
+          - "8600:8600"
+        networks:
+          - backend
+      consul2:
+        image: consul:1.7.3
+        [...]
+        expose:
+          - "8500"
+          - "8600"
+        command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul3 -datacenter=blr
+        links:
+          - consul
+        networks:
+          - backend
+      consul3:
+        image: consul:1.7.3
+        [...]
+        expose:
+          - "8500"
+          - "8600"
+        command: consul agent -server -data-dir=/consul/data -retry-join=consul -retry-join=consul2 -datacenter=blr
+        links:
+          - consul
+          - consul2
+        networks:
+          - backend
+"""</span>
+
+<span class="n">consul</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"consul"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Consul"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8500</span><span class="p">})</span>
+
+<span class="n">consul2</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"consul2"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Consul"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8500</span><span class="p">})</span>
+
+<span class="n">consul3</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"consul3"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Consul"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8500</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul2</span><span class="p">:</span> <span class="n">consul</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul3</span><span class="p">:</span> <span class="n">consul</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul3</span><span class="p">:</span> <span class="n">consul2</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: search engine (Elasticsearch), "elasticsearch", port 9200
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[225:245]):
+  elasticsearch:
+    image: elasticsearch:7.7.0
+    [...]
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    expose:
+      - "9200"
+"""</span>
+
+<span class="n">elasticsearch</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"elasticsearch"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">search_engine</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Search Engine'</span><span class="p">:</span> <span class="s">"Elasticsearch"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">9200</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - logging server (Logstash), "logstash", port 5000
+    - connection to elasticsearch
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[252:265]):
+  logstash:
+    image: logstash:7.7.0
+    [...]
+    ports:
+      - "5000:5000"
+    expose:
+      - "5000"
+    [...]
+    command: &gt;
+      logstash --debug -e 'input { tcp { port =&gt; 5000 codec =&gt; json { charset =&gt; "UTF-8" } } } output { elasticsearch { hosts =&gt; "elasticsearch:9200" } }'
+    depends_on:
+      - elasticsearch
+"""</span>
+
+<span class="n">logstash</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"logstash"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">logging_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Logging Server'</span><span class="p">:</span> <span class="s">"Logstash"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">5000</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">logstash</span><span class="p">:</span> <span class="n">elasticsearch</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring dashboard (Kibana), "kibana", port 5601
+    - connetion to elasticsearch
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[207:218]):
+  kibana:
+    image: kibana:7.7.0
+    [...]
+    ports:
+      - "5601:5601"
+    expose:
+      - "5601"
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
+    links:
+      - elasticsearch
+"""</span>
+
+<span class="n">kibana</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"kibana"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Kibana"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">5601</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">elasticsearch</span><span class="p">:</span> <span class="n">kibana</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - message broker (RabbitMQ), "rabbit", port 15672
+    - plaintext_credentials
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[123:137]):
+  rabbit:
+    image: rabbitmq:3.8-management-alpine
+    [...]
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    expose:
+      - "15672"
+    environment:
+      [...]
+      - RABBITMQ_DEFAULT_USER=mudigal
+      - RABBITMQ_DEFAULT_PASS=mudigal
+"""</span>
+
+<span class="n">rabbit</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"rabbit"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_broker</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Message Broker'</span><span class="p">:</span> <span class="s">"RabbitMQ"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">15672</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"mudigal"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"mudigal"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - service-one (internal), port 8082
+    - connection to service discovery
+    - local logging
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/ServiceOneApplication.java
+Artifact (lines[20:22]):
+    @EnableScheduling
+    @SpringBootApplication
+    @EnableDiscoveryClient
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/docker/Dockerfile
+Artifact (line 7):
+    EXPOSE 8082
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml
+Artifact (lines[50:52]):
+    consul:
+      host: consul
+      port: 8500
+
+Local logging:
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/service/impl/NameValueServiceImpl.java
+Artifact (lines [6;27;47]):
+    import org.slf4j.LoggerFactory;
+
+        private Logger logger = LoggerFactory.getLogger(NameValueServiceImpl.class);
+
+            logger.info("Sending data to RabbitMQ's queue. Data: " + dataForRabbit);
+"""</span>
+
+<span class="n">service_one</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"service-one"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8082</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul</span><span class="p">:</span> <span class="n">service_one</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection service-one to logstash
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml
+Artifact (line 67):
+    logstash.servers: logstash:5000
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_one</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection service-one to rabbit, exchange "com.mudigal.microservices-sample.services-exchange", queue "com.mudigal.microservices-sample.service-one", routing key "com.mudigal.microservices-sample.service-*"
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml
+Artifact (lines[60:64]):
+    rabbitmq:
+        host: rabbit
+        port: 5672
+        username: mudigal
+        password: mudigal
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/component/queue/ServiceOneRabbitMQBean.java
+Artifact (line 44):
+    return BindingBuilder.bind(queue).to(exchange).with(routingKeyName);
+And artifact (lines[28:30]):
+    public final static String queueName = "com.mudigal.microservices-sample.service-one";
+    public final static String exchangeName = "com.mudigal.microservices-sample.services-exchange";
+    public final static String routingKeyName = "com.mudigal.microservices-sample.service-*";
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/service/impl/ServiceOneRabbitMessageProducer.java
+Artifact (lines[35:36]):
+	this.rabbitTemplate.convertAndSend(ServiceOneRabbitMQBean.exchangeName,
+			ServiceOneRabbitMQBean.routingKeyName, new ObjectMapper().writeValueAsString(data));
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/service/impl/ServiceOneRabbitMessageConsumer.java
+Artifact (line 37):
+    @RabbitListener(queues = ServiceOneRabbitMQBean.queueName)
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_one</span><span class="p">:</span> <span class="n">rabbit</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_producer_rabbitmq</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">,</span> <span class="n">restful_http</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Producer Exchange'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.services-exchange"</span><span class="p">,</span> <span class="s">'Routing Key'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.service-*"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbit</span><span class="p">:</span> <span class="n">service_one</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_consumer_rabbitmq</span><span class="p">,</span> <span class="n">restful_http</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Queue'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.service-one"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - service-two (internal), port 8084
+    - connection to service discovery
+    - local logging
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/ServiceTwoApplication.java
+Artifact (lines[16:17]):
+    @EnableDiscoveryClient
+    @SpringBootApplication
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/docker/Dockerfile
+Artifact (line 7):
+    EXPOSE 8084
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml
+Artifact (lines[61:63]):
+    consul:
+      host: consul
+      port: 8500
+
+Local Logging:
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/service/impl/NameValueServiceImpl.java
+Artifact (lines [13;26;50]):
+    import org.apache.log4j.Logger;
+
+        private Logger logger = Logger.getLogger(NameValueServiceImpl.class);
+
+            logger.info("Updated: " + nameValueTO);
+"""</span>
+
+<span class="n">service_two</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"service-two"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8084</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul</span><span class="p">:</span> <span class="n">service_two</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection service-one to logstash
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml
+Artifact (lines[88:89]):
+    logstash:
+        servers: logstash:5000
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_two</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection service-two to rabbit, exchange "com.mudigal.microservices-sample.services-exchange", queue "com.mudigal.microservices-sample.service-two", routing key "com.mudigal.microservices-sample.service-*"
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml
+Artifact (lines[81:85]):
+    rabbitmq:
+        host: rabbit
+        port: 5672
+        username: mudigal
+        password: mudigal
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/component/queue/ServiceTwoRabbitMQBean.java
+Artifact (line 41):
+    return BindingBuilder.bind(queue).to(exchange).with(routingKeyName);
+And artifact (lines[25:27]):
+    public final static String queueName = "com.mudigal.microservices-sample.service-two";
+    public final static String exchangeName = "com.mudigal.microservices-sample.services-exchange";
+    public final static String routingKeyName = "com.mudigal.microservices-sample.service-*";
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/service/impl/ServiceTwoRabbitMessageProducer.java
+Artifact (lines[37:38]):
+    this.rabbitTemplate.convertAndSend(ServiceTwoRabbitMQBean.exchangeName,
+        ServiceTwoRabbitMQBean.routingKeyName, new ObjectMapper().writeValueAsString(message));
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/service/impl/ServiceTwoRabbitMessageConsumer.java
+Artifact (line 35):
+    @RabbitListener(queues = ServiceTwoRabbitMQBean.queueName)
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_two</span><span class="p">:</span> <span class="n">rabbit</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_producer_rabbitmq</span><span class="p">,</span> <span class="n">restful_http</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Producer Exchange'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.services-exchange"</span><span class="p">,</span> <span class="s">'Routing Key'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.service-*"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbit</span><span class="p">:</span> <span class="n">service_two</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_consumer_rabbitmq</span><span class="p">,</span> <span class="n">restful_http</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Queue'</span><span class="p">:</span> <span class="s">"com.mudigal.microservices-sample.service-two"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - database (MongoDB), "service-one-db", port 27017
+    - plaintext credentials
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[45:59]):
+  service-one-db:
+    [...]
+    image: "mongo:3.7"
+    environment:
+      - MONGODB_USER="service-one"
+      - MONGODB_PASS="service-one"
+      [...]
+    ports:
+      - "27017:27017"
+    expose:
+      - "27017"
+"""</span>
+
+<span class="n">service_one_db</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">database_component</span><span class="p">,</span> <span class="s">"service-one-db"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"MongoDB"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"service-one"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"service-one"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">27017</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection service-one to service-one-db
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml
+Artifact (lines[58:59]):
+    data:
+        mongodb.uri: mongodb://service-one-db/service-one
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_one_db</span><span class="p">:</span> <span class="n">service_one</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">jdbc</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - database (MySQL), "service-two-db", port 3310
+    - plaintext_credentials
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[87:99]):
+  service-two-db:
+    [...]
+    image: "mysql/mysql-server:5.7"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root123
+      - MYSQL_DATABASE=service-two
+      - MYSQL_USER=service-two
+      - MYSQL_PASSWORD=service-two
+    ports:
+      - "3310:3306"
+    expose:
+      - "3310"
+"""</span>
+
+<span class="n">service_two_db</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">database_component</span><span class="p">,</span> <span class="s">"service-two-db"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"service-two"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"service-two"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">3310</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection service-two to service-two-db, plaintext  credentials
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml
+Artifact (lines[70:74]):
+    datasource:
+        driver-class-name: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://service-two-db/service-two?createDatabaseIfNotExist=true
+        username: service-two
+        password: service-two
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_two_db</span><span class="p">:</span> <span class="n">service_two</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"service-two"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"service-two"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - API gateway (Zuul), "api-gateway", port 8080
+    - load balancer (built in with Zuul)
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/java/com/mudigal/ApiGatewayApplication.java
+Artifact (lines[17:18]):
+    @EnableZuulProxy
+    @SpringBootApplication
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/docker/Dockerfile
+Artifact (line 7):
+    EXPOSE 8080
+"""</span>
+
+<span class="n">api_gateway</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"api-gateway"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">gateway</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection api-gateway to service-one
+    - connection api-gateway to service-two
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/resources/application.yml
+Artifact (lines[21:32]):
+    zuul:
+      ignoredServices: '*'
+      routes:
+        one:
+          path: /service-one/**
+          serviceId: Service-One
+        two:
+          path: /service-two/**
+          serviceId: Service-Two
+        three:
+          path: /service-three/**
+          serviceId: Service-Three
+*Note*: service-three seems to be a residue, no such service exists
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">service_one</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">service_two</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection api-gateway to consul
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/resources/application.yml
+Artifact (lines[39:41]):
+    consul:
+      host: consul
+      port: 8500
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - web app (Nginx), "web-application", port 4200
+    - user (implicit with web app)
+    - connection user to web app
+File: https://github.com/mudigal-technologies/microservices-sample/tree/master/web-application
+
+And file: https://github.com/mudigal-technologies/microservices-sample/blob/master/web-application/docker/Dockerfile
+Artifact (line 23):
+    EXPOSE 4200
+"""</span>
+
+<span class="n">web_application</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"web-application"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">web_application</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Web Application'</span><span class="p">:</span> <span class="s">"Nginx"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">4200</span><span class="p">})</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">web_application</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">web_application</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+<span class="s">"""
+Component: connection web-application to api-gateway
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/web-application/src/app/service/gateway/gateway.service.ts
+Artifact (line 13):
+    return this.httpClient.get&lt;DataResponse&gt;('http://' + window.location.hostname + ':8080/' + service);
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">web_application</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: infrastructure visualization (Weave Scope), "scope", port 4040
+File: https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml
+Artifact (lines[184:193]):
+  scope:
+    image: weaveworks/scope:1.13.1
+    [...]
+    ports:
+      - "4040:4040"
+    expose:
+      - "4040"
+"""</span>
+
+<span class="n">scope</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"scope"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Weave Scope"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">4040</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components: connections of weavescope to all other services
+Artifact: implicit; weavescope detects all other Docker containers automatically
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_one</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_one_db</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_two</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">service_two_db</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">web_application</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbit</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul2</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">consul3</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">kibana</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">elasticsearch</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">logstash</span><span class="p">:</span> <span class="n">scope</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">api_gateway</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 164 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>14</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>115</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>164</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample/mudigal-technologies_microservices-sample.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is observed: User only communicates with the Nginx proxy, that acts proxies all requests.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>Dockerfile: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/web-application/docker/Dockerfile#L23">23</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: The services do not authenticate requests mutually. No client authentication is configured and no authentication header is used.</p>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>gateway.service.ts: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/web-application/src/app/service/gateway/gateway.service.ts#L13">13</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is observed: This microservice application deploys the ELK stack (Elasticsearch, Logstash, Kibana) as a logging mechanism. Logstash is deployed as a central logging subsystem. Logstash then sends the formatted data to an Elasticsearch indexing server. Additionally Kibana is deployed as a monitoring dashboard on top of the indexing server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L214">214</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L233">233</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L261">261</a></li>
+</ul>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is observed: Both service containers and the API gateway deploy local logging agents. The services use logback as a local logging agent to send the collected log files from the spring servers to the central logstash server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>logback.xml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/resources/logback.xml#L23">23</a></li>
+  <li>logback-spring.xml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/logback-spring.xml#L20">20</a></li>
+  <li>logback-spring.xml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/logback-spring.xml#L20">20</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: No explicit log sanitization is deployed. Even though no API keys or PII are written to any log in this application, this rule is still considered disregarded because the string data sent via RabbitMQ is directly logged without local checking (see exemplary artifacts).</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ServiceOneRabbitMessageConsumer.java: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/java/com/mudigal/one/service/impl/ServiceOneRabbitMessageConsumer.java#L40">40</a></li>
+  <li>ServiceTwoRabbitMessageConsumer.java: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/java/com/mudigal/two/service/impl/ServiceTwoRabbitMessageConsumer.java#L38">38</a></li>
+</ul>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: The communication between logging agents is not brokered by any message broker. The deployed RabbitMQ broker only handles service queues, not logging calls. The logs are not encrypted during transmission and not mutually authenticated, nor is any availability ensured apart from container startup dependencies.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>logback.xml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/resources/logback.xml#L23">23</a></li>
+</ul>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is disregarded: No explicit circuit breaker is deployed.</p>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The Zuul API gateway performs load balancing using Ribbon by default.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ApiGatewayApplication.java: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/java/com/mudigal/ApiGatewayApplication.java#L17">17</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed: Consul is deployed as a service registry.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RegistryApplication.java: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/webservice-registry/src/main/java/com/anilallewar/microservices/registry/RegistryApplication.java#L19">19</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: Registration with the Consul server is not secured using access tokens or access control lists.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L156">156</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L166">166</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L179">179</a></li>
+  <li>application.yml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml#L50">50</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed. Passwords are either deployed in plaintext in the Docker Compose configuration or in the Spring Boot configuration.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L52">52</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L94">94</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L97">97</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/build/docker/docker-compose.yml#L141">141</a></li>
+  <li>application.yml: Line: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-one/src/main/resources/application.yml#L64">64</a></li>
+  <li>application.yml: Lines: <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml#L46">46</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml#L74">74</a>, <a href="https://github.com/mudigal-technologies/microservices-sample/blob/master/service-two/src/main/resources/application.yml#L85">85</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_consul.html" class="btn btn-default navbar-btn cursorNorm" role="button">consul</a>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_elasticsearch.html" class="btn btn-default navbar-btn cursorNorm" role="button">elasticsearch</a>
+        
+        
+        
+        <a href="tag_kibana.html" class="btn btn-default navbar-btn cursorNorm" role="button">kibana</a>
+        
+        
+        
+        <a href="tag_logstash.html" class="btn btn-default navbar-btn cursorNorm" role="button">logstash</a>
+        
+        
+        
+        <a href="tag_nginx.html" class="btn btn-default navbar-btn cursorNorm" role="button">nginx</a>
+        
+        
+        
+        <a href="tag_rabbitmq.html" class="btn btn-default navbar-btn cursorNorm" role="button">rabbitmq</a>
+        
+        
+        
+        <a href="tag_weave_scope.html" class="btn btn-default navbar-btn cursorNorm" role="button">weave_scope</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

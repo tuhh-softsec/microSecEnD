@@ -1,0 +1,1033 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="dockereurekahystrixmavenrabbitmqspring_configturbinezuul,  model">
+<title>fernandoabcampos/spring-netflix-oss-microservices | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the fernandoabcampos/spring-netflix-oss-microservices page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="fernandoabcampos/spring-netflix-oss-microservices">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">fernandoabcampos/spring-netflix-oss-microservices</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/fernandoabcampos">Fernando Barbeiro</a></p>
+
+<p>The repository has 10 stars and was forked 12 times. The codebase consists of 1644 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_maven.html">Maven</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_rabbitmq.html">RabbitMQ</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_turbine.html">Turbine</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Sources:
+# - https://github.com/fernandoabcampos/spring-netflix-oss-microservices
+# - https://fernandoabcampos.wordpress.com
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"fernandoabcampos_spring-netflix-oss-microservices"</span>
+
+
+<span class="c1">######### Create model components
+</span>
+<span class="s">"""
+Components:
+    - Config Server (Spring Cloud Config), "config-server", port 9090
+    - external GitHub repo  https://github.com/fernandoabcampos/microservices-config.git
+    - connection config to git repo
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/config-server/src/main/java/com/spring/netflix/oss/microservices/ConfigServerApplication.java
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableConfigServer
+And file:
+Artifact (lines[3:12]):
+    server:
+      port: 9090
+
+    spring:
+      cloud:
+        config:
+          server:
+            git:
+               uri: https://github.com/fernandoabcampos/microservices-config.git
+               searchPaths: MASTER
+"""</span>
+
+<span class="n">config_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"config-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">9090</span><span class="p">})</span>
+
+<span class="n">github_repository</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"github-repository"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">github_repository</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'URL'</span><span class="p">:</span> <span class="s">"https://github.com/fernandoabcampos/microservices-config.git"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">github_repository</span><span class="p">:</span> <span class="n">config_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: Discovery Server (Eureka), "discovery-service", port 8761
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/src/main/java/com/spring/netflix/oss/microservices/DiscoveryServiceApplication.java
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableEurekaServer
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/Dockerfile
+Artifact (line 8):
+    EXPOSE 8761
+"""</span>
+
+<span class="n">discovery_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"discovery-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8761</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection discovery service to config server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: discovery-service
+      cloud:
+        config:
+          uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: Message Broker Server (RabbitMQ), "rabbit-mq-server", ports 5672, 15672
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/rabbit-mq-server/Dockerfile
+Artifact (lines[1:3]):
+    FROM rabbitmq
+    EXPOSE 5672
+    EXPOSE 15672
+"""</span>
+
+<span class="n">rabbitmq</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"rabbitmq"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_broker</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Message Broker'</span><span class="p">:</span> <span class="s">"RabbitMQ"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">5672</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - Monitoring Dashboard (Hystrix), "monitor-dashboard", port 8179
+    - connection to service discovery
+File:
+Artifact (lines[10:12]):
+    @SpringBootApplication
+    @EnableHystrixDashboard
+    @EnableDiscoveryClient
+File:
+Artifact (line 8):
+    EXPOSE 8179
+"""</span>
+
+<span class="n">monitor_dashboard</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"monitor-dashboard"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8179</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">monitor_dashboard</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection monitor dashboard to config server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/monitor-dashboard/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: monitor-dashboard
+      cloud:
+        config:
+          uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">monitor_dashboard</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring server (Turbine), "turbine", port 8989
+    - connection to discovery service
+    - connection to rabbit-mq-server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/turbine/src/main/java/com/spring/netflix/oss/microservices/TurbineApplication.java
+Artifact (lines[8:10]):
+    @SpringBootApplication
+    @EnableTurbineAmqp
+    @EnableEurekaClient
+*Note*: TurbineAmqp means, that RabbitMQ is used for communication to Hystrix clients
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/8668c4dffd9464b5d724f4d1a9547e029ee03d12/turbine/Dockerfile
+Artifact (line 8):
+    EXPOSE 8989
+"""</span>
+
+<span class="n">turbine</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"turbine"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">monitoring_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Monitoring Server'</span><span class="p">:</span> <span class="s">"Turbine"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8989</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">turbine</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbitmq</span><span class="p">:</span> <span class="n">turbine</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+<span class="s">"""
+Component: connection turbine to config server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/turbine/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: turbine
+      cloud:
+        config:
+          uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">turbine</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection turbine to monitor-dashboard
+Artifact: implicit when both are used
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">turbine</span><span class="p">:</span> <span class="n">monitor_dashboard</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - statement-service (internal) port 8080
+    - connection to discovery service
+File:
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableDiscoveryClient
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/statement-service/Dockerfile
+Artifact (line 6):
+    EXPOSE 8080
+"""</span>
+
+<span class="n">statement_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"statement-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">statement_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection statement service to config server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/statement-service/src/main/resources/bootstrap.yml
+Artifact (lines[10:12]):
+    cloud:
+     config:
+        uri: http://config-server:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">statement_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - "card-service", port 8080
+    - connection to service discovery
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-service/src/main/java/com/spring/netflix/oss/microservices/CardServiceApplication.java
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableDiscoveryClient
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-service/Dockerfile
+Artifact (line 6):
+    EXPOSE 8080
+"""</span>
+
+<span class="n">card_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"card-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">card_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection card service to config service
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-service/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: card-service
+      cloud:
+        config:
+        uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">card_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - "card-statement-composite-service", port 8080
+    - use of circuit breaker (Hystrix)
+    - connection to discovery service
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/java/com/spring/netflix/oss/microservices/CardStatementCompositeApplication.java#L9
+Artifact (lines[9:12]):
+    @SpringBootApplication
+    @EnableEurekaClient
+    @EnableFeignClients
+    @EnableCircuitBreaker
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/Dockerfile
+Artifact (line 6):
+    EXPOSE 8080
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/pom.xml
+Artifact (line 47):
+    &lt;artifactId&gt;spring-cloud-starter-hystrix&lt;/artifactId&gt;
+"""</span>
+
+<span class="n">card_statement_composite</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"card-statement-composite"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">card_statement_composite</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection card-statement-copmosite to card-service
+    - circuit breaker
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/java/com/spring/netflix/oss/microservices/service/CardClient.java
+Artifact (line 5):
+    @FeignClient(name = "card-service")
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/java/com/spring/netflix/oss/microservices/CardStatementCompositeApplication.java
+Artifact (line 12):
+    @EnableCircuitBreaker
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">card_statement_composite</span><span class="p">:</span> <span class="n">card_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection card-statement-composite to statement-service
+    - cicuit breaker
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/java/com/spring/netflix/oss/microservices/service/StatementClient.java
+Artifact (line 5):
+    @FeignClient(name = "statement-service")
+And file: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/java/com/spring/netflix/oss/microservices/CardStatementCompositeApplication.java
+Artifact (line 12):
+    @EnableCircuitBreaker
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">card_statement_composite</span><span class="p">:</span> <span class="n">statement_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection card-statement-composite service to config service
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-statement-composite/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: card-statement-composite
+      cloud:
+        config:
+          uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">card_statement_composite</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection card-statement-composite to rabbit-mq-server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/8668c4dffd9464b5d724f4d1a9547e029ee03d12/card-statement-composite/pom.xml
+Artifact (line 55):
+		&lt;artifactId&gt;spring-cloud-netflix-hystrix-amqp&lt;/artifactId&gt;
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">card_statement_composite</span><span class="p">:</span> <span class="n">rabbitmq</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - Gateway (Zuul), "edge-server", port 8765
+    - Connection to discovery service
+    - user and connection to edge-server (implicit for gateway)
+    - load balancer (built in with Zuul)
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/java/com/spring/netflix/oss/microservices/EdgeServerApplication.java
+Artifact (lines[8:10]):
+    @SpringBootApplication
+    @EnableDiscoveryClient
+    @EnableZuulProxy
+And file: https://github.com/fernandoabcampos/microservices-config/blob/master/MASTER/edge-server.yml
+Artifact (lines[1:2]):
+    server:
+        port: 8765
+"""</span>
+
+<span class="n">edge_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"edge-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">gateway</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">discovery_service</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection edge server to config server
+File: https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/resources/bootstrap.yml
+Artifact (lines[1:6]):
+    spring:
+      application:
+        name: edge-server
+      cloud:
+        config:
+          uri: http://localhost:9090
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection edge-server to card-service
+    - connection edge-server to statement-service
+    - connection edge-server to card-statement-composite
+File: https://github.com/fernandoabcampos/microservices-config/blob/master/MASTER/edge-server.yml
+Artifact (lines[9:24]):
+zuul:
+  debug:
+    request: true
+  routes:
+    card-service:
+        path: /card-service/**
+        serviceId: card-service
+        stripPrefix: true
+    statement-service:
+        path: /statement-service/**
+        serviceId: statement-service
+        stripPrefix: true
+    card-statement-composite:
+        path: /card-statement-composite/**
+        serviceId: card-statement-composite
+        stripPrefix: true
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">card_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">statement_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">card_statement_composite</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">edge_server</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 110 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>9</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>24</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>75</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>110</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices/fernandoabcampos_spring-netflix-oss-microservices.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is disregarded: The application uses Zuul as a gateway server, however, the application exposes all microservices with network-bridged docker ports. For this rule to apply, only the edge server may be exposed or an additional access restriction has to be deployed.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L7">7</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L16">16</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L30">30</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L44">44</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L82">82</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L93">93</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Services communicate internally over plain HTTP (See example artifacts). The communication is not authenticated.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L7">7</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L16">16</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L30">30</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L44">44</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L82">82</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L93">93</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server. Note, that the server has a user-service, that is not used for authentication purposes.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L7">7</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L16">16</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L30">30</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L44">44</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L82">82</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L93">93</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose.yml: Lines: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L7">7</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L16">16</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L30">30</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L44">44</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L82">82</a>, <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L93">93</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: No logs are generated by the application.</p>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: RabbitMQ is deployed as a message broker between the circuit breaker and the monitoring server. It does not handle logging nor is the traffic encrypted and authenticated.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is disregarded: Hystrix is deployed as a circuit breaker, however it is not deployed on the gateway server, but in the service application. Several requests are able to pass through the gateway to internal services without circuit breaking (see artifacts).</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>CardServiceApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-service/src/main/java/com/spring/netflix/oss/microservices/CardServiceApplication.java#L8">8</a></li>
+  <li>StatementServiceApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/statement-service/src/main/java/com/spring/netflix/oss/microservices/StatementServiceApplication.java#L8">8</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway server uses load balancing via Ribbon to access dependent services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>EdgeServerApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/java/com/spring/netflix/oss/microservices/EdgeServerApplication.java#L10">10</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>Started in Docker Container through Compose, thus deployable on dedicated server</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServiceApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/src/main/java/com/spring/netflix/oss/microservices/DiscoveryServiceApplication.java#L8">8</a></li>
+  <li>docker-compose.yml: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L12">12</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServiceApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/src/main/java/com/spring/netflix/oss/microservices/DiscoveryServiceApplication.java#L8">8</a></li>
+  <li>card-service.yml: Line: <a href="https://github.com/fernandoabcampos/microservices-config/blob/master/MASTER/card-service.yml#L8">8</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed. The deployed git configuration server is not a secrets manager.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ConfigServerApplication.java: Line: <a href="https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/config-server/src/main/java/com/spring/netflix/oss/microservices/ConfigServerApplication.java#L8">8</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_maven.html" class="btn btn-default navbar-btn cursorNorm" role="button">maven</a>
+        
+        
+        
+        <a href="tag_rabbitmq.html" class="btn btn-default navbar-btn cursorNorm" role="button">rabbitmq</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+        <a href="tag_turbine.html" class="btn btn-default navbar-btn cursorNorm" role="button">turbine</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

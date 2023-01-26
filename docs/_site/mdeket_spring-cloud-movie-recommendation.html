@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="eurekahystrixmavenribbonspring_configzipkinzuul,  model">
+<title>mdeket/spring-cloud-movie-recommendation | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the mdeket/spring-cloud-movie-recommendation page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="mdeket/spring-cloud-movie-recommendation">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">mdeket/spring-cloud-movie-recommendation</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/mdeket">Milan Deket</a></p>
+
+<p>The repository has 13 stars and was forked 11 times. The codebase consists of 1800 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_maven.html">Maven</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_ribbon.html">Ribbon</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zipkin.html">Zipkin</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Source: https://github.com/mdeket/spring-cloud-movie-recommendation
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"mdeket_spring-cloud-movie-recommendation"</span>
+
+
+<span class="s">"""
+Components:
+    - Config Service (Spring Cloud Config), "config-service", port 8888
+    - external repository https://github.com/mdeket/spring-cloud-example-config-repo.git
+    - connection config service to external repo
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/config-service/src/main/java/com/example/ConfigServiceApplication.java
+Artifact (lines[7:8]):
+    @EnableConfigServer
+    @SpringBootApplication
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/config-service/src/main/resources/application.properties
+Artifact (lines[1:3]):
+    server.port=8888
+    spring.application.name= config-service
+    spring.cloud.config.server.git.uri=https://github.com/mdeket/spring-cloud-example-config-repo.git
+"""</span>
+
+<span class="n">config_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"config-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">,</span> <span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">})</span>
+
+<span class="n">github_repository</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"github-repository"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">github_repository</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'URL'</span><span class="p">:</span> <span class="s">"https://github.com/mdeket/spring-cloud-example-config-repo.git"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">github_repository</span><span class="p">:</span> <span class="n">config_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: discovery service (Eureka), "eureka-service", port 8761
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/eureka-service/src/main/java/com/example/EurekaServiceApplication.java
+Artifact (lines[7:8]):
+    @EnableEurekaServer
+    @SpringBootApplication
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/eureka-service-default.yml
+Artifact (lines[1:2]):
+    server:
+        port: 8761
+"""</span>
+
+<span class="n">eureka_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"eureka-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8761</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection eureka service to config service
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/eureka-service/src/main/resources/bootstrap.properties
+Artifact (line 2):
+    spring.cloud.config.uri=http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">eureka_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - movie-service (internal), port 8002
+    - connection to eureka server
+        - use of load balancer (Hystrix) and dashboard
+        - use of logging (Zipkin)
+        - rabbit
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/movie-service/src/main/java/com/example/MovieServiceApplication.java
+Artifact (lines[7:8]):
+    @EnableEurekaClient
+    @SpringBootApplication
+And file:
+Artifact (lines[1:2]):
+    server:
+        port: 8002
+
+Endpoints:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/movie-service/src/main/java/com/example/MovieController.java
+Artifact (line 25):
+    @RequestMapping("/movie")
+And artifact (line 39):
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
+And artifact (line 53):
+    @RequestMapping(method = RequestMethod.GET, value = "/{movieId}")
+And artifact (line 58):
+    @RequestMapping(method = RequestMethod.GET, value = "/dummyData")
+"""</span>
+
+<span class="n">movie_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"movie-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8002</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/movie/dummyData</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/movie/list</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/movie/{movieId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/movie</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">movie_service</span><span class="p">:</span> <span class="n">eureka_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection movie-service to config server
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/movie-service/src/main/resources/bootstrap.properties
+Artifact (lines[1:2]):
+    spring.application.name=movie-service
+    spring.cloud.config.uri=http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">movie_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/README.md
+Artifact:
+    "Before starting this service, just be sure to have installed and a running mongodb instance on default port."
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/user-service-default.yml (in the external repository used by config server)
+Artifact (lines[4:9]):
+    spring:
+        profiles: default
+        datasource:
+            url: jdbc:mysql://localhost:3306/UserSOA
+            username: root
+            password: root
+"""</span>
+
+<span class="n">database_movie_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"database-movie-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">,</span> <span class="n">external_database</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">database_movie_service</span><span class="p">:</span> <span class="n">movie_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">jdbc</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - user-service (internal), port 8001
+    - connection to service discovery
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/user-service/src/main/java/com/example/UserServiceApplication.java
+Artifact (lines[7:8]):
+    @EnableDiscoveryClient
+    @SpringBootApplication
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/user-service-default.yml
+Artifact (lines[1:2]):
+    server:
+        port: 8001
+
+Endpoints:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/user-service/src/main/java/com/example/UserController.java
+Artifact (line 20):
+    @RequestMapping("/user")
+And artifact (line 31):
+    @RequestMapping(value="/{userId}", method = RequestMethod.GET
+"""</span>
+
+<span class="n">user_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"user-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8001</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/user</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/user/{userId}</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user_service</span><span class="p">:</span> <span class="n">eureka_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""Component: connection user-service to config-server
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/user-service/src/main/resources/bootstrap.properties
+Artifact (lines[1:2]):
+    spring.application.name=user-service
+    spring.cloud.config.uri=http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""Components:
+    - external user-database (MySQL), port 3306
+    - connection user-service to user-database
+    - plaintext credentials
+File:
+Artifact (lines[8:16]):
+    import org.springframework.data.jpa.repository.JpaRepository;
+    [...]
+    public interface UserRepo extends JpaRepository&lt;User, Long&gt;{
+
+    }
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/user-service/src/main/java/com/example/UserController.java
+Artifact (lines[23:29]):
+    @Autowired
+    private UserRepo customerRepo;
+
+    @RequestMapping(method = RequestMethod.GET)
+    public Collection getAllUsers(){
+        return this.customerRepo.findAll();
+    }
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/README.md
+Artifact:
+    "Before starting user service, you must have MySQL installed and running on localhost:3306 with UserSOA database created."
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/user-service-default.yml (in the external repository used by config server)
+Artifact (lines[4:9]):
+    spring:
+        profiles: default
+        datasource:
+            url: jdbc:mysql://localhost:3306/UserSOA
+            username: root
+            password: root
+"""</span>
+
+<span class="n">database_user_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"database-user-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">,</span> <span class="n">external_database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">'Database'</span><span class="p">:</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">database_user_service</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - recommendation-service (internal), port 8003
+    - connection to discovery server
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-service/src/main/java/com/example/RecommendationServiceApplication.java
+Artifact (lines[7:8]):
+    @EnableDiscoveryClient
+    @SpringBootApplication
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/recommendation-service-default.yml
+Artifact (lines[1:2]):
+    server:
+        port: 8003
+Endpoints:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-service/src/main/java/com/example/RecommendationController.java
+Artifact (line 23):
+    @RequestMapping("/recommendation")
+And artifact (line 33):
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+And artifact (line 42):
+    @RequestMapping(value = "/movie", method = RequestMethod.GET)
+And artifact (line 51):
+    @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
+And artifact (line 56):
+    @RequestMapping(value = "/recommend/user/{userId}", method = RequestMethod.GET)
+And artifact (line 67):
+    @RequestMapping(value = "/movie/{movieId}", method = RequestMethod.GET)
+And artifact (line 72):
+    @RequestMapping(value = "/dummyData", method = RequestMethod.GET)
+"""</span>
+
+<span class="n">recommendation_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"recommendation-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/recommendation</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/recommend/user/{userId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/user</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/movie/{movieId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/user/{userId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/dummyData</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/movie</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_service</span><span class="p">:</span> <span class="n">eureka_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection recommendation-service to config service
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-service/src/main/resources/bootstrap.properties
+Artifact (lines[1:2]):
+    spring.application.name=recommendation-service
+    spring.cloud.config.uri=http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">recommendation_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - external recommendation-database (Neo4j), port 7474
+    - connection recommendation-service to recommendation-database
+    - plaintext credentials
+File:
+Artifact (lines[22:53]):
+    @Configuration
+    @EnableNeo4jRepositories(basePackages = "com.example")
+    @EnableTransactionManagement
+    public class MyConfiguration extends Neo4jConfiguration {
+
+        @Bean
+        public org.neo4j.ogm.config.Configuration getConfiguration() {
+           org.neo4j.ogm.config.Configuration config = new org.neo4j.ogm.config.Configuration();
+           config
+               .driverConfiguration()
+               .setDriverClassName("org.neo4j.ogm.drivers.http.driver.HttpDriver")
+               .setURI("http://neo4j:root@localhost:7474");
+           return config;
+        }
+        [...]
+    }
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-service/src/main/java/com/example/UserRepo.java
+Artifact (line 14):
+    public interface UserRepo extends GraphRepository&lt;User&gt;{
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/5aa5ee9e2e64c33e294409e39cb9708591230e08/recommendation-service/src/main/java/com/example/MyConfiguration.java
+Artifact (line 33):
+    @RequestMapping(value = "/user", method = RequestMethod.GET)
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/recommendation-service-default.yml
+Artifact (lines[3:6]):
+    neo4j:
+        uri: http://localhost:7474/
+        username: neo4j
+        password: root
+"""</span>
+
+<span class="n">database_recommendation_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"database-recommendation-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">exitpoint</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">external_database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"Neo4j"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">7474</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"neo4j"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">database_recommendation_service</span><span class="p">:</span> <span class="n">recommendation_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"neo4j"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - API gateway (Zuul), "recommendation-client", port 9000
+    - load balancer (built in for Zuul)
+    - connection to discovery service
+    - user (implicit for gateway)
+    - connection user to recommendation-client
+    - use of circuit breaker (Hystrix)
+    - monitoring dashboard (Hystrix)
+    - local logging
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java
+Artifact (lines[11:16]):
+    @SpringBootApplication
+    @EnableZuulProxy
+    @EnableFeignClients(basePackages = "com.example")
+    @EnableDiscoveryClient
+    @EnableCircuitBreaker
+    @EnableHystrixDashboard
+And file: https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/recommendation-client-default.yml
+Artifact (lines[1:2]):
+    server:
+        port: 9000
+
+Local logging:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/MainController.java
+Artifact (lines[21;51]):
+    import java.util.logging.Logger;
+
+            Logger.getLogger(MainController.class.getName()).log(Level.SEVERE, null, ex);
+
+Circuit Breaker:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/5aa5ee9e2e64c33e294409e39cb9708591230e08/recommendation-client/pom.xml
+Artifact (line 77):
+    &lt;artifactId&gt;spring-cloud-netflix-hystrix-dashboard&lt;/artifactId&gt;
+
+Endpoints:
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationService.java
+Artifact (line 19):
+    @RequestMapping(method = RequestMethod.GET, value = "/recommendation/dummyData")
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/MovieService.java
+Artifact (line 20):
+    @RequestMapping(method = RequestMethod.GET, value = "/movie")
+And artifact (line 23):
+    @RequestMapping(method = RequestMethod.GET, value = "/movie/dummyData")
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/UserService.java
+Artifact (line 22):
+    @RequestMapping(method = RequestMethod.GET, value = "/user")
+And artifact (line 26):
+    @RequestMapping(method = RequestMethod.GET, value = "/newuser")
+And artifact (line 29):
+    @RequestMapping(method = RequestMethod.GET, value = "/user/{userId}")
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/MainController.java
+Artifact (line 35):
+    @RequestMapping("/api")
+And artifact (line 45):
+    @GetMapping(value ="/recommendation/user/{userId}")
+And artifact (line 66):
+    @GetMapping(value = "/userDetails/{userId}")
+"""</span>
+
+<span class="n">recommendation_client</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"recommendation-client"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">gateway</span><span class="p">,</span> <span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">9000</span><span class="p">,</span> <span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/user/{userId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/api/userDetails/{userId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/user</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/api</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/recommendation/dummyData</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/movie/dummyData</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/newuser</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/api/recommendation/user/{userId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/movie</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">eureka_service</span><span class="p">:</span> <span class="n">recommendation_client</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">recommendation_client</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_client</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection recommendation-client to config server
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/resources/bootstrap.properties
+Artifact (lines[1:2]):
+    spring.application.name=recommendation-client
+    spring.cloud.config.uri=http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">recommendation_client</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection recommendation-client to recommendation-service
+    - circuit breaker for this connection
+    - load balancer for this connection (included in FeignClient)
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java
+Artifact (lines[13:15]):
+    @EnableFeignClients(basePackages = "com.example")
+    [...]
+    @EnableCircuitBreaker
+And file:
+Artifact (line 16):
+    @FeignClient("recommendation-service")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_client</span><span class="p">:</span> <span class="n">recommendation_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection recommendation-client to movie-service
+    - circuit breaker for this connection
+    - load balancer for this connection (included in FeignClient)
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java
+Artifact (lines[13:15]):
+    @EnableFeignClients(basePackages = "com.example")
+    [...]
+    @EnableCircuitBreaker
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/MovieService.java
+Artifact (line 17):
+    @FeignClient("movie-service")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_client</span><span class="p">:</span> <span class="n">movie_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection recomendation-client to user-service
+    - load balancer for this connection (included in FeignClient)
+File: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java
+Artifact (lines[13:15]):
+    @EnableFeignClients(basePackages = "com.example")
+    [...]
+    @EnableCircuitBreaker
+And file: https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/UserService.java
+Artifact (line 19):
+    @FeignClient("user-service")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_client</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">config_service</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 122 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>6</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>18</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>93</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>122</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation/mdeket_spring-cloud-movie-recommendation.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is observed: User only communicates with the Zuul gateway server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RecommendationClientApplication.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java#L12">12</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Services communicate internally over plain HTTP (See example artifacts). The communication is not authenticated.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RecommendationClientService.java: Lines: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L42">42</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L54">54</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L87">87</a></li>
+  <li>MyConfiguration.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-service/src/main/java/com/example/MyConfiguration.java#L33">33</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server. Note, that the server has a user-service, that is not used for authentication purposes.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed. Two internal services perform local logging, however none of the logs are consumed and accessed through monitoring software.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>MainController.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/MainController.java#L51">51</a></li>
+  <li>RecommendationClientService.java: Lines: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L38">38</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L43">43</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L50">50</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L56">56</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L80">80</a>, <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/service/RecommendationClientService.java#L88">88</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: Logs are not sanitized and could possibly contain sensitive information when exceptions in the recommendation service are logged.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>MainController.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/MainController.java#L51">51</a></li>
+</ul>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: No logs are collected and no message broker is deployed.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is observed: Hystrix is deployed as a circuit breaker on the gateway server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RecommendationClientApplication.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java#L15">15</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway server uses load balancing via Ribbon to access dependent services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RecommendationClientApplication.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/recommendation-client/src/main/java/com/example/RecommendationClientApplication.java#L12">12</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>Project is missing infrastructure description, not certain if and how the discovery server is deployed.</li>
+  <li>Services are not explicitly registered with Eureka and wont be secured by default.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>EurekaServiceApplication.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/eureka-service/src/main/java/com/example/EurekaServiceApplication.java#L7">7</a></li>
+  <li>eureka-service-default.yml: <a href="https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/eureka-service-default.yml">File</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>EurekaServiceApplication.java: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/eureka-service/src/main/java/com/example/EurekaServiceApplication.java#L7">7</a></li>
+  <li>movie-service-default.yml: <a href="https://github.com/mdeket/spring-cloud-example-config-repo/blob/master/movie-service-default.yml">File</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed. The deployed git configuration server is not a secrets manager.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.properties: Line: <a href="https://github.com/mdeket/spring-cloud-movie-recommendation/blob/master/config-service/src/main/resources/application.properties#L3">3</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_maven.html" class="btn btn-default navbar-btn cursorNorm" role="button">maven</a>
+        
+        
+        
+        <a href="tag_ribbon.html" class="btn btn-default navbar-btn cursorNorm" role="button">ribbon</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+        <a href="tag_zipkin.html" class="btn btn-default navbar-btn cursorNorm" role="button">zipkin</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

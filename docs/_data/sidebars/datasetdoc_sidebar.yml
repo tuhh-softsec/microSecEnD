@@ -1,0 +1,39 @@
+# This is your sidebar TOC. The sidebar code loops through sections here and provides the appropriate formatting.
+
+entries:
+- title: sidebar
+  product: microSecEnD
+  version:
+  folders:
+
+  - title: Content
+    output: web, pdf
+    folderitems:
+
+    - title: Introduction
+      url: /index.html
+      output: web, pdf
+
+    - title: Description of DFDs
+      url: /dfds.html
+      output: web, pdf
+
+    - title: Use-Cases
+      url: /usecases.html
+      output: web, pdf
+
+    - title: Security Rules
+      url: /rules.html
+      output: web, pdf
+
+    - title: Dataset
+      url: /models.html
+      output: web, pdf
+
+    - title: Model Conversion
+      url: /conversion.html
+      output: web, pdf
+
+
+
+# Copyright 2021 Google LLC

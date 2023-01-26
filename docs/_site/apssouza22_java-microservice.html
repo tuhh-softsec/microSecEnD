@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="dockerdocker_composeeurekahystrixkafkalogstashmavennginxspring_adminspring_configspring_oauthzookeeper,  model">
+<title>apssouza22/java-microservice | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the apssouza22/java-microservice page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="apssouza22/java-microservice">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">apssouza22/java-microservice</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/apssouza22/java-microservice">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/apssouza22">Alexsandro Souza</a></p>
+
+<p>The repository has 303 stars and was forked 225 times. The codebase consists of 5283 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_kafka.html">Kafka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_logstash.html">Logstash</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_maven.html">Maven</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_nginx.html">Nginx</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_admin.html">Spring Admin</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_oauth.html">Spring OAuth</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zookeeper.html">ZooKeeper</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/apssouza22_java-microservice/apssouza22_java-microservice.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># source: https://github.com/apssouza22/java-microservice
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"apssouza22_java-microservice"</span>
+
+
+<span class="s">"""
+Components:
+    - Config server (Spring Cloud Config), "config-server", port 8888
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/java/com/apssouza/config/Application.java
+Artifact (line 8):
+    @EnableConfigServer
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/application.yml
+Artifact (lines[2:3]):
+    spring.application.name: config-server
+    server.port: 8888
+"""</span>
+
+<span class="n">config_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"config-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: Admin-server (Spring Boot Admin), "admin", port 8026
+File: https://github.com/apssouza22/java-microservice/blob/master/admin-server/src/main/java/de/codecentric/boot/admin/SpringBootAdminApplication.java
+Artifact (line):
+    @EnableAdminServer
+And file: https://github.com/apssouza22/java-microservice/blob/master/admin-server/src/main/resources/application.yml
+Artifact (lines [1:3]):
+    spring:
+      application:
+        name: admin
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/admin.yml
+Artifact (lines [1:2]):
+    server:
+      port: 8026
+"""</span>
+
+<span class="n">admin</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"admin"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">administration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Administration Server'</span><span class="p">:</span> <span class="s">"Spring Boot Admin"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8026</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection admin to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/admin-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">config_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: service discovery (Eureka), "eureka-server", ports 8010, 8011, 8012, 8013
+File: https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/java/com/apssouza/discovery/Application.java
+Artifact (line 8):
+    @EnableEurekaServer
+And file: https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/resources/application.yml
+Artifact (lines[2:4]):
+    spring:
+      application:
+        name: eureka-server
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/eureka-server.yml
+Artifact (lines [9:10;33:34;43:44;53:54]):
+    server:
+        port: 8010
+
+    server:
+        port: 8011
+
+    server:
+        port: 8012
+
+    server:
+        port: 8013
+"""</span>
+
+<span class="n">eureka_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"eureka-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8010</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: config-server to eureka-server
+File: https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">eureka_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection eureka-server to admin
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/eureka-server.yml
+Artifact (lines [3:6]):
+    spring:
+      boot:
+        admin:
+          url: http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">eureka_server</span><span class="p">:</span> <span class="n">admin</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - user-service (internal), port 8016
+    - local logging
+File: https://github.com/apssouza22/java-microservice/blob/master/user-service/src/main/resources/application.properties
+Artifact (line 1):
+    spring.application.name = user
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/user.properties
+Artifact (line 1):
+    server.port = 8016
+
+Local logging:
+File: https://github.com/apssouza22/java-microservice/blob/master/user-service/src/main/java/com/apssouza/bootstrap/UserLoader.java
+Artifact (lines[3;21;38]):
+    import org.apache.log4j.Logger;
+
+    private final Logger log = Logger.getLogger(this.getClass().getCanonicalName());
+
+    log.info("Created the todos.");
+"""</span>
+
+<span class="n">user_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"user"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8016</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: admin-server to connection user-service
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/user.properties
+Artfiact (line 15):
+    spring.boot.admin.url=http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection user-service to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/user-service/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: Message broker (Kafka) where topic "todo-mail" has 1 partition and 1 replica, "kafka", port 9092
+File: https://github.com/apssouza22/java-microservice/blob/master/docker-compose.yml
+Artifact (lines[134:143]):
+    kafka:
+        image: wurstmeister/kafka
+        ports:
+          - 9092
+        [...]
+        environment:
+          KAFKA_ADVERTISED_HOST_NAME: 172.19.0.1
+          KAFKA_ZOOKEEPER_CONNECT: "zookeeper:2181"
+          KAFKA_CREATE_TOPICS: "todo-mail:1:1"
+"""</span>
+
+<span class="n">kafka</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"kafka"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_broker</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Message Broker'</span><span class="p">:</span> <span class="s">"Kafka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">9092</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - mailer (internal), port 8020
+    - local logging
+File: https://github.com/apssouza22/java-microservice/blob/master/mail-service/src/main/resources/application.properties
+Artifact (line 1):
+    spring.application.name=mailer
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/mailer.properties
+Artifact (line 11):
+    server.port=8020
+
+Local logging:
+File: https://github.com/apssouza22/java-microservice/blob/master/mail-service/src/main/java/com/apssouza/mailservice/integration/reminder/EventInput.java
+Artifact (lines [9;24;38]):
+    import org.apache.log4j.Logger;
+
+        Logger LOG = Logger.getLogger(EventInput.class);
+
+            LOG.info("Todo created");
+"""</span>
+
+<span class="n">mailer</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"mailer"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8020</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection mailer to admin
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/mailer.properties
+Artifact (line 8):
+    spring.boot.admin.url=http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">mailer</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection mailer to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/mail-service/src/main/resources/bootstrap.yml
+Artifact (lines[2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">mailer</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection mailer to eureka
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/mailer.properties
+Artifact (line 5):
+    eureka.client.serviceUrl.defaultZone = http://eureka:8010/eureka/,http://localhost:8011/eureka/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">mailer</span><span class="p">:</span> <span class="n">eureka_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection kafka to mailer, topic "todo-mail"
+File: https://github.com/apssouza22/java-microservice/blob/master/mail-service/src/main/java/com/apssouza/mailservice/integration/reminder/EventInput.java
+Artifact (lines 33):
+    @StreamListener
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/mailer.properties
+Artifact (line 16):
+    spring.cloud.stream.bindings.input.destination=todo-mail
+And artifact (line 19):
+    spring.cloud.stream.kafka.binder.brokers=kafka
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">kafka</span><span class="p">:</span> <span class="n">mailer</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">message_consumer_kafka</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Consumer Topic'</span><span class="p">:</span> <span class="s">"todo-mail"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Comopnents:
+    - reminder service (internal), port 8015
+    - local logging
+File: https://github.com/apssouza22/java-microservice/blob/master/remainder-service/src/main/resources/application.properties
+Artifact (line 1):
+    spring.application.name = reminder
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/reminder.properties
+Artifact (line 1):
+    server.port = 8015
+
+Local logging:
+File:
+Artifact (lines [9;24;42]):
+    import org.apache.log4j.Logger;
+
+        private final Logger log = Logger.getLogger(this.getClass().getCanonicalName());
+
+            log.info("Created the to-dos.");
+"""</span>
+
+<span class="n">reminder</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"reminder"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8015</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection reminder to eureka
+File: https://github.com/apssouza22/java-microservice/blob/master/remainder-service/src/main/java/com/apssouza/configuration/ServiceDiscoveryConfiguration.java
+Artifact (line 12):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">reminder</span><span class="p">:</span> <span class="n">eureka_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection reminder to admin-server
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/reminder.properties
+Artifact (line 14):
+    spring.boot.admin.url=http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">reminder</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection reminder to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/remainder-service/src/main/resources/bootstrap.yml
+Artifact (lines[2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">reminder</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection reminder to kafka
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/remainder-service/src/main/java/com/apssouza/integrations/socket/TodoSocketController.java
+Artifact (line 117):
+    @SendTo("/topic/todos")
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/reminder.properties
+Artifact (line 21):
+    spring.cloud.stream.bindings.output.destination=todo-mail
+And artifact (line 25):
+    spring.cloud.stream.kafka.binder.brokers=kafka
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">reminder</span><span class="p">:</span> <span class="n">kafka</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">message_producer_kafka</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Producer Topic'</span><span class="p">:</span> <span class="s">"todo-mail"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - "api-gateway", internal, port 8018
+    - circuit breaker (Hystrix)
+    - Resource server
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/resources/application.properties
+Artifact (line 1):
+    spring.application.name = api-gateway
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties
+Artifact (line 1):
+    server.port = 8018
+
+Hystrix
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java
+Artifact (line10):
+    @EnableHystrix
+
+Resource Server:
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java
+Artifact (line 19):
+    @EnableResourceServer
+
+CSRF:
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java
+Artifact (lines [24:25]):
+    http
+        .csrf().disable()
+"""</span>
+
+<span class="n">api_gateway</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"api-gateway"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">gateway</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">csrf_disabled</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8018</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection api-gateway to eureka-server
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/ServiceDiscoveryConfiguration.java
+Artifact (line 12):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">eureka_server</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection api-gateway to admin-server
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties
+Artifact (line 15):
+    spring.boot.admin.url=http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection api-gateway to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/resources/bootstrap.yml
+Artifact (lines[2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - Connection api-gateway to user-service
+
+File: https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/clients/UserClient.java
+Artifact (line 16):
+    @FeignClient("user")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - authorization server (Spring OAuth), "oauth", port 8017
+    - circuit breaker (Hystrix)
+    - tokenstore
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/OAuth2ServerConfiguration.java
+Artifact (line 24):
+    @EnableAuthorizationServer
+And file: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/resources/application.properties
+Artifact (line 1):
+    spring.application.name = oauth
+And file: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/oauth.properties
+Artifact (line 1):
+    server.port = 8017
+
+Hystrix:
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/BasicApplication.java
+Artifact (line 9):
+    @EnableHystrix
+
+Tokenstore:
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/JwtServerConfiguration.java
+Artifact (line 22):
+    public TokenStore tokenStore() {
+"""</span>
+
+<span class="n">oauth</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"oauth"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">authorization_server</span><span class="p">,</span> <span class="n">tokenstore</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization Server'</span><span class="p">:</span> <span class="s">"Spring OAuth2"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8017</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection oauth to config-server
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+      cloud:
+        config:
+          uri: http://config:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">oauth</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection oauth to user-service
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/clients/UserClient.java
+Artifact (line 15):
+    @FeignClient("user")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">oauth</span><span class="p">:</span> <span class="n">user_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">auth_provider</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection oauth to eureka-server:
+File: https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/ServiceDiscoveryConfiguration.java
+Artifact (line 11):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">oauth</span><span class="p">:</span> <span class="n">eureka_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection oauth to admin-server
+File: https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/oauth.properties
+Artifact (line 15):
+    spring.boot.admin.url=http://admin:8026,http://localhost:8026
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">oauth</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - web-app (Nginx), "proxy", port 80
+    - user and connection to it (implicit)
+File: https://github.com/apssouza22/java-microservice/blob/master/proxy/Dockerfile
+Artifact (line 3):
+    FROM nginx:latest
+And file: https://github.com/apssouza22/java-microservice/blob/master/proxy/default.conf
+Artifact (line 8):
+    listen        80;
+"""</span>
+
+<span class="n">proxy</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"proxy"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">web_application</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Web Application'</span><span class="p">:</span> <span class="s">"Nginx"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">80</span><span class="p">})</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">proxy</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">proxy</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: connection proxy to gateway
+File: https://github.com/apssouza22/java-microservice/blob/master/proxy/default.conf
+Artifact (line 4):
+    server gateway:8018;
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">proxy</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: Config Server (Apache ZooKeeper), zookeeper, port 2181
+File: https://github.com/apssouza22/java-microservice/blob/master/docker-compose.yml
+Artifact (lines[125:126]):
+    zookeeper:
+        image: wurstmeister/zookeeper
+"""</span>
+
+<span class="n">zookeeper</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"zookeeper"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"ZooKeeper"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">2181</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection from kafka to ZooKeeper
+File: https://github.com/apssouza22/java-microservice/blob/master/docker-compose.yml
+Artifact (lines[138:139]):
+    depends_on:
+      - zookeeper
+And: implicit; Kafka always needs ZooKeeper to store topics, partitions, etc.
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">zookeeper</span><span class="p">:</span> <span class="n">kafka</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - external logging server, port 5044
+    - connections from proxy, user_service, reminder, eureka_server, gateway, oauth, admin, config_server, and mailer to external logging server
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/proxy/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/user-service/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/remainder-service/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/eureka-server/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/api-gateway/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/oauth-server/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/admin-server/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/config-server/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+File: https://github.com/apssouza22/java-microservice/blob/9274eeb9189dfea0722ac0263814822b94b83ecc/mail-service/src/main/resources/docker/filebeat.yml
+Artifact (lines [1:5]):
+    output:
+      logstash:
+        enabled: true
+        hosts:
+          - elk:5044
+"""</span>
+
+<span class="n">logstash</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"logstash"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">logging_server</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Logging Server'</span><span class="p">:</span> <span class="s">"Logstash"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">5044</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">proxy</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user_service</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">reminder</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">eureka_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">oauth</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">admin</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">mailer</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: jmx_monitoring (internal)
+File: https://github.com/apssouza22/java-microservice/blob/master/jmx-monitoring/pom.xml
+"""</span>
+
+<span class="n">jmx_monitoring</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"jmx-monitoring"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: todo_infra (internal)
+File: https://github.com/apssouza22/java-microservice/blob/master/todo-infra/pom.xml
+"""</span>
+
+<span class="n">todo_infra</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"todo-infra"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">)</span>
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">admin</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 149 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>34</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>100</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>149</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/apssouza22_java-microservice/apssouza22_java-microservice/apssouza22_java-microservice.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/apssouza22_java-microservice/apssouza22_java-microservice/apssouza22_java-microservice.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/apssouza22_java-microservice/apssouza22_java-microservice/apssouza22_java-microservice.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/apssouza22_java-microservice/apssouza22_java-microservice/apssouza22_java-microservice.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is unknown:</p>
+<ol>
+  <li>API-Gateway provided by @EnableFeignClients and the annotated @FeignClients,</li>
+  <li>No single-entry point as separate access to auth-server as defined in README.md authentication/retrieving token process uses two different ports (8017 is auth server, 8018 is api gateway),</li>
+  <li>authorizes with @EnableResourceServer annotation</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>BasicApplication.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L8">8</a></li>
+  <li>TodoClient.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/clients/TodoClient.java#L16">16</a></li>
+  <li>UserClient.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/clients/UserClient.java#L16">16</a></li>
+  <li>oauth.properties: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/oauth.properties#L1">1</a></li>
+  <li>api-gateway.properties: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties#L1">1</a></li>
+  <li>OAuth2ResourceServerConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java#L19">19</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded:</p>
+<ol>
+  <li>Gateway does authorize per @EnableResourceServer annotation,</li>
+  <li>Downstream services do not include annotation anywhere</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>OAuth2ResourceServerConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java#L19">19</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>The @EnableAuthorizationServer annotation is present,</li>
+  <li>JWT as tokens as JwtAuthenticationConverter at the authorization server function present,</li>
+  <li>JWTs are validated by Gateway as JwtAuthenticationConverter includes insertion of public key and @EnableResourceServer annotation. Thus decoupled from the auth server.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>OAuth2ServerConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/OAuth2ServerConfiguration.java#L24">24</a></li>
+  <li>JwtServerConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/JwtServerConfiguration.java#L27">27</a></li>
+  <li>OAuth2ResourceServerConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java#L19">19</a></li>
+  <li>JwtConfiguration.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/configuration/JwtConfiguration.java#L35">35</a></li>
+</ul>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: Identity representations are not used for all levels of authorization and authentication as only API Gateway authorizes and does not get transformed. See Rule 2 arguments.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is observed: Tokens are validated at the API Gateway per annotation and public key inserted at JwtAuthenticationConverter.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: There is no functionality present that enforcecs any consequences for a specific amount of failed login attempts</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: There are no certificates in the repository and no “server.ssl.key-store”/”server.ssl.trust-store” arguments inserted in the yml of the API gateway</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>api-gateway.properties: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties#L1">1</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: See Rule 7 comment, but the arguments are not existent in any other yml configuration</p>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is observed: This microservice application deploys the ELK stack (Elasticsearch, Logstash, Kibana) as a logging mechanism. Logstash is deployed as a central logging subsystem. Logstash then sends the formatted data to an Elasticsearch indexing server. Additionally Kibana is deployed as a monitoring dashboard on top of the indexing server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>infra-docker-compose.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/assets/infra-docker-compose.yml#L4">4</a></li>
+</ul>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Beats configuration in each service that specifies the ElasticSearch container,</li>
+  <li>Dockerfile that installs beats with said configuration,</li>
+  <li>then starts own service in Dockerfile</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>filebeat.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/docker/filebeat.yml#L2">2</a></li>
+  <li>Dockerfile: Lines: <a href="https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/resources/docker/Dockerfile#L25">25</a>, <a href="https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/resources/docker/Dockerfile#L30">30</a></li>
+  <li>start.sh: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/resources/docker/start.sh#L5">5</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: No sanitization mechanism to be found, but also not needed as there is no sensitive data logged.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>filebeat.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/proxy/filebeat.yml#L11">11</a></li>
+  <li>filebeat.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/resources/docker/filebeat.yml#L11">11</a></li>
+  <li>filebeat.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/mail-service/src/main/resources/docker/filebeat.yml#L11">11</a></li>
+</ul>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: Kafka is used as message broker, however between services and not used for the logging subsystem.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>WebSocketConfig.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/remainder-service/src/main/java/com/apssouza/configuration/WebSocketConfig.java#L11">11</a></li>
+</ul>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is observed: Hystrix is enabled using the @EnableHystrix annotation for any routes retrieved by integrated Load balancer from Feign which is Ribbon.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>BasicApplication.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L10">10</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway automatically performs load balancing using Ribbon integrated into Feign clients.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>BasicApplication.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L9">9</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka) present with @EnableEurekaServer</li>
+  <li>Starting the Eureka Server via Docker-Compose -&gt; Deployment on dedicated server possible</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>Application.java: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/eureka-server/src/main/java/com/apssouza/discovery/Application.java#L8">8</a></li>
+  <li>docker-compose.yml: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/docker-compose.yml#L16">16</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>api-gateway.properties: Line: <a href="https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties#L3">3</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed.</p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_kafka.html" class="btn btn-default navbar-btn cursorNorm" role="button">kafka</a>
+        
+        
+        
+        <a href="tag_logstash.html" class="btn btn-default navbar-btn cursorNorm" role="button">logstash</a>
+        
+        
+        
+        <a href="tag_maven.html" class="btn btn-default navbar-btn cursorNorm" role="button">maven</a>
+        
+        
+        
+        <a href="tag_nginx.html" class="btn btn-default navbar-btn cursorNorm" role="button">nginx</a>
+        
+        
+        
+        <a href="tag_spring_admin.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_admin</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+        <a href="tag_spring_oauth.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_oauth</a>
+        
+        
+        
+        <a href="tag_zookeeper.html" class="btn btn-default navbar-btn cursorNorm" role="button">zookeeper</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

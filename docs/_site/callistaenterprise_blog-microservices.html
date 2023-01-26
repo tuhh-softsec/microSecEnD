@@ -1,0 +1,1641 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="docker_composeelasticsearcheurekagradlehystrixkibanalogstashrabbitmqribbonspring_configspring_oauthturbinezipkinzuul,  model">
+<title>callistaenterprise/blog-microservices | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the callistaenterprise/blog-microservices page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="callistaenterprise/blog-microservices">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">callistaenterprise/blog-microservices</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/callistaenterprise/blog-microservices">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/callistaenterprise">Callista Enterprise</a></p>
+
+<p>The repository has 399 stars and was forked 307 times. The codebase consists of 2786 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_elasticsearch.html">Elasticsearch</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_gradle.html">Gradle</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_kibana.html">Kibana</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_logstash.html">Logstash</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_rabbitmq.html">RabbitMQ</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_ribbon.html">Ribbon</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_oauth.html">Spring OAuth</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_turbine.html">Turbine</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zipkin.html">Zipkin</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># source: https://github.com/callistaenterprise/blog-microservices
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"callistaenterprise_blog-microservices"</span>
+
+<span class="c1"># status: done
+#
+# time:
+# 1315 - 1445 1h30min
+# 1550 - 1610 20 min
+# 1825 - 1845 20 min
+# 1530 - 1610 40 min
+#
+# total: 2h50min
+</span>
+
+
+<span class="s">"""
+Components:
+    - search engine (Elasticsearch), "elasticsearch", port 9200
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [5:8]):
+    elasticsearch:
+        image: docker.elastic.co/elasticsearch/elasticsearch:5.2.2
+        ports:
+          - "9200:9200"
+"""</span>
+
+<span class="n">elasticsearch</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"elasticsearch"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">search_engine</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">9200</span><span class="p">,</span> <span class="s">'Search Engine'</span><span class="p">:</span> <span class="s">"Elasticsearch"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring dashboard (Kibana), "kibana", port 5601
+    - connection to elasticsearch
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [18:21]):
+    kibana:
+        image: docker.elastic.co/kibana/kibana:5.2.2
+        ports:
+          - "5601:5601"
+
+Connection:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [24:25]):
+    depends_on:
+        elasticsearch:
+"""</span>
+
+<span class="n">kibana</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"kibana"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">monitoring_dashboard</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">5601</span><span class="p">,</span> <span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Kibana"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">elasticsearch</span><span class="p">:</span> <span class="n">kibana</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - logging server (Logstash), "logstash", port 25826
+    - connection to elasticsearch
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [28:31]):
+    logstash:
+        image: docker.elastic.co/logstash/logstash:5.2.2
+        ports:
+          - "25826:25826"
+
+Connection:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [35:36]):
+    depends_on:
+        elasticsearch:
+"""</span>
+
+<span class="n">logstash</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"logstash"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">logging_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">25826</span><span class="p">,</span> <span class="s">'Logging Server'</span><span class="p">:</span> <span class="s">"Logstash"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">logstash</span><span class="p">:</span> <span class="n">elasticsearch</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - message broker (RabbitMQ), "rabbitmq", port 15672
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [44:45;49]):
+  rabbitmq:
+    image: rabbitmq:3-management
+
+      - "15672:15672"
+"""</span>
+
+<span class="n">rabbitmq</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"rabbitmq"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">message_broker</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">15672</span><span class="p">,</span> <span class="s">'Message Broker'</span><span class="p">:</span> <span class="s">"RabbitMQ"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - service discovery (Eureka), "discovery-server", ports 8761 and 8762
+    - plaintext credentials
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java
+Artifact (line 9):
+    @EnableEurekaServer
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: discovery-server
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/resources/application.yml
+Artifact (lines [1:2]):
+    server:
+      port: 8761
+
+Plaintext credentials:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/resources/application.yml
+Artifact (lines [4:6]):
+    security:
+        user:
+            password: ${eureka.password} # Don't use a default password in a real app
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/setup-env.sh
+Artifact (line 5):
+    export MY_CONFIG_PWD=config_client_pwd
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artivact (line 78):
+    - SECURITY_USER_PASSWORD=${MY_CONFIG_PWD}
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/resources/application.yml
+Artifact (lines [12;35]):
+    eureka:
+
+      password: ${SECURITY_USER_PASSWORD:password}
+"""</span>
+
+<span class="n">discovery_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"discovery-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">service_discovery</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8761</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8762</span><span class="p">,</span> <span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"password"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - configuration server (Spring Cloud Config), "config-server", port 8888
+    - local logging
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/java/se/callista/microservises/support/ConfigServerApplication.java
+Artifact (line 15):
+    @EnableConfigServer
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/bootstrap.yml
+Artifact (line 1):
+    spring.application.name: config-server
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/application.yml
+Artifact (lines [1:2]):
+    server:
+        port: 8888
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/java/se/callista/microservises/support/ConfigServerApplication.java
+Artifact (lines [20;25]):
+    private static final Logger LOG = LoggerFactory.getLogger(ConfigServerApplication.class);
+
+        LOG.info("Connected to RabbitMQ at: {}", ctx.getEnvironment().getProperty("spring.rabbitmq.host"));
+"""</span>
+
+<span class="n">config_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"config-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">configuration_server</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">,</span> <span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - external github repository "https://github.com/callistaenterprise/blog-microservices-config"
+    - connection external-repository to config-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/application.yml
+Artifact (line 12):
+    spring.cloud.config.server.git.uri: file:///${PWD}/../../../../blog-microservices-config/
+"""</span>
+
+<span class="n">github_repository</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"github-repository"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">github_repository</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'URL'</span><span class="p">:</span> <span class="s">"https://github.com/callistaenterprise/blog-microservices-config"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">github_repository</span><span class="p">:</span> <span class="n">config_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/java/se/callista/microservises/support/ConfigServerApplication.java
+Artifact (line 16):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection rabbitmq to config-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/application.yml
+Artifact (lines [16:18]):
+    spring.rabbitmq:
+      host: localhost
+      port: 5672
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">rabbitmq</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - authorization server (Spring OAuth2), "auth-server", port 9999
+    - resource server
+    - endpoints ["/user"]
+    - local logging
+    - plaintext credentials
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+Artifact (line 17):
+    @EnableAuthorizationServer
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: auth-server
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines [92:93]):
+    ports:
+      - "9999:9999"
+
+Resource server:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+Artifact (line 16):
+    @EnableResourceServer
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+Artifact (lines [21;30]):
+    private static final Logger LOG = LoggerFactory.getLogger(AuthserverApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java
+Artifact (line 23):
+    @RequestMapping("/user")
+
+Plaintext credentials:
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/auth-server.yml
+Artifact (line 10):
+    security.user.password: password
+And artifact (lines [12:14]):
+    security.oauth2.client:
+      clientId: acme
+      clientSecret: acmesecret
+"""</span>
+
+<span class="n">auth_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"auth-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">authorization_server</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">9999</span><span class="p">,</span> <span class="s">'Authorization Server'</span><span class="p">:</span> <span class="s">"Spring OAuth2"</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/user</span><span class="se">\'</span><span class="s">]"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"acme"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"acmesecret"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to auth-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+        config:
+
+            uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring dashboard (Hystrix), "monitor-dashboard", port 7979
+    - local logging
+    - endpoints ["/"]
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/src/main/java/se/callista/microservises/support/monitordashboard/HystrixDashboardApplication.java
+Artifact (line 16):
+    @EnableHystrixDashboard
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: monitor-dashboard
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml
+Artifact (lines 174:175):
+    ports:
+      - "7979:7979"
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/src/main/java/se/callista/microservises/support/monitordashboard/HystrixDashboardApplication.java
+Artifact (lines [19;23]):
+    private static final Logger LOG = LoggerFactory.getLogger(HystrixDashboardApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/src/main/java/se/callista/microservises/support/monitordashboard/HystrixDashboardApplication.java
+Artifact (line 27):
+    @RequestMapping("/")
+"""</span>
+
+<span class="n">monitor_dashboard</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"monitor-dashboard"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">7979</span><span class="p">,</span> <span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to monitor-dashboard
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+        config:
+
+            uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">monitor_dashboard</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection monitor-dashboard to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/monitor-dashboard.yml
+Artifact (lines [52;55:57]):
+    eureka:
+
+      client:
+        serviceUrl:
+          defaultZone: http://discovery:8761/eureka/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">monitor_dashboard</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring server (Turbine), "turbine-server", port 8989
+    - local logging
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/turbine/src/main/java/se/callista/microservises/support/turbine/TurbineApplication.java
+Artifact (line 18):
+    @EnableTurbineStream
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/turbine/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: turbine-server
+And file:
+Artifact (lines [1:2]):
+    server:
+        port: 8989
+
+Local logging:
+File:
+Artifact (lines [22;26]):
+    private static final Logger LOG = LoggerFactory.getLogger(TurbineApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+"""</span>
+
+<span class="n">turbine_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"turbine-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">monitoring_server</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8989</span><span class="p">,</span> <span class="s">'Monitoring Server'</span><span class="p">:</span> <span class="s">"Turbine"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection rabbitmq to turbine-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/turbine/src/main/resources/application.yml
+Artifact (lines [33:35]):
+    spring.rabbitmq:
+      host: localhost
+      port: 5672
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbitmq</span><span class="p">:</span> <span class="n">turbine_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection turbine-server to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/turbine/src/main/java/se/callista/microservises/support/turbine/TurbineApplication.java
+Artifact (line 19):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">turbine_server</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to turbine-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/turbine/src/main/resources/bootstrap.yml
+Artifact (lines [4:5;15]):
+    cloud:
+        config:
+
+          uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">turbine_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+<span class="s">"""
+Components:
+    - connection turbine-server to monitor-dashboard
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/monitor-dashboard/build.gradle
+Artifact (line 40):
+    compile('org.springframework.cloud:spring-cloud-starter-bus-amqp')
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">turbine_server</span><span class="p">:</span> <span class="n">monitor_dashboard</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - tracing server (Zipkin), "zipkin-server", port 9411
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/zipkin-server/src/main/java/se/callista/microservises/workshop/zipkin/ZipkinServerApplication.java
+Artifact (line 7):
+    @EnableZipkinStreamServer
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/zipkin-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: zipkin-server
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/zipkin-server/src/main/resources/application.yml
+Artifact (line 1):
+    server.port: 9411
+"""</span>
+
+<span class="n">zipkin_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"zipkin-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">tracing_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">9411</span><span class="p">,</span> <span class="s">'Tracing Server'</span><span class="p">:</span> <span class="s">"Zipkin"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection zipkin-server to rabbitmq
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/zipkin-server/src/main/resources/application.yml
+Artifact (lines [3:4]):
+    spring.rabbitmq.host: localhost
+    spring.rabbitmq.port: 5672
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">rabbitmq</span><span class="p">:</span> <span class="n">zipkin_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "product-service", port 8080
+    - local logging
+    - endpoints ["/product/{productId}", "/set-processing-time"]
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/java/se/callista/microservices/core/product/ProductServiceApplication.java
+Artifact (line 14):
+    @SpringBootApplication
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: product-service
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/java/se/callista/microservices/core/product/ProductServiceApplication.java
+Artifact (lines 19;23):
+    private static final Logger LOG = LoggerFactory.getLogger(ProductServiceApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/java/se/callista/microservices/core/product/service/ProductService.java
+Artifact (line 47):
+    @RequestMapping("/product/{productId}")
+And artifact (line 77):
+    @RequestMapping("/set-processing-time")
+"""</span>
+
+<span class="n">product_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"product-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/product/{productId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/set-processing-time</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to product-service
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+        config:
+
+          uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">product_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection product-service to discover-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/product-service/src/main/java/se/callista/microservices/core/product/ProductServiceApplication.java
+Artifact (line 15):
+    @EnableDiscoveryClien
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">product_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "recommendation-service", port 8080
+    - local logging
+    - endpoints ["/recommendation", "/set-processing-time"]
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/java/se/callista/microservices/core/recommendation/RecommendationServiceApplication.java
+Artifact (line 13):
+    @SpringBootApplication
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: recommendation-service
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/java/se/callista/microservices/core/recommendation/RecommendationServiceApplication.java
+Artifact (lines 18;22):
+    private static final Logger LOG = LoggerFactory.getLogger(RecommendationServiceApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/java/se/callista/microservices/core/recommendation/service/RecommendationService.java
+Artifact (line 58):
+    @RequestMapping("/recommendation")
+And artiact (line 95):
+    @RequestMapping("/set-processing-time")
+"""</span>
+
+<span class="n">recommendation_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"recommendation-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/recommendation</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/set-processing-time</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to recommendation-service
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+  cloud:
+    config:
+
+      uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">recommendation_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection recommendation-service to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/recommendation-service/src/main/java/se/callista/microservices/core/recommendation/RecommendationServiceApplication.java
+Artifact (line 14):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "review-service", port 8080
+    - local logging
+    - endpoints ["/review", "/set-processing-time"]
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/java/se/callista/microservices/core/review/ReviewServiceApplication.java
+Artifact (line 18):
+    @SpringBootApplication
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: review-service
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/java/se/callista/microservices/core/review/ReviewServiceApplication.java
+Artifact (lines 23;27):
+    private static final Logger LOG = LoggerFactory.getLogger(ReviewServiceApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/java/se/callista/microservices/core/review/service/ReviewService.java
+Artifact (line 64):
+    @RequestMapping("/review")
+And artifact (line 103):
+    @RequestMapping("/set-processing-time")
+"""</span>
+
+<span class="n">review_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"review-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/review</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/set-processing-time</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to review-service
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+      config:
+
+        uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">review_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection review-service to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/core/review-service/src/main/java/se/callista/microservices/core/review/ReviewServiceApplication.java
+Artifact (line 19):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">review_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "composite-service", port 8080
+    - resource server
+    - circuit breaker
+    - load balancer
+    - local logging
+    - endpoints ["/", "/{productId}"]
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (line 18):
+    @SpringBootApplication
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: composite-service
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Resource server:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (line 21):
+    @EnableResourceServer
+
+Circuit breaker:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (line 19):
+    @EnableCircuitBreaker
+
+Load balancer:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (line 34):
+    @LoadBalanced
+
+Local logging:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (lines [25;29]):
+    private static final Logger LOG = LoggerFactory.getLogger(ProductCompositeServiceApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Endpoints:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/service/ProductCompositeService.java
+Artifact (line 47):
+    @RequestMapping("/")
+And artifact (line 52):
+    @RequestMapping("/{productId}")
+"""</span>
+
+<span class="n">composite_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"composite-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/{productId}</span><span class="se">\'</span><span class="s">]"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Spring Cloud"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to composite-service
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+        config:
+
+            uri: https://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">composite_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection auth-server to composite-service
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/composite-service.yml
+Artifact (lines [12:15]):
+    security:
+      oauth2:
+        resource:
+          userInfoUri: https://localhost:9999/uaa/user
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">composite_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection composite-service to discovery-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java
+Artifact (line 20):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection composite-service to rabbitmq
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/service/ProductCompositeIntegration.java
+Artifact (line 45):
+    @HystrixCommand(fallbackMethod = "defaultProduct")
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/build.gradle
+Artifact (line 49):
+    compile("org.springframework.cloud:spring-cloud-starter-bus-amqp")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">rabbitmq</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection composite-service to product-service
+    - load balanced
+    - circuit breaker
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/service/ProductCompositeIntegration.java
+Artifact (lines [50;53]):
+    String url = "http://product-service/product/" + productId;
+
+    ResponseEntity&lt;String&gt; resultStr = restTemplate.getForEntity(url, String.class);
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">product_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection composite-service to recommendation-service
+    - load balanced
+    - circuit breaker
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/service/ProductCompositeIntegration.java
+Artifact (lines [85;88]):
+    String url = "http://recommendation-service/recommendation?productId=" + productId;
+
+    ResponseEntity&lt;String&gt; resultStr = restTemplate.getForEntity(url, String.class);
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">recommendation_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection composite-service to review-service
+    - load balanced
+    - circuit breaker
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/service/ProductCompositeIntegration.java
+Artifact (lines [125;128]):
+    String url = "http://review-service/review?productId=" + productId;
+
+    ResponseEntity&lt;String&gt; resultStr = restTemplate.getForEntity(url, String.class);
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">review_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - API gateway (Zuul), "edge-server", port 8765
+    - resource server
+    - local logging
+    - load balancer (Zuul)
+    - circuit breaker
+    - user
+    - connections bwteen user and gateway
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+Artifact (line 18):
+    @EnableZuulProxy
+And file: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: edge-server
+And file: https://github.com/callistaenterprise/blog-microservices-config/blob/master/monitor-dashboard.yml
+Artifact (line 2):
+    port: 8765
+
+Resource server:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
+Artifact (line 19):
+    @EnableResourceServer
+
+Local logging:
+File:
+Artifact (lines [22;26]):
+    private static final Logger LOG = LoggerFactory.getLogger(ZuulApplication.class);
+
+        LOG.warn("Will now disable hostname check in SSL, only to be used during development");
+
+Circuit breaker:
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml
+Artifact (lines [20;29:31]):
+hystrix:
+
+  command:
+    default:
+      circuitBreaker:
+"""</span>
+
+<span class="n">edge_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"edge-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">gateway</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span> <span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"user"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection edge-server to composite-service
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml
+Artifact (lines [60:64]):
+    zuul:
+      ignoredServices: "*"
+      prefix: /api
+      routes:
+        composite-service: /product/**
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">composite_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection discover-server to edge-server
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml
+Artifact (lines [100;103:105]):
+    eureka:
+
+      client:
+        serviceUrl:
+          defaultZone: http://discovery:8761/eureka/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">discovery_server</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection config-server to edge-server
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/resources/bootstrap.yml
+Artifact (lines [7:8;18]):
+    cloud:
+        config:
+
+            uri: https://localhost:8888
+
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">edge_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection edge-server to auth-server
+File: https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml
+Artifact (lines [15:18]):
+    security:
+      oauth2:
+        resource:
+          userInfoUri: https://localhost:9999/uaa/user
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection discovery-server to logstash
+    - connection config-server to logstash
+    - connection auth-server to logstash
+    - connection product-service to logstash
+    - connection recommendation-service to logstash
+    - connection review-service to logstash
+    - connection composite-service to logstash
+    - connection monitor-dashboard to logstash
+    - connection edge-server to logstash
+    - connection zipkin-server to logstash
+File: https://github.com/callistaenterprise/blog-microservices/blob/1681bdb6b1b0c64147d059f2c2e04726bce8e2f4/docker-compose-with-elk.yml
+Artifact (lines [58:61;81:84;98:101;118:121;133:136;148:151;163:166;180:183;197:200;214:217]):
+    logging:
+      driver: syslog
+      options:
+        syslog-address: "tcp://127.0.0.1:25826"
+
+    ... (always the same)
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">discovery_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">product_service</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">recommendation_service</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">review_service</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">composite_service</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">monitor_dashboard</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">edge_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">zipkin_server</span><span class="p">:</span> <span class="n">logstash</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">discovery_server</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 175 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>32</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>126</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>175</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices/callistaenterprise_blog-microservices.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is unknown:</p>
+<ol>
+  <li>The @EnableZuulProxy annotation is present,</li>
+  <li>The @EnableResourceServer annotation is present,</li>
+  <li>Article of application does access authorization server directly instead over Gateway.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ZuulApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L18">18</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Only API gateway, product composite service and authorization server (which is accesses by other services) have @EnableResourceServer, other downstream services do not authorize the requests</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>AuthserverApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java#L16">16</a></li>
+  <li>ZuulApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L19">19</a></li>
+  <li>ProductCompositeServiceApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/composite/product-composite-service/src/main/java/se/callista/microservices/composite/product/ProductCompositeServiceApplication.java#L21">21</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is unknown:</p>
+<ol>
+  <li>The @EnableAuthorizationServer annotation is present,</li>
+  <li>No JwtAccessTokenConverter, thus issues opaque token,</li>
+  <li>Endpoint for validating token present,</li>
+  <li>Endpoint mentioned at YML-Configuration of Resource Server.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>AuthserverApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java#L17">17</a></li>
+  <li>edge-server.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml#L15">15</a></li>
+</ul>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded:</p>
+<ol>
+  <li>Identity representations are present in form of opaque tokens per Rule 3,</li>
+  <li>No transformation present,</li>
+  <li>No @EnableResourceServer present at every downstream service.</li>
+</ol>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is observed: Token are being validated on endpoint at authorization server and endpoint specified at server with @EnableResourceServer annotation.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No mechanism in place for multiple failed login attempts.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is observed: Keystore and Truststore of API Gateway has certificate included.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>edge-server.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml#L4">4</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is unknown: Only edge-server, auth-server and config service have keystores included in their yml-configuration.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>auth-server.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices-config/blob/master/auth-server.yml#L5">5</a></li>
+  <li>edge-server.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml#L4">4</a></li>
+  <li>application.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/application.yml#L3">3</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is observed: This microservice application deploys the ELK stack (Elasticsearch, Logstash, Kibana) as a logging mechanism. Logstash is deployed as a central logging subsystem. Logstash then sends the formatted data to an Elasticsearch indexing server. Additionally Kibana is deployed as a monitoring dashboard on top of the indexing server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose-with-elk.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml#L5">5</a></li>
+</ul>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is observed: The syslog driver at docker containers present.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>docker-compose-with-elk.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml#L81">81</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: Logs are not explicitly sanitized.</p>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is observed: RabbitMQ present but not used for logging subsystem.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is observed: The @EnableZuulProxy at the API Gateway enables Hystrix circuit breaker functionality.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ZuulApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L18">18</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The @EnableZuulProxy at the API Gateway enables Ribbon load balancing functionality.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>ZuulApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L18">18</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>Started in Docker Container through Compose, thus deployable on dedicated server</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>EurekaApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java#L9">9</a></li>
+  <li>docker-compose-with-elk.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/docker-compose-with-elk.yml#L51">51</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>EurekaApplication.java: Line: <a href="https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java#L9">9</a></li>
+  <li>edge-server.yml: Line: <a href="https://github.com/callistaenterprise/blog-microservices-config/blob/master/edge-server.yml#L45">45</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed.</p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_elasticsearch.html" class="btn btn-default navbar-btn cursorNorm" role="button">elasticsearch</a>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_gradle.html" class="btn btn-default navbar-btn cursorNorm" role="button">gradle</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_kibana.html" class="btn btn-default navbar-btn cursorNorm" role="button">kibana</a>
+        
+        
+        
+        <a href="tag_logstash.html" class="btn btn-default navbar-btn cursorNorm" role="button">logstash</a>
+        
+        
+        
+        <a href="tag_rabbitmq.html" class="btn btn-default navbar-btn cursorNorm" role="button">rabbitmq</a>
+        
+        
+        
+        <a href="tag_ribbon.html" class="btn btn-default navbar-btn cursorNorm" role="button">ribbon</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+        <a href="tag_spring_oauth.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_oauth</a>
+        
+        
+        
+        <a href="tag_turbine.html" class="btn btn-default navbar-btn cursorNorm" role="button">turbine</a>
+        
+        
+        
+        <a href="tag_zipkin.html" class="btn btn-default navbar-btn cursorNorm" role="button">zipkin</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

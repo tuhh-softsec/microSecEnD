@@ -1,0 +1,126 @@
+1:
+  status: observed
+  argument: User only communicates with the Zuul gateway server.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [2]
+
+2:
+  status: disregarded
+  argument: Services communicate internally over plain HTTP. The communication is not authenticated.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [8, 21, 25]
+
+3:
+  status: observed
+  argument: Authentication and authorization via OAuth2 is implemented at the AuthServer instance. The AuthServer is a separate service at platform level that provides authentication to all internal services.
+  artifacts:
+    - file: auth/src/main/resources/application.yml
+      lines: [2]
+    - file: auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java
+      lines: [18]
+
+4:
+  status: observed
+  argument: Users are authenticated using JWT Tokens and identified by a unique username. All endpoints can verify authorization scopes with the central AuthServer.
+  artifacts:
+    - file: auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java
+      lines: [28]
+
+5:
+  status: observed
+  argument: The authentication tokens are verified by the all services.
+  artifacts:
+    - file: account/src/main/java/pl/piomin/services/account/api/AccountController.java
+      lines: [17, 23]
+    - file: customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java
+      lines: [23]
+
+6:
+  status: disregarded
+  argument: No rate limiting of any means is deployed.
+
+7:
+  status: disregarded
+  argument: User external entities can call the gateway service using an unencrypted HTTP connection.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [2]
+
+8:
+  status: disregarded
+  argument: All internal services communicate over insecure HTTP connections.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [21, 25]
+
+9:
+  status: disregarded
+  argument: No central logging system is deployed.
+
+10:
+  status: disregarded
+  argument: No central logging system is deployed. Two internal services perform local logging, however none of the logs are consumed and accessed through monitoring software.
+  artifacts:
+    - file: customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java
+      lines: [26, 28]
+    - file: auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java
+      lines: [33]
+
+11:
+  status: disregarded
+  argument: Logs are not sanitized, but no PII or secrets are explicitly logged.
+  artifacts:
+    - file: auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java
+      lines: [33]
+
+12:
+  status: disregarded
+  argument: No logs are collected and no message broker is deployed.
+
+13:
+  status: disregarded
+  argument: No circuit breaker is deployed.
+
+14:
+  status: observed
+  argument: The gateway server uses load balancing via Ribbon to access dependent services.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [16]
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: observed
+  argument:
+    - Registry Service (Eureka Server) with @EnableEurekaServer present.
+    - Eureka is started on Port 8765 and can be deployed on a dedicated server.
+  artifacts:
+    - file: discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java
+      lines: [8]
+    - file: gateway/src/main/resources/application.yml
+      lines: [2]
+
+17:
+  status: disregarded
+  argument: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+  artifacts:
+    - file: discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java
+      lines: [8]
+    - file: discovery/src/main/resources/application.yml
+      lines: [15]
+
+18:
+  status: disregarded
+  argument: The OAuth client secrets and database access passwords are supplied via configuration files and hard-coded into the Java code.
+  artifacts:
+    - file: gateway/src/main/resources/application.yml
+      lines: [10, 36]
+    - file: gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java
+      lines: [36]
+    - file: auth/src/main/resources/script/data.sql
+      lines: [11, 13]

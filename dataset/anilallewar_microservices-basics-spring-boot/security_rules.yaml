@@ -1,0 +1,148 @@
+1:
+  status: unknown
+  argument:
+    - The @EnableZuulProxy annotation is present.
+    - The @EnableOAuth2Sso annotation is present.
+    - No routing to the authorization server as mentioned by author, thus no single entrypoint.
+    - The README.md of the authorization server mentions request at port 8899, while API Gateway port is 8765.
+  artifacts:
+    - file: api-gateway/src/main/docker/Dockerfile
+      lines: [24]
+    - file: api-gateway/src/main/resources/bootstrap.yml
+      lines: [2]
+    - file: api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java
+      lines: [48]
+    - file: api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java
+      lines: [21]
+    - file: auth-server/README.md
+      lines: [93]
+    - file: api-gateway.yml
+      lines: [59, 66]
+      repository: anilallewar/microservices-basics-cloud-config
+
+2:
+  status: observed
+  argument: All downstream services are resource servers per @EnableResourceServer annotation, meaning even requests between services need to be authenticated/authorized.
+  artifacts:
+    - file: api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java
+      lines: [21]
+    - file: user-webservice/src/main/java/com/anilallewar/microservices/user/config/security/ResourceServerConfiguration.java
+      lines: [27]
+    - file: task-webservice/src/main/java/com/anilallewar/microservices/task/config/security/ResourceServerConfiguration.java
+      lines: [27]
+    - file: comments-webservice/src/main/java/com/anilallewar/microservices/comments/CommentsApplication.java
+      lines: [30]
+    - file: auth-server/src/main/java/com/anilallewar/microservices/auth/AuthServerApplication.java
+      lines: [22]
+
+3:
+  status: observed
+  argument:
+    - The @EnableAuthorizationServer annotation is present,
+    - JwtAccessTokenConverter bean present, thus using JWTs,
+    - Downstream services like API-Gateway have public key hardcoded in YML.
+  artifacts:
+    - file: auth-server/src/main/java/com/anilallewar/microservices/auth/config/OAuthServerConfiguration.java
+      lines: [52, 67]
+    - file: api-gateway.yml
+      lines: [54]
+      repository: anilallewar/microservices-basics-cloud-config
+
+4:
+  status: unknown
+  argument: As Rule 2 already confirms, every downstream service needs tokens for authorization/authentication. However, no evidence of tokens transferred to internal identity representations.
+
+5:
+  status: observed
+  argument:
+    - All resource servers have the @EnableResourceServer annotation.
+    - The public key is hardcoded into each Resource Servers YML-Configuration.
+  artifacts:
+    - file: task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+      lines: [42]
+    - file: user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java
+      lines: [34]
+    - file: api-gateway.yml
+      lines: [52]
+      repository: anilallewar/microservices-basics-cloud-config
+    - file: user-webservice.yml
+      lines: [23]
+      repository: anilallewar/microservices-basics-cloud-config
+    - file: comments-webservice.yml
+      lines: [22]
+      repository: anilallewar/microservices-basics-cloud-config
+    - file: task-webservice.yml
+      lines: [23]
+      repository: anilallewar/microservices-basics-cloud-config
+
+6:
+  status: disregarded
+  argument: No functionality of consequences for failed login attempts
+
+7:
+  status: disregarded
+  argument: No mention of SSL, TLS, keystores or trust-stores in application
+
+8:
+  status: disregarded
+  argument: See rule 7.
+
+9:
+  status: disregarded
+  argument: No central logging system is deployed.
+
+10:
+  status: disregarded
+  argument: No central logging system is deployed.
+
+11:
+  status: disregarded
+  argument: Logs are not explicitly sanitized.
+
+12:
+  status: disregarded
+  argument: No message broker is deployed and no logs are collected.
+
+13:
+  status: observed
+  argument: Hystrix Circuit Breaker enabled through @EnableZuulProxy annotation.
+  artifacts:
+    - file: api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java
+      lines: [48]
+
+14:
+  status: observed
+  argument: The gateway server uses load balancing via Ribbon to access dependent services through @EnableZuulProxy annotation.
+  artifacts:
+    - file: api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java
+      lines: [48]
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: observed
+  argument:
+    - Registry Service (Eureka Server) with @EnableEurekaServer present.
+    - Started in Docker Container through Compose, thus deployable on dedicated server
+  artifacts:
+    - file: webservice-registry/src/main/java/com/anilallewar/microservices/registry/RegistryApplication.java
+      lines: [19]
+    - file: docker-orchestration/docker-compose/docker-compose.yml
+      lines: [33]
+
+17:
+  status: disregarded
+  argument: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+  artifacts:
+    - file: api-gateway.yml
+      lines: [138]
+      repository: anilallewar/microservices-basics-cloud-config
+
+18:
+  status: disregarded
+  argument: No secret manager is deployed. The deployed git configuration server is not a secrets manager.
+  artifacts:
+    - file: config-server/src/main/resources/application.yml
+      lines: [3]

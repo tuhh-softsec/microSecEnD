@@ -1,0 +1,117 @@
+1:
+  status: observed
+  argument: User only communicates with the Spring Cloud gateway server.
+  artifacts:
+    - file: cloud-gateway/src/main/resources/application.yml
+      lines: [2]
+
+2:
+  status: disregarded
+  argument: Services communicate internally over plain HTTP. The communication is not authenticated.
+  artifacts:
+    - file: department-service/src/main/resources/application.yml
+      lines: [2]
+    - file: user-service/src/main/resources/application.yml
+      lines: [2]
+
+3:
+  status: disregarded
+  argument: No authentication mechanism is deployed.
+
+4:
+  status: disregarded
+  argument: Users are represented by IDs in the user registry. However, these user representations are not used to authenticate incoming connections.
+
+5:
+  status: disregarded
+  argument: No authentication tokens are used.
+
+6:
+  status: disregarded
+  argument: No rate limiting of any means is deployed.
+
+7:
+  status: disregarded
+  argument: User external entities can call the gateway service using an unencrypted HTTP connection.
+  artifacts:
+    - file: cloud-gateway/src/main/resources/application.yml
+      lines: [2]
+
+8:
+  status: disregarded
+  argument: All internal services communicate over insecure HTTP connections.
+  artifacts:
+    - file: cloud-gateway/src/main/resources/application.yml
+      lines: [11, 20]
+
+9:
+  status: disregarded
+  argument: No central logging system is deployed. This application uses the Hystrix monitoring dashboard to traces reported by the Zipkin tracing server.
+
+10:
+  status: disregarded
+  argument: No central logging system is deployed. All internal services do perform local logging using Lombok, however none of the logs are consumed and accessed through monitoring software.
+  artifacts:
+    - file: user-service/src/main/java/com/dailycodebuffer/user/controller/UserController.java
+      lines: [21, 27]
+    - file: user-service/src/main/java/com/dailycodebuffer/user/service/UserService.java
+      lines: [23, 28]
+    - file: department-service/src/main/java/com/dailycodebuffer/department/controller/DepartmentController.java
+      lines: [19, 25]
+    - file: department-service/src/main/java/com/dailycodebuffer/department/service/DepartmentService.java
+      lines: [17, 22]
+
+11:
+  status: disregarded
+  argument: Logs are not explicitly sanitized. All services write constant log messages without structured logging or template parameters. No PII or secrets will be leaked by the logging messages (see example artifact).
+  artifacts:
+    - file: microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java
+      lines: [25]
+
+12:
+  status: disregarded
+  argument: No logs are collected and no message broker is deployed.
+
+13:
+  status: observed
+  argument: Hystrix is deployed as a circuit breaker on the gateway server.
+  artifacts:
+    - file: cloud-gateway/src/main/resources/application.yml
+      lines: [30, 15, 24]
+
+14:
+  status: disregarded
+  argument: The gateway server uses load balancing to access dependent services.
+  artifacts:
+    - file: cloud-gateway/src/main/resources/application.yml
+      lines: [11, 20]
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: observed
+  argument:
+    - Registry Service (Eureka Server) with @EnableEurekaServer present.
+    - Eureka is started on Port 8761 and can be deployed on a dedicated server.
+  artifacts:
+    - file: service-registry/src/main/java/com/dailycodebuffer/service/registry/ServiceRegistryApplication.java
+      lines: [8]
+    - file: service-registry/src/main/resources/application.yml
+      lines: [2]
+
+17:
+  status: disregarded
+  argument: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+  artifacts:
+    - file: service-registry/src/main/java/com/dailycodebuffer/service/registry/ServiceRegistryApplication.java
+      lines: [8]
+    - file: application.yml
+      lines: [1]
+      repository: shabbirdwd53/config-server
+      branch: main
+
+18:
+  status: disregarded
+  argument: No secret manager is deployed.

@@ -1,0 +1,1439 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="dockerdocker_composeeurekagradlehystrixribbonspring_configspring_oauthturbinezipkinzuul,  model">
+<title>anilallewar/microservices-basics-spring-boot | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the anilallewar/microservices-basics-spring-boot page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="anilallewar/microservices-basics-spring-boot">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">anilallewar/microservices-basics-spring-boot</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/anilallewar/microservices-basics-spring-boot">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/anilallewar">Anil Allewar</a></p>
+
+<p>The repository has 649 stars and was forked 415 times. The codebase consists of 4245 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_gradle.html">Gradle</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_ribbon.html">Ribbon</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_oauth.html">Spring OAuth</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_turbine.html">Turbine</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zipkin.html">Zipkin</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># source: https://github.com/anilallewar/microservices-basics-spring-boot
+# GH search
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"anilallewar_microservices-basics-spring-boot"</span>
+
+<span class="c1"># status: done
+#
+# time:
+# 1825 - 1905 40min
+# 0700 - 0735 35min
+# 1010 - 1020 10min
+# 1325 - 1355 30min
+#
+# total: 1h55min
+</span>
+
+
+
+
+<span class="s">"""
+Components:
+    - configuration server (Spring Cloud config), "configserver", port 8888
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/config-server/src/main/java/com/anilallewar/microservices/config/ConfigApplication.java
+Artifact (line 21):
+    @EnableConfigServer
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/config-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: configserver
+And file:
+Artifact (lines [17:18]):
+    server:
+        port: 8888
+"""</span>
+
+<span class="n">configserver</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"configserver"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">configuration_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">,</span> <span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - external configuration repository "https://github.com/anilallewar/microservices-basics-cloud-config"
+    - connection from github repository to configserver
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/config-server/src/main/resources/application.yml
+Artifact (lines [2:6]):
+    cloud:
+        config:
+            server:
+                git:
+                    uri: https://github.com/anilallewar/microservices-basics-cloud-config
+"""</span>
+
+<span class="n">github_repository</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"github-repository"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">github_repository</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'URL'</span><span class="p">:</span> <span class="s">"https://github.com/anilallewar/microservices-basics-cloud-config"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">github_repository</span><span class="p">:</span> <span class="n">configserver</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - service discover (Eureka), "webservice-registry", port 8761
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/webservice-registry/src/main/java/com/anilallewar/microservices/registry/RegistryApplication.java
+Artifact (line 19):
+    @EnableEurekaServer
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/webservice-registry/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: webservice-registry
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/webservice-registry.yml
+Artifact (lines [1:2]):
+    server:
+        port: 8761
+"""</span>
+
+<span class="n">webservice_registry</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"webservice-registry"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">service_discovery</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8761</span><span class="p">,</span> <span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/webservice-registry/src/main/resources/bootstrap.yml
+Artifact (lines [4:6]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - tracing server (Zipkin), "zipkin-tracing", port 9411
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/zipkin-server/src/main/java/com/anilallewar/microservices/tracing/ZipkinTracingApplication.java
+Artifact (line 15):
+    @EnableZipkinServer
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/zipkin-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: zipkin-tracing
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/zipkin-tracing.yml
+Artifact (lines [1:2]):
+    server:
+        port: 9411
+"""</span>
+
+<span class="n">zipkin_tracing</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"zipkin-tracing"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">tracing_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">9411</span><span class="p">,</span> <span class="s">'Tracing Server'</span><span class="p">:</span> <span class="s">"Zipkin"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to zipkin-tracing
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/zipkin-server/src/main/resources/bootstrap.yml
+Artifact (lines [4;8:9]):
+    cloud:
+        config:
+
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">zipkin_tracing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - MySQL database "mysqldb", port 3306
+    - plaintext crdentials
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/docker-orchestration/docker-compose/docker-compose.yml
+Artifact (lines [3:4]):
+    mysqldb:
+        image: mysql:latest
+And artifact (lines [12:13]):
+    ports:
+      - "3306/tcp"
+
+Plaintext credentials:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/docker-orchestration/docker-compose/docker-compose.yml
+Artifact (lines [15:16]):
+    MYSQL_ROOT_PASSWORD: password
+    MYSQL_DATABASE: auth
+"""</span>
+
+<span class="n">mysqldb</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"mysqldb"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">3306</span><span class="p">,</span> <span class="s">'Database'</span><span class="p">:</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"password"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - authorization server (Spring Cloud OAuth2), "auth-server", port 8899
+    - plaintext credentials
+    - authentication scope all requests
+    - resource server
+    - endpoints ["/me"]
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/config/OAuthServerConfiguration.java
+Artifact (line 52):
+    @EnableAuthorizationServer
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: auth-server
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/auth-server.yml
+Artifact (lines [3:4]):
+    server:
+        port: 8899
+
+Plaintext credentials:
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/auth-server.yml
+Artifact (lines [12:14]):
+    security:
+        user:
+            password: password
+
+Authentication:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/config/OAuthWebFormConfiguration.java
+Artifact (liens [34:47]):
+    http
+        .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+            .formLogin()
+                .loginPage("/login")
+                    .permitAll()
+        .and()
+            .requestMatchers()
+                .antMatchers("/login", "/oauth/authorize", "/oauth/confirm_access")
+        .and()
+            .authorizeRequests()
+                .anyRequest()
+                    .authenticated();
+
+Resource server:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/AuthServerApplication.java
+Artifact (line 22):
+    @EnableResourceServer
+
+Endpoints:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/api/AuthUserController.java
+Artifact (line 31):
+    @RequestMapping(path = "/me", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_UTF8_VALUE)
+"""</span>
+
+<span class="n">auth_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"auth-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">authorization_server</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">authentication_scope_all_requests</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8899</span><span class="p">,</span> <span class="s">'Authorization Server'</span><span class="p">:</span> <span class="s">"Spring OAuth2"</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/me</span><span class="se">\'</span><span class="s">]"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"user"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"password"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to auth-server
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/resources/bootstrap.yml
+Artifact (lines [4:6]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection mysqldb to auth-server
+    - plaintext credentials
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/auth-server.yml
+Artifact (lines [22:26]):
+    spring:
+        datasource:
+            url: jdbc:mysql://localhost:3306/auth
+            username: root
+            password: password
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">mysqldb</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"password"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection auth-server to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/AuthServerApplication.java
+Artifact (line 21):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - monitoring dashboard (Hystrix), "web-portal", port 8090
+    - monitoring server (Turbine)
+    - authentication scope all requests
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/web-portal/src/main/java/com/anilallewar/microservices/portal/PortalApplication.java
+Artifact (line 31):
+    @EnableHystrixDashboard
+And artifact (line 32):
+    @EnableTurbine
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/web-portal.yml
+Artifact (lines [3:4]):
+    server:
+        port: 8090
+
+Authentication:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/web-portal/src/main/java/com/anilallewar/microservices/portal/PortalApplication.java
+Artifact (lines [42:43]):
+    http.logout().and().authorizeRequests().antMatchers("/**/*.html", "/", "/login","/hystrix/**","/turbine.stream").permitAll().anyRequest()
+        .authenticated();
+"""</span>
+
+<span class="n">web_portal</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"web-portal"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">monitoring_server</span><span class="p">,</span> <span class="n">authentication_scope_all_requests</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8090</span><span class="p">,</span> <span class="s">'Monitoring Server'</span><span class="p">:</span> <span class="s">"Turbine"</span><span class="p">,</span> <span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection web-portal to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/web-portal/src/main/java/com/anilallewar/microservices/portal/PortalApplication.java
+Artifact (line 30):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">web_portal</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to web-portal
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/web-portal/src/main/resources/bootstrap.yml
+Artifact (lines [4:6]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">web_portal</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "user-webservice", port 8091
+    - resource server
+    - local logging
+    - endpoints ["/", "/{userName}"]
+    - authentication scope all requests
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java
+Artifact (line 30):
+    @SpringBootApplication
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [2;4]):
+    application:
+
+        name: user-webservice
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/user-webservice.yml
+Artifact (lines [1:2]):
+    server:
+        port: 8091
+
+Resource server:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java
+Artifact (line 32):
+    @EnableResourceServer
+
+Local logging:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/api/UserController.java
+Artifact (lines [26;58]):
+    private static final Logger LOGGER = Logger.getLogger(UserController.class.getName());
+
+        LOGGER.info(String.format("Found matching user: %s", userDtoToReturn.toString()));
+
+Endpoints:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/api/UserController.java
+Artifact (line 23):
+    @RequestMapping("/")
+And artifact (line 51):
+    @RequestMapping(value = "{userName}", method = RequestMethod.GET, headers = "Accept=application/json")
+
+Authentication:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/config/security/ResourceServerConfiguration.java
+Artifact (lines [40:46]):
+    http
+        .sessionManagement()
+            .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+        .and()
+            .authorizeRequests()
+                .anyRequest()
+                    .authenticated();
+"""</span>
+
+<span class="n">user_webservice</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"user-webservice"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">authentication_scope_all_requests</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8091</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/{userName}</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection user-webservice to zipkin-tracing
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/user-webservice.yml
+Artifact (lines [11:12]):
+    zipkin:
+        baseUrl: http://localhost:9411/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user_webservice</span><span class="p">:</span> <span class="n">zipkin_tracing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to user-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [5:6;9]):
+    cloud:
+        config:
+
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">user_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection user-webservice to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java
+Artifact (line 31):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user_webservice</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection auth-server to user-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java
+Artifact (line 34):
+    @EnableOAuth2Client
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">user_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "comments-webservice", port 8083
+    - resource server
+    - local logging
+    - endpoints ["/comments", "/comments/{taskId}"]
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/CommentsApplication.java
+Artifact (line 28):
+    @SpringBootApplication
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [2;5]):
+    application:
+
+        name: comments-webservice
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/comments-webservice.yml
+Artifact (lines [1:2]):
+    server:
+        port: 8083
+
+Resource Server:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/CommentsApplication.java
+Artifact (line 30):
+    @EnableResourceServer
+
+Local logging:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/apis/CommentsController.java
+Artifact (lines [33;65])
+    private static final Logger LOGGER = Logger.getLogger(CommentsController.class.getName());
+
+        LOGGER.info(String.format("Found matching comments for task [%s] with comment [%s]", taskId,
+
+Endpoints:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/apis/CommentsController.java
+Artifact (line 30):
+    @RequestMapping("/comments")
+And artifact (line 59):
+    @RequestMapping(value = "/{taskId}", method = RequestMethod.GET, headers = "Accept=application/json")
+"""</span>
+
+<span class="n">comments_webservice</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"comments-webservice"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8083</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/comments</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/comments/{taskId}</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection comments-webservice to zipkin-server
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/comments-webservice.yml
+Artifact (lines [10:11]):
+    zipkin:
+        baseUrl: http://localhost:9411/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">comments_webservice</span><span class="p">:</span> <span class="n">zipkin_tracing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to comments-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [17:19]):
+    cloud:
+        config:
+            uri: http://configserver:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">comments_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection comments-webservice to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/CommentsApplication.java
+Artifact (line 29):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">comments_webservice</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - internal service "task-webservice", port 8082
+    - circuit breaker
+    - authentication scope all requests
+    - local logging
+    - endpoints ["/", "/{taskId}", "/usertask/{userName}"]
+    - load balancer
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+Artifact (line 38):
+    @SpringBootApplication
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [2;5]):
+  application:
+
+    name: task-webservice
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/task-webservice.yml
+Artifact (lines [1:2]):
+    server:
+        port: 8082
+
+Circuit breaker:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+Artifact (line 40):
+    @EnableCircuitBreaker
+
+Resource Server:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+Artifact (line 41):
+    @EnableResourceServer
+
+Authentication:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/config/security/WebSecurityConfiguration.java
+Artifact (lines [18:21]):
+    http
+        .authorizeRequests()
+            .anyRequest()
+                .authenticated();
+
+Local logging:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/apis/CommentsService.java
+Artifact (lines [31;91]):
+    private static final Logger LOGGER = Logger.getLogger(CommentsService.class.getName());
+
+        LOGGER.info(String.format("Checking comments for taskId [%s]", taskId));
+
+Endpoints:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/apis/TaskController.java
+Artifact (line 22):
+    @RequestMapping("/")
+And artifact (line 48):
+    @RequestMapping(value = "{taskId}", method = RequestMethod.GET, headers = "Accept=application/json")
+And artifact (line 70):
+    @RequestMapping(value = "/usertask/{userName}", method = RequestMethod.GET, headers = "Accept=application/json")
+
+Load Balancer:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/config/OAuthClientConfiguration.java
+Artifact (line 30):
+    @LoadBalanced
+"""</span>
+
+<span class="n">task_webservice</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"task-webservice"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">,</span> <span class="n">authentication_scope_all_requests</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8082</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/{taskId}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/usertask/{userName}</span><span class="se">\'</span><span class="s">]"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Spring Cloud"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection task-webservice to zipkin-tracing
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/task-webservice.yml
+Artifact (lines [11:12]):
+    zipkin:
+        baseUrl: http://localhost:9411/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">task_webservice</span><span class="p">:</span> <span class="n">zipkin_tracing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to task-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/resources/bootstrap.yml
+Artifact (lines [6:7;11]):
+    cloud:
+        config:
+
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">task_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection auth-server to task-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+Artifact (line 42):
+    @EnableOAuth2Client
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">task_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection task-webservice to webservice-registry
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java
+Artifact (line 39):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">task_webservice</span><span class="p">:</span> <span class="n">webservice_registry</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection task-webservice to zipkin-tracing
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/apis/CommentsService.java
+Artifact (line 69):
+    @HystrixCommand(fallbackMethod = "getFallbackCommentsForTask", commandProperties = {
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">task_webservice</span><span class="p">:</span> <span class="n">web_portal</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection task-webservice to comments-webservice
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/apis/CommentsService.java
+Artifact (line 93):
+    return restTemplate.getForObject(String.format("http://comments-webservice/comments/%s", taskId),
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">task_webservice</span><span class="p">:</span> <span class="n">comments_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Components:
+    - api gateway (Zuul), "api-gateway", port 8765
+    - load balancer (Ribbon)
+    - circuit breaker (Hystrix)
+    - user (implicit)
+    - connections between user and api-gateway (implicit)
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java
+Artifact (line 48):
+    @EnableZuulProxy
+And file: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: api-gateway
+And file: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (lines [59:60]):
+    server:
+        port: 8765
+
+Load balancer:
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (line 114):
+    ribbon:
+
+Circuit breaker:
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (line 106):
+    hystrix:
+
+CSRF:
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java
+Artifact (lines 40:41):
+    .csrf()
+        .disable();
+"""</span>
+
+<span class="n">api_gateway</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"api-gateway"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">gateway</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">,</span> <span class="n">csrf_disabled</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span> <span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"user"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection configserver to api-gateway
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/resources/bootstrap.yml
+Artifact (lines [4:6]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">configserver</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection webservice-registry to api-gateway
+File: https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java
+Artifact (line 47):
+    @EnableEurekaClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">webservice_registry</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection api-gateway to zipkin-server
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (lines [10:11]):
+    zipkin:
+        baseUrl: http://localhost:9411/
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">zipkin_tracing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection auth-server to api-gateway
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (lines [27:29]):
+    authserver:
+        hostname: localhost
+        port: 8899
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">api_gateway</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection api-gateway to user-webservice
+    - connection api-gateway to task-webservice
+File: https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml
+Artifact (lines [71:81]):
+    routes:
+        user-service:
+          path: /user-service/**
+          stripPrefix: false
+          serviceId: user-webservice
+          sensitiveHeaders:
+        task-service:
+          path: /task-service/**
+          stripPrefix: false
+          serviceId: task-webservice
+          sensitiveHeaders:
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">user_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">api_gateway</span><span class="p">:</span> <span class="n">task_webservice</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">])</span>
+
+
+
+
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">webservice_registry</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 149 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>29</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>149</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot/anilallewar_microservices-basics-spring-boot.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-warning" style="color: #bfc600;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is unknown:</p>
+<ol>
+  <li>The @EnableZuulProxy annotation is present.</li>
+  <li>The @EnableOAuth2Sso annotation is present.</li>
+  <li>No routing to the authorization server as mentioned by author, thus no single entrypoint.</li>
+  <li>The README.md of the authorization server mentions request at port 8899, while API Gateway port is 8765.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>Dockerfile: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/docker/Dockerfile#L24">24</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/resources/bootstrap.yml#L2">2</a></li>
+  <li>GatewayApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java#L48">48</a></li>
+  <li>WebSecurityConfiguration.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java#L21">21</a></li>
+  <li>README.md: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/README.md#L93">93</a></li>
+  <li>api-gateway.yml: Lines: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml#L59">59</a>, <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml#L66">66</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is observed: All downstream services are resource servers per @EnableResourceServer annotation, meaning even requests between services need to be authenticated/authorized.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>WebSecurityConfiguration.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java#L21">21</a></li>
+  <li>ResourceServerConfiguration.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/config/security/ResourceServerConfiguration.java#L27">27</a></li>
+  <li>ResourceServerConfiguration.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/config/security/ResourceServerConfiguration.java#L27">27</a></li>
+  <li>CommentsApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/comments-webservice/src/main/java/com/anilallewar/microservices/comments/CommentsApplication.java#L30">30</a></li>
+  <li>AuthServerApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/AuthServerApplication.java#L22">22</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>The @EnableAuthorizationServer annotation is present,</li>
+  <li>JwtAccessTokenConverter bean present, thus using JWTs,</li>
+  <li>Downstream services like API-Gateway have public key hardcoded in YML.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>OAuthServerConfiguration.java: Lines: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/config/OAuthServerConfiguration.java#L52">52</a>, <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/auth-server/src/main/java/com/anilallewar/microservices/auth/config/OAuthServerConfiguration.java#L67">67</a></li>
+  <li>api-gateway.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml#L54">54</a></li>
+</ul>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is unknown: As Rule 2 already confirms, every downstream service needs tokens for authorization/authentication. However, no evidence of tokens transferred to internal identity representations.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>All resource servers have the @EnableResourceServer annotation.</li>
+  <li>The public key is hardcoded into each Resource Servers YML-Configuration.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>TaskApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/task-webservice/src/main/java/com/anilallewar/microservices/task/TaskApplication.java#L42">42</a></li>
+  <li>UserApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/user-webservice/src/main/java/com/anilallewar/microservices/user/UserApplication.java#L34">34</a></li>
+  <li>api-gateway.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml#L52">52</a></li>
+  <li>user-webservice.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/user-webservice.yml#L23">23</a></li>
+  <li>comments-webservice.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/comments-webservice.yml#L22">22</a></li>
+  <li>task-webservice.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/task-webservice.yml#L23">23</a></li>
+</ul>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No functionality of consequences for failed login attempts</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: No mention of SSL, TLS, keystores or trust-stores in application</p>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: See rule 7.</p>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: Logs are not explicitly sanitized.</p>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: No message broker is deployed and no logs are collected.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is observed: Hystrix Circuit Breaker enabled through @EnableZuulProxy annotation.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>GatewayApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java#L48">48</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway server uses load balancing via Ribbon to access dependent services through @EnableZuulProxy annotation.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>GatewayApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/GatewayApplication.java#L48">48</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>Started in Docker Container through Compose, thus deployable on dedicated server</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>RegistryApplication.java: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/webservice-registry/src/main/java/com/anilallewar/microservices/registry/RegistryApplication.java#L19">19</a></li>
+  <li>docker-compose.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/docker-orchestration/docker-compose/docker-compose.yml#L33">33</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>api-gateway.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-cloud-config/blob/master/api-gateway.yml#L138">138</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed. The deployed git configuration server is not a secrets manager.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/config-server/src/main/resources/application.yml#L3">3</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_gradle.html" class="btn btn-default navbar-btn cursorNorm" role="button">gradle</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_ribbon.html" class="btn btn-default navbar-btn cursorNorm" role="button">ribbon</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+        <a href="tag_spring_oauth.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_oauth</a>
+        
+        
+        
+        <a href="tag_turbine.html" class="btn btn-default navbar-btn cursorNorm" role="button">turbine</a>
+        
+        
+        
+        <a href="tag_zipkin.html" class="btn btn-default navbar-btn cursorNorm" role="button">zipkin</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

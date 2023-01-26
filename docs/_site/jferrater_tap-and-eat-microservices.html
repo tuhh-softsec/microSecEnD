@@ -1,0 +1,1074 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="dockerdocker_composeeurekahystrixmavenspring_config,  model">
+<title>jferrater/Tap-And-Eat-MicroServices | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the jferrater/Tap-And-Eat-MicroServices page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="jferrater/Tap-And-Eat-MicroServices">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">jferrater/Tap-And-Eat-MicroServices</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/jferrater">Joffry Ferrater</a></p>
+
+<p>The repository has 6 stars and was forked 4 times. The codebase consists of 1484 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_hystrix.html">Hystrix</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_maven.html">Maven</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_config.html">Spring Config</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># source: https://github.com/jferrater/Tap-And-Eat-MicroServices
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"jferrater_tap-and-eat-microservices"</span>
+
+<span class="c1"># status: done
+#
+# time:
+# 0900 - 0920, 20 min
+# 1010 - 1015, 5 min
+# 0605 - 0650, 45 min
+# 0810 - 0855, 45 min
+# + 20 min
+#
+# total: 2h05min
+</span>
+
+
+<span class="s">"""
+Component:
+    - Service Discovery (Eureka), "discovery-service", port 8888
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/java/com/github/joffry/ferrater/discoveryservice/DiscoveryServiceApplication.java
+Artifact (line 13):
+    @EnableEurekaServer
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: discovery-service
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/resources/application.yml
+Artifact (lines [2:3]):
+    server:
+        port:  8888
+"""</span>
+
+<span class="n">discovery_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"discovery-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - Configuration Server (Spring Cloud Config), "config-service", port 8888
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/java/com/github/joffry/ferrater/configservice/ConfigServiceApplication.java
+Artifact (line 14):
+    @EnableConfigServer
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/resources/bootstrap.yml
+Artifact (lines [2:3]):
+    application:
+        name: config-service
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/docker/Dockerfile
+Artifact (line 5):
+    EXPOSE 8888
+"""</span>
+
+<span class="n">config_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"config-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"Spring Cloud Config"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8888</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - external configuration repository "https://github.com/jferrater/ConfigData"
+    - connection config-service to external configuration repository
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/resources/application.yml
+Artifact (lines [7:12]):
+    spring:
+        cloud:
+            config:
+                server:
+                    git:
+                        uri: https://github.com/jferrater/ConfigData
+"""</span>
+
+<span class="n">github_repository</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"github-repository"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">github_repository</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'URL'</span><span class="p">:</span> <span class="s">"https://github.com/jferrater/ConfigData"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">github_repository</span><span class="p">:</span> <span class="n">config_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to eureka
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/java/com/github/joffry/ferrater/configservice/ConfigServiceApplication.java
+Artifact (line 15):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - internal service "account-service", port 8000
+    - endpoints ["/accounts"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/AccountService/src/main/java/com/github/joffryferrater/accountservice/AccountServiceApplication.java
+Artifact (line 19):
+    @SpringBootApplication
+And file:
+Artifact (lines [6:7]):
+    application:
+        name: account-service
+And artifact (lines [9:10]):
+    server:
+        port: 8000
+
+Endpoints:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/AccountService/src/main/java/com/github/joffryferrater/accountservice/models/AccountRepository.java
+Artifact (line 7):
+    @RepositoryRestResource(path="accounts", collectionResourceRel="accounts")
+"""</span>
+
+<span class="n">account_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"account-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8000</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/accounts</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection  to config-service to account-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/AccountService/src/main/resources/bootstrap.yml
+Artifact (lines[2:5]):
+    spring:
+        cloud:
+            config:
+                uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">account_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection account-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/AccountService/src/main/java/com/github/joffryferrater/accountservice/AccountServiceApplication.java
+Artifact (line 20):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">account_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - internal service "customer-service", port 8002
+    - endpoint ["/customers"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/CustomerService/src/main/java/com/github/joffryferrater/customerservice/CustomerServiceApplication.java
+Artifact (line 12):
+    @SpringBootApplication
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/CustomerService/src/main/resources/bootstrap.yml
+Artifact (lines [4:5]):
+    application:
+        name: customer-service
+And artifact (lines [10:11]):
+    server:
+        port: 8002
+
+Endpoints:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/CustomerService/src/main/java/com/github/joffryferrater/customerservice/models/CustomerRepository.java
+Artifact (line 14):
+    @RepositoryRestResource(path="customers", collectionResourceRel="customers")
+"""</span>
+
+<span class="n">customer_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"customer-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8002</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/customers</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to customer-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/CustomerService/src/main/resources/bootstrap.yml
+Artifact (lines [6:8]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">customer_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection customer-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/CustomerService/src/main/java/com/github/joffryferrater/customerservice/CustomerServiceApplication.java
+Artifact (line 13):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">customer_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - internal service "store-service", port 8003
+    - endpoints ["/stores"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/StoreService/src/main/java/com/github/joffryferrater/storeservice/StoreServiceApplication.java
+Artifact (line 12):
+    @SpringBootApplication
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/StoreService/src/main/resources/bootstrap.yml
+Artifact (lines [2:4]):
+    application:
+        name: store-service
+And artifact (lines [8:9]):
+    server:
+        port: 8003
+
+Endpoints:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/StoreService/src/main/java/com/github/joffryferrater/storeservice/models/StoreRepository.java
+Artifact (line 14):
+    @RepositoryRestResource(path="stores", collectionResourceRel="stores")
+"""</span>
+
+<span class="n">store_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"store-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8003</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/stores</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to store-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/StoreService/src/main/resources/bootstrap.yml
+Artifact (lines [5:7]):
+    cloud:
+        config:
+            uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">store_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection store-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/StoreService/src/main/java/com/github/joffryferrater/storeservice/StoreServiceApplication.java
+Artifact (line 13):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">store_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - internal service "item-service", port 8004
+    - endpoint ["/items"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/java/com/github/joffryferrater/itemservice/ItemServiceApplication.java
+Artifact (line 21):
+    @SpringBootApplication
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml
+Artifact (lines [7:8]):
+    application:
+        name: item-service
+And artifact (lines [10:11]):
+    server:
+        port: 8004
+
+Endpoint:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/java/com/github/joffryferrater/itemservice/models/ItemRepository.java
+Artifact (line 15):
+    @RepositoryRestResource(path="items", collectionResourceRel="items")
+"""</span>
+
+<span class="n">item_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"item-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8004</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/items</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to item-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+        cloud:
+            config:
+                uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">item_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection item-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/java/com/github/joffryferrater/itemservice/ItemServiceApplication.java
+Artifact (line 22):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">item_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - internal service "price-service", port 8001
+    - endpoint ["/items"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/java/com/github/joffryferrater/priceservice/PriceServiceApplication.java
+Artifact (line 13):
+    @SpringBootApplication
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml
+Artifact (lines [5:6]):
+    application:
+        name: price-service
+And artifact (lines [7:8]):
+    server:
+        port: 8001
+
+Endpoint:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/java/com/github/joffryferrater/priceservice/models/PriceRepository.java
+Artifact (line 15):
+    @RepositoryRestResource(path="items", collectionResourceRel="items")
+"""</span>
+
+<span class="n">price_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"price-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8001</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/prices</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to price-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml
+Artifact (lines [1:4]):
+    spring:
+        cloud:
+            config:
+                uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">price_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection price-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/java/com/github/joffryferrater/priceservice/PriceServiceApplication.java
+Artifact (line 14):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">price_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component:
+    - monitoring dashboard (Hystrix), "foodtray-service", port 8005
+    - circuit breaker for all connections (Hystrix)
+    - endpoints ["/foodtrays", "/foodtrays/{itemCode}", "/foodtrays/price/{itemCode}", "/foodtrays/item/{itemCode}"]
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java
+Artifact (line 15):
+    @SpringBootApplication
+And file: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/resources/bootstrap.yml
+Artifact (lines [7:8]):
+    application:
+        name: foodtray-service
+And artifact (lines [18:19]):
+    server:
+        port: 8005
+
+Monitoring dashboard:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java
+Artifact (line 18):
+    @EnableHystrixDashboard
+
+Circuit breaker:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java
+Artifact (line 17):
+    @EnableCircuitBreaker
+
+Endpoints:
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayController.java
+Artifact (lines [24:25]):
+    @RestController
+    @RequestMapping("/foodtrays")
+And artifact (line 35):
+    @RequestMapping(value="/price/{itemCode}", method=RequestMethod.GET)
+And artifact (line 40):
+    @RequestMapping(value="/item/{itemCode}", method=RequestMethod.GET)
+And artifact (line 45):
+    @RequestMapping(value="/{itemCode}", method=RequestMethod.GET)
+And artifact (line 53):
+    @RequestMapping(value={"/", ""}, method=RequestMethod.POST)
+And artifact (line 59):
+    @RequestMapping(value={"/", ""}, method=RequestMethod.GET)
+"""</span>
+
+<span class="n">foodtray_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"foodtray-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">infrastructural</span><span class="p">,</span> <span class="n">monitoring_dashboard</span><span class="p">,</span> <span class="n">circuit_breaker</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Monitoring Dashboard'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8005</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/foodtrays</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/foodtrays/{itemCode}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/foodtrays/price/{itemCode}</span><span class="se">\'</span><span class="s">, </span><span class="se">\'</span><span class="s">/foodtrays/item/{itemCode}</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection config-service to foodtray-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/resources/bootstrap.yml
+Artifact (lines [2:5]):
+    spring:
+        cloud:
+            config:
+                uri: http://localhost:8888
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">config_service</span><span class="p">:</span> <span class="n">foodtray_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection foodtray-service to discovery-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java
+Artifact (line 16):
+    @EnableDiscoveryClient
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">foodtray_service</span><span class="p">:</span> <span class="n">discovery_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection foodtray-service to item-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/repository/ItemServiceRepository.java
+Artifact (line 15):
+    @FeignClient(value="ITEM-SERVICE", fallback=ItemServiceFallback.class)
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">foodtray_service</span><span class="p">:</span> <span class="n">item_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - connection foodtray-service to price-service
+File: https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/repository/PriceServiceRepository.java
+Artifact (line 15):
+    @FeignClient(value="PRICE-SERVICE", fallback=PriceServiceRepository.class)
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">foodtray_service</span><span class="p">:</span> <span class="n">price_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">,</span> <span class="n">circuit_breaker_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">,</span> <span class="s">'Circuit Breaker'</span><span class="p">:</span> <span class="s">"Hystrix"</span><span class="p">})</span>
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">discovery_service</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 88 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>16</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>63</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>88</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices/jferrater_tap-and-eat-microservices.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is disregarded: The user communicates with the foodtray service, however the internal services do not restrict access from external entities.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>FoodTrayServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java#L21">21</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml#L11">11</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml#L8">8</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Services communicate internally over plain HTTP using Feign connections (See example artifacts). The connection is thus not authenticated.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>FoodTrayServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java#L21">21</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml#L11">11</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml#L8">8</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server. Note, that the server has a user-service, that is not used for authentication purposes.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/resources/bootstrap.yml#L19">19</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>FoodTrayServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java#L21">21</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml#L11">11</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml#L8">8</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: No logs are generated by the application.</p>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: No message broker is deployed and no logging is performed.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is observed: Hystrix is deployed as a circuit breaker on the gateway server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>FoodTrayServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java#L19">19</a></li>
+</ul>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway server uses load balancing via Ribbon to access dependent services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml#L11">11</a></li>
+  <li>bootstrap.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/PriceService/src/main/resources/bootstrap.yml#L8">8</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is disregarded:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>The discovery service is missing from the docker compose file.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/java/com/github/joffry/ferrater/discoveryservice/DiscoveryServiceApplication.java#L13">13</a></li>
+  <li>docker-compose.yml: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/Docker/docker-compose.yml">File</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServiceApplication.java: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/java/com/github/joffry/ferrater/discoveryservice/DiscoveryServiceApplication.java#L13">13</a></li>
+  <li>application.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/resources/application.yml#L5">5</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed. The deployed git configuration server is not a secrets manager.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ConfigService/src/main/resources/application.yml#L12">12</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_hystrix.html" class="btn btn-default navbar-btn cursorNorm" role="button">hystrix</a>
+        
+        
+        
+        <a href="tag_maven.html" class="btn btn-default navbar-btn cursorNorm" role="button">maven</a>
+        
+        
+        
+        <a href="tag_spring_config.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_config</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

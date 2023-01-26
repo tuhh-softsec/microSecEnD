@@ -1,0 +1,107 @@
+1:
+  status: observed
+  argument: User only communicates with the Apache httpd web server.
+  artifacts:
+    - file: docker/apache/000-default.conf
+      lines: [1]
+    - file: docker/apache/Dockerfile
+      lines: [17]
+
+2:
+  status: disregarded
+  argument: Internal services do not mutually authenticate nor authorize. Only the database accesses are authorized using plaintext credentials.
+  artifacts:
+    - file: microservice-kafka/microservice-kafka-order/src/main/resources/application.properties
+      lines: [11]
+    - file: microservice-kafka/microservice-kafka-shipping/src/main/resources/application.properties
+      lines: [13]
+    - file: microservice-kafka/microservice-kafka-invoicing/src/main/resources/application.properties
+      lines: [13]
+
+3:
+  status: disregarded
+  argument: No authentication mechanism is deployed.
+
+4:
+  status: disregarded
+  argument: External entities are not represented in the application. Users behave transparent to the server.
+
+5:
+  status: disregarded
+  argument: No authentication tokens are used.
+
+6:
+  status: disregarded
+  argument: No rate limiting of any means is deployed.
+
+7:
+  status: disregarded
+  argument: User external entities can call the gateway service using an unencrypted HTTP connection.
+  artifacts:
+    - file: docker/apache/000-default.conf
+      lines: [1]
+    - file: docker/apache/Dockerfile
+      lines: [17]
+
+8:
+  status: disregarded
+  argument: All internal services communicate over insecure HTTP connections.
+  artifacts:
+    - file: docker/apache/000-default.conf
+      lines: [15, 18, 21]
+
+9:
+  status: disregarded
+  argument: No central logging system is deployed.
+
+10:
+  status: disregarded
+  argument: No central logging system is deployed. All internal services do perform local logging, however none of the logs are consumed and accessed through monitoring software.
+  artifacts:
+    - file: microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java
+      lines: [25]
+    - file: microservice-kafka/microservice-kafka-order/src/test/java/com/ewolff/microservice/order/kafka/OrderKafkaTest.java
+      lines: [70]
+    - file: microservice-kafka/microservice-kafka-shipping/src/main/java/com/ewolff/microservice/shipping/ShipmentService.java
+      lines: [25]
+
+11:
+  status: observed
+  argument: All internal services perform structured logging and only entity IDs and events are logged. No PII or secrets will be leaked by the logging messages (see example artifact).
+  artifacts:
+    - file: microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java
+      lines: [25]
+
+12:
+  status: disregarded
+  argument: The deployed Kafka message broker does not handle logging. No logs are collected.
+
+13:
+  status: disregarded
+  argument: No explicit circuit breaker is deployed.
+
+14:
+  status: disregarded
+  argument: No load balancing is deployed.
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: disregarded
+  argument: No service registration is deployed. Services are statically linked.
+  artifacts:
+    - file: docker/apache/000-default.conf
+      lines: [15, 18, 21]
+
+17:
+  status: disregarded
+  argument: No service registration is deployed. Services are statically linked.
+  artifacts:
+    - file: docker/apache/000-default.conf
+      lines: [15, 18, 21]
+
+18:
+  status: disregarded
+  argument: No secret manager is deployed.

@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="apache_httpddockerdocker_composekafkazookeeper,  model">
+<title>ewolff/microservice-kafka | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the ewolff/microservice-kafka page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="ewolff/microservice-kafka">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">ewolff/microservice-kafka</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/ewolff/microservice-kafka">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/ewolff">Eberhard Wolff</a></p>
+
+<p>The repository has 515 stars and was forked 275 times. The codebase consists of 2979 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_apache_httpd.html">Apache httpd</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker.html">Docker</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_docker_compose.html">Docker Compose</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_kafka.html">Kafka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zookeeper.html">ZooKeeper</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/ewolff_microservice-kafka/ewolff_microservice-kafka.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Source: https://github.com/ewolff/microservice-kafka
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"ewolff_microservice-kafka"</span>
+
+
+
+<span class="s">"""
+Component: Config Server (Apache ZooKeeper), zookeeper
+File: https://github.com/ewolff/microservice-kafka/blob/6fd9cc6aba3109f0e9c031ce4555b1a144b7a0d0/docker/docker-compose.yml
+Artifact (lines[2:4]):
+    services:
+      zookeeper:
+        image: wurstmeister/zookeeper:3.4.6
+"""</span>
+
+<span class="n">zookeeper</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"zookeeper"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">configuration_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Configuration Server'</span><span class="p">:</span> <span class="s">"ZooKeeper"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: Message broker (Kafka), "kafka", port 9092
+File: https://github.com/ewolff/microservice-kafka/blob/6fd9cc6aba3109f0e9c031ce4555b1a144b7a0d0/docker/docker-compose.yml
+Artifact (lines[5:11]):
+      kafka:
+        image: wurstmeister/kafka:2.12-2.5.0
+        [...]
+        environment:
+          KAFKA_ADVERTISED_HOST_NAME: kafka
+          KAFKA_ADVERTISED_PORT: 9092
+"""</span>
+
+<span class="n">kafka</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"kafka"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">message_broker</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Message Broker'</span><span class="p">:</span> <span class="s">"Kafka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">9092</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection from kafka to ZooKeeper
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/docker-compose.yml
+Artifact (lines[5:8]):
+  kafka:
+    [...]
+    links:
+     - zookeeper
+And: implicit; Kafka always needs ZooKeeper to store topics, partitions, etc.
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">zookeeper</span><span class="p">:</span> <span class="n">kafka</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Component: order service (internal), port 8080
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/java/com/ewolff/microservice/order/OrderApp.java
+Artifact (line 6):
+    @SpringBootApplication
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Endpoints:
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/java/com/ewolff/microservice/order/logic/OrderRepository.java
+Artifact (line 9):
+    @RepositoryRestResource(collectionResourceRel = "order", path = "order")
+"""</span>
+
+<span class="n">order</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"order"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">internal</span><span class="p">,</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">,</span> <span class="s">'Endpoints'</span><span class="p">:</span> <span class="s">"[</span><span class="se">\'</span><span class="s">/order</span><span class="se">\'</span><span class="s">]"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection order to kafka (sending to topic "order")
+File: https://github.com/ewolff/microservice-kafka/blob/6fd9cc6aba3109f0e9c031ce4555b1a144b7a0d0/microservice-kafka/microservice-kafka-order/src/main/java/com/ewolff/microservice/order/logic/OrderService.java
+Artifact (line 14):
+	private KafkaTemplate&lt;String, Order&gt; kafkaTemplate;
+And artifact (line 34)
+		kafkaTemplate.send("order", order.getId() + "created", order);
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">order</span><span class="p">:</span> <span class="n">kafka</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">message_producer_kafka</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Producer Topic'</span><span class="p">:</span> <span class="s">"order"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - invoicing service (internal), port 8080
+    - local logging
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceApp.java
+Artifact (line 6):
+    @SpringBootApplication
+And file:
+Artifact (line 4):
+    EXPOSE 8080
+
+Local logging:
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java
+Artifact (lines[4;12;25]):
+    import org.slf4j.LoggerFactory;
+
+    	private final Logger log = LoggerFactory.getLogger(InvoiceService.class);
+
+        			log.info("Invoice id {} already exists - ignored", invoice.getId());
+"""</span>
+
+<span class="n">invoicing</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"invoicing"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection invoicing to kafka (listening to topic "order")
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/events/OrderKafkaListener.java
+Artifact (line 24):
+    @KafkaListener(topics = "order")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">kafka</span><span class="p">:</span> <span class="n">invoicing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">message_consumer_kafka</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Consumer Topic'</span><span class="p">:</span> <span class="s">"order"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - shipping service (internal), port 8080
+    - local logging
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/java/com/ewolff/microservice/shipping/ShippingApp.java
+Artifact (line 6):
+    @SpringBootApplication
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/Dockerfile
+Artifact (line 4):
+    EXPOSE 8080
+
+Local logging:
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/java/com/ewolff/microservice/shipping/ShipmentService.java
+Artifact (lines[4;12;25]):
+    import org.slf4j.LoggerFactory;
+
+    	private final Logger log = LoggerFactory.getLogger(ShipmentService.class);
+
+        			log.info("Shipment id {} already exists - ignored", shipment.
+"""</span>
+
+<span class="n">shipping</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"shipping"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Port'</span><span class="p">:</span> <span class="mi">8080</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection kafka to shipping (listening to topic "order")
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/java/com/ewolff/microservice/shipping/events/OrderKafkaListener.java
+Artifact (line 24):
+    @KafkaListener(topics = "order")
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">kafka</span><span class="p">:</span> <span class="n">shipping</span><span class="p">},</span>  <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">message_consumer_kafka</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Consumer Topic'</span><span class="p">:</span> <span class="s">"order"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Components:
+    - Web server (Apache httpd), "apache", port 80
+    - connection apache to order, shipping, and invoicing
+    - user and connection to apache (implicit for web server)
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/Dockerfile
+Artifact (lines[1;9:11;18]):
+    FROM ubuntu:20.04
+    [...]
+    RUN apt-get install -y -qq apache2 &amp;&amp; </span><span class="se">\
+</span><span class="s">        a2enmod proxy proxy_http proxy_ajp rewrite deflate headers proxy_connect proxy_html lbmethod_byrequests &amp;&amp; </span><span class="se">\
+</span><span class="s">        mkdir /var/lock/apache2 &amp;&amp; mkdir /var/run/apache2
+    [...]
+    COPY 000-default.conf  /etc/apache2/sites-enabled/000-default.conf
+    [...]
+    EXPOSE 80
+    CMD apache2ctl -D FOREGROUND
+
+Connection apache to order:
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf
+Artifact (lines[14:15])
+    ProxyPass        /order http://order:8080/
+    ProxyPassReverse /order http://order:8080/
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/resources/application.properties
+Artifact (lines[3:4]):
+    server.port=8080
+    spring.application.name=order
+
+Connection apache to shipping:
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf
+Artifact (lines[17:18])
+	ProxyPass        /shipping http://shipping:8080/
+    ProxyPassReverse /shipping http://shipping:8080/
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/resources/application.properties
+Artifact (lines[3:4]):
+    server.port=8080
+    spring.application.name=shipping
+
+Connection apache to invoicing:
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf
+Artifact (lines[20:21])
+	ProxyPass        /invoicing http://invoicing:8080/
+    ProxyPassReverse /invoicing http://invoicing:8080/
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/resources/application.properties
+Artifact (lines[3:4]):
+    server.port=8080
+    spring.application.name=invoicing
+"""</span>
+
+<span class="n">apache</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"apache"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">web_server</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Web Server'</span><span class="p">:</span> <span class="s">"Apache httpd"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">80</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache</span><span class="p">:</span> <span class="n">order</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache</span><span class="p">:</span> <span class="n">shipping</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache</span><span class="p">:</span> <span class="n">invoicing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">apache</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">apache</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - Postgres database
+    - plaintext credentials
+File: https://github.com/ewolff/microservice-kafka/blob/master/docker/postgres/Dockerfile
+Artifact (line 1):
+    FROM postgres:12.2
+And file: https://github.com/ewolff/microservice-kafka/blob/master/docker/docker-compose.yml
+Artifact (lines[22:26]):
+    postgres:
+        [...]
+            POSTGRES_PASSWORD: dbpass
+            POSTGRES_USER: dbuser
+"""</span>
+
+<span class="n">postgres</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">database_component</span><span class="p">,</span> <span class="s">"postgres"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">database</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"PostgreSQL"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"dbuser"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"dbpass"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection order service to database via JDBC
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/resources/application.properties
+Artifact (line 9):
+    spring.datasource.url=jdbc:postgresql://postgres/dborder
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/resources/application.properties
+Artifact (lines [10:11]):
+    spring.datasource.username=dbuser
+    spring.datasource.password=dbpass
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">postgres</span><span class="p">:</span> <span class="n">order</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"dbuser"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"dbpass"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection shipping service to database via JDBC
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/resources/application.properties
+Artifact (line 11):
+    spring.datasource.url=jdbc:postgresql://postgres/dbshipping
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/resources/application.properties
+Artifact (lines [12:13]):
+    spring.datasource.username=dbuser
+    spring.datasource.password=dbpass
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">postgres</span><span class="p">:</span> <span class="n">shipping</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"dbuser"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"dbpass"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection invoicing service to database via JDBC
+File: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/resources/application.properties
+Artifact (line 11):
+    spring.datasource.url=jdbc:postgresql://postgres/dbinvoicing
+And file: https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/resources/application.properties
+Artifact (lines [12:13]):
+    spring.datasource.username=dbuser
+    spring.datasource.password=dbpass
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">postgres</span><span class="p">:</span> <span class="n">invoicing</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Username'</span><span class="p">:</span> <span class="s">"dbuser"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"dbpass"</span><span class="p">})</span>
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">apache</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 76 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>7</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>12</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>56</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>76</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/ewolff_microservice-kafka/ewolff_microservice-kafka/ewolff_microservice-kafka.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/ewolff_microservice-kafka/ewolff_microservice-kafka/ewolff_microservice-kafka.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/ewolff_microservice-kafka/ewolff_microservice-kafka/ewolff_microservice-kafka.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/ewolff_microservice-kafka/ewolff_microservice-kafka/ewolff_microservice-kafka.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is observed: User only communicates with the Apache httpd web server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>000-default.conf: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L1">1</a></li>
+  <li>Dockerfile: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/Dockerfile#L17">17</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Internal services do not mutually authenticate nor authorize. Only the database accesses are authorized using plaintext credentials.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.properties: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/main/resources/application.properties#L11">11</a></li>
+  <li>application.properties: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/resources/application.properties#L13">13</a></li>
+  <li>application.properties: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/resources/application.properties#L13">13</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is disregarded: No authentication mechanism is deployed.</p>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is disregarded: External entities are not represented in the application. Users behave transparent to the server.</p>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is disregarded: No authentication tokens are used.</p>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>000-default.conf: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L1">1</a></li>
+  <li>Dockerfile: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/Dockerfile#L17">17</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>000-default.conf: Lines: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L15">15</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L18">18</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L21">21</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed. All internal services do perform local logging, however none of the logs are consumed and accessed through monitoring software.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>InvoiceService.java: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java#L25">25</a></li>
+  <li>OrderKafkaTest.java: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-order/src/test/java/com/ewolff/microservice/order/kafka/OrderKafkaTest.java#L70">70</a></li>
+  <li>ShipmentService.java: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-shipping/src/main/java/com/ewolff/microservice/shipping/ShipmentService.java#L25">25</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is observed: All internal services perform structured logging and only entity IDs and events are logged. No PII or secrets will be leaked by the logging messages (see example artifact).</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>InvoiceService.java: Line: <a href="https://github.com/ewolff/microservice-kafka/blob/master/microservice-kafka/microservice-kafka-invoicing/src/main/java/com/ewolff/microservice/invoicing/InvoiceService.java#L25">25</a></li>
+</ul>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: The deployed Kafka message broker does not handle logging. No logs are collected.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is disregarded: No explicit circuit breaker is deployed.</p>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is disregarded: No load balancing is deployed.</p>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is disregarded: No service registration is deployed. Services are statically linked.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>000-default.conf: Lines: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L15">15</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L18">18</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L21">21</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No service registration is deployed. Services are statically linked.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>000-default.conf: Lines: <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L15">15</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L18">18</a>, <a href="https://github.com/ewolff/microservice-kafka/blob/master/docker/apache/000-default.conf#L21">21</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: No secret manager is deployed.</p>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_apache_httpd.html" class="btn btn-default navbar-btn cursorNorm" role="button">apache_httpd</a>
+        
+        
+        
+        <a href="tag_docker.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker</a>
+        
+        
+        
+        <a href="tag_docker_compose.html" class="btn btn-default navbar-btn cursorNorm" role="button">docker_compose</a>
+        
+        
+        
+        <a href="tag_kafka.html" class="btn btn-default navbar-btn cursorNorm" role="button">kafka</a>
+        
+        
+        
+        <a href="tag_zookeeper.html" class="btn btn-default navbar-btn cursorNorm" role="button">zookeeper</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

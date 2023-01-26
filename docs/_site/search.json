@@ -1,0 +1,214 @@
+
+[
+
+{
+"title": "anilallewar/microservices-basics-spring-boot",
+"tags": "dockerdocker_composeeurekagradlehystrixribbonspring_configspring_oauthturbinezipkinzuul",
+"keywords": "model",
+"url": "anilallewar_microservices-basics-spring-boot.html",
+"summary": ""
+}
+,
+
+{
+"title": "apssouza22/java-microservice",
+"tags": "dockerdocker_composeeurekahystrixkafkalogstashmavennginxspring_adminspring_configspring_oauthzookeeper",
+"keywords": "model",
+"url": "apssouza22_java-microservice.html",
+"summary": ""
+}
+,
+
+{
+"title": "callistaenterprise/blog-microservices",
+"tags": "docker_composeelasticsearcheurekagradlehystrixkibanalogstashrabbitmqribbonspring_configspring_oauthturbinezipkinzuul",
+"keywords": "model",
+"url": "callistaenterprise_blog-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "Converting Model Representations",
+"tags": "",
+"keywords": "model conversion",
+"url": "conversion.html",
+"summary": ""
+}
+,
+
+{
+"title": "Items in our DFDS",
+"tags": "",
+"keywords": "Dataflow Diagrams, DFDs, source code, model items, nodes, edges, architectural layout, security features, services, databases, external entities, information flows, stereotypes, tagged values",
+"url": "dfds.html",
+"summary": ""
+}
+,
+
+{
+"title": "ewolff/microservice-kafka",
+"tags": "apache_httpddockerdocker_composekafkazookeeper",
+"keywords": "model",
+"url": "ewolff_microservice-kafka.html",
+"summary": ""
+}
+,
+
+{
+"title": "ewolff/microservice",
+"tags": "eurekahystrixmavenribbonturbinezuul",
+"keywords": "model",
+"url": "ewolff_microservice.html",
+"summary": ""
+}
+,
+
+{
+"title": "fernandoabcampos/spring-netflix-oss-microservices",
+"tags": "dockereurekahystrixmavenrabbitmqspring_configturbinezuul",
+"keywords": "model",
+"url": "fernandoabcampos_spring-netflix-oss-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "georgwittberger/apache-spring-boot-microservice-example",
+"tags": "apache_httpdmaven",
+"keywords": "model",
+"url": "georgwittberger_apache-spring-boot-microservice-example.html",
+"summary": ""
+}
+,
+
+{
+"title": "microSecEnD - A Dataset of Manually Created Dataflow Diagrams",
+"tags": "",
+"keywords": "code2DFD introduction",
+"url": "index.html",
+"summary": ""
+}
+,
+
+{
+"title": "jferrater/Tap-And-Eat-MicroServices",
+"tags": "dockerdocker_composeeurekahystrixmavenspring_config",
+"keywords": "model",
+"url": "jferrater_tap-and-eat-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "koushikkothagal/spring-boot-microservices-workshop",
+"tags": "eurekamaven",
+"keywords": "model",
+"url": "koushikkothagal_spring-boot-microservices-workshop.html",
+"summary": ""
+}
+,
+
+{
+"title": "mdeket/spring-cloud-movie-recommendation",
+"tags": "eurekahystrixmavenribbonspring_configzipkinzuul",
+"keywords": "model",
+"url": "mdeket_spring-cloud-movie-recommendation.html",
+"summary": ""
+}
+,
+
+{
+"title": "Dataset",
+"tags": "",
+"keywords": "dataset models",
+"url": "models.html",
+"summary": ""
+}
+,
+
+{
+"title": "mudigal-technologies/microservices-sample",
+"tags": "consuldockerdocker_composeelasticsearchkibanalogstashnginxrabbitmqweave_scopezuul",
+"keywords": "model",
+"url": "mudigal-technologies_microservices-sample.html",
+"summary": ""
+}
+,
+
+{
+"title": "piomin/sample-spring-oauth2-microservices",
+"tags": "eurekaribbonspring_oauthzuul",
+"keywords": "model",
+"url": "piomin_sample-spring-oauth2-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "rohitghatol/spring-boot-microservices",
+"tags": "docker_composeeurekagradlehystrixribbonspring_configspring_oauthzuul",
+"keywords": "model",
+"url": "rohitghatol_spring-boot-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "Security Rules",
+"tags": "",
+"keywords": "Security Rules, Microservices",
+"url": "rules.html",
+"summary": ""
+}
+,
+
+{
+"title": "shabbirdwd53/Springboot-Microservice",
+"tags": "eurekahystrixmavenspring_configspring_gatewayzipkin",
+"keywords": "model",
+"url": "shabbirdwd53_springboot-microservice.html",
+"summary": ""
+}
+,
+
+{
+"title": "spring-petclinic/spring-petclinic-microservices",
+"tags": "dockerdocker_composeeurekagrafanahystrixmavenprometheusribbonspring_adminspring_configspring_gatewayzipkin",
+"keywords": "model",
+"url": "spring-petclinic_spring-petclinic-microservices.html",
+"summary": ""
+}
+,
+
+{
+"title": "sqshq/piggymetrics",
+"tags": "dockereurekahystrixmavenrabbitmqribbonspring_configspring_oauthturbinezuul",
+"keywords": "model",
+"url": "sqshq_piggymetrics.html",
+"summary": ""
+}
+,
+
+{
+"title": "Use-Cases",
+"tags": "",
+"keywords": "Architecture Reconstruction, Feature Detection, Software Security Assessment Techniques",
+"url": "usecases.html",
+"summary": ""
+}
+,
+
+{
+"title": "yidongnan/spring-cloud-netflix-example",
+"tags": "dockerdocker_composeeurekagradlehystrixrabbitmqribbonspring_adminspring_configturbinezipkinzuul",
+"keywords": "model",
+"url": "yidongnan_spring-cloud-netflix-example.html",
+"summary": ""
+}
+
+
+
+
+
+]

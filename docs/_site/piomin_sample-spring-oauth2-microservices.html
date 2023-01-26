@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="keywords" content="eurekaribbonspring_oauthzuul,  model">
+<title>piomin/sample-spring-oauth2-microservices | microSecEnD</title>
+<link rel="stylesheet" href="css/syntax.css">
+
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/modern-business.css">
+<!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<link rel="stylesheet" href="css/customstyles.css">
+<link rel="stylesheet" href="css/boxshadowproperties.css">
+<!-- most color styles are extracted out to here -->
+<link rel="stylesheet" href="css/theme-blue.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="js/jquery.navgoco.min.js"></script>
+
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<!-- Anchor.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/anchor-js/4.2.0/anchor.min.js"></script>
+<script src="js/toc.js"></script>
+<script src="js/customscripts.js"></script>
+
+<link rel="shortcut icon" href="images/favicon.ico">
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+<link rel="alternate" type="application/rss+xml" title="dataset" href="http://0.0.0.0:4000/feed.xml">
+
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize navgoco with default options
+            $("#mysidebar").navgoco({
+                caretHtml: '',
+                accordion: true,
+                openClass: 'active', // open
+                save: false, // leave false or nav highlighting doesn't work right
+                cookie: {
+                    name: 'navgoco',
+                    expires: false,
+                    path: '/'
+                },
+                slide: {
+                    duration: 400,
+                    easing: 'swing'
+                }
+            });
+
+            $("#collapseAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', false);
+            });
+
+            $("#expandAll").click(function(e) {
+                e.preventDefault();
+                $("#mysidebar").navgoco('toggle', true);
+            });
+
+        });
+
+    </script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+    <script>
+        $(document).ready(function() {
+            $("#tg-sb-link").click(function() {
+                $("#tg-sb-sidebar").toggle();
+                $("#tg-sb-content").toggleClass('col-md-9');
+                $("#tg-sb-content").toggleClass('col-md-12');
+                $("#tg-sb-icon").toggleClass('fa-toggle-on');
+                $("#tg-sb-icon").toggleClass('fa-toggle-off');
+            });
+        });
+    </script>
+    
+
+</head>
+<body>
+<!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-static-top">
+    <div class="container topnavlinks">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="fa fa-home fa-lg navbar-brand" href="index.html">&nbsp;<span class="projectTitle"> microSecEnD - A Dataset of Microservices' DFDs</span></a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- toggle sidebar button -->
+                <li><a id="tg-sb-link" href="#"><i id="tg-sb-icon" class="fa fa-toggle-on"></i> Nav</a></li>
+                <!-- entries without drop-downs appear here -->
+
+
+
+
+                
+                
+                
+                <li><a href="https://github.com/SimonAdrian/microservices-dataset" target="_blank" rel="noopener">GitHub</a></li>
+                
+                
+                
+                <!-- entries with drop-downs appear here -->
+                <!-- conditional logic to control which topnav appears for the audience defined in the configuration file.-->
+                
+                
+			<li>
+
+
+
+  <a class="email" title="Submit feedback" href="#" onclick="javascript:window.location='mailto:feedback@disabled.de?subject=microSecEnD feedback&body=I have some feedback about the piomin/sample-spring-oauth2-microservices page: ' + window.location.href;"><i class="fa fa-envelope-o"></i> Feedback</a>
+
+</li>
+
+
+
+		
+                <!--comment out this block if you want to hide search-->
+                <li>
+                    <!--start search-->
+                    <div id="search-demo-container">
+                        <input type="text" id="search-input" placeholder="search...">
+                        <ul id="results-container"></ul>
+                    </div>
+                    <script src="js/jekyll-search.js" type="text/javascript"></script>
+                    <script type="text/javascript">
+                            SimpleJekyllSearch.init({
+                                searchInput: document.getElementById('search-input'),
+                                resultsContainer: document.getElementById('results-container'),
+                                dataSource: 'search.json',
+                                searchResultTemplate: '<li><a href="{url}" title="piomin/sample-spring-oauth2-microservices">{title}</a></li>',
+                    noResultsText: 'No results found.',
+                            limit: 10,
+                            fuzzy: true,
+                    })
+                    </script>
+                    <!--end search-->
+                </li>
+            </ul>
+        </div>
+        </div>
+        <!-- /.container -->
+</nav>
+
+
+
+<!-- Page Content -->
+<div class="container">
+  <div id="main">
+    <!-- Content Row -->
+    <div class="row">
+        
+        
+            <!-- Sidebar Column -->
+            <div class="col-md-3" id="tg-sb-sidebar">
+                
+
+<ul id="mysidebar" class="nav">
+  <li class="sidebarTitle">microSecEnD </li>
+  
+  
+  
+  <li>
+      <a title="Content" href="#">Content</a>
+      <ul>
+          
+          
+          
+          <li><a title="Introduction" href="index.html">Introduction</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Description of DFDs" href="dfds.html">Description of DFDs</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Use-Cases" href="usecases.html">Use-Cases</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Security Rules" href="rules.html">Security Rules</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Dataset" href="models.html">Dataset</a></li>
+          
+          
+          
+          
+          
+          
+          <li><a title="Model Conversion" href="conversion.html">Model Conversion</a></li>
+          
+          
+          
+          
+      </ul>
+   </li>
+     
+      
+      
+      <!-- if you aren't using the accordion, uncomment this block:
+         <p class="external">
+             <a href="#" id="collapseAll">Collapse All</a> | <a href="#" id="expandAll">Expand All</a>
+         </p>
+         -->
+</ul>
+
+<!-- this highlights the active parent class in the navgoco sidebar. this is critical so that the parent expands when you're viewing a page. This must appear below the sidebar code above. Otherwise, if placed inside customscripts.js, the script runs before the sidebar code runs and the class never gets inserted.-->
+<script>$("li.active").parents('li').toggleClass("active");</script>
+
+
+
+            </div>
+            
+        
+
+        <!-- Content Column -->
+        <div class="col-md-9" id="tg-sb-content">
+            <div class="post-header">
+   <h1 class="post-title-main">piomin/sample-spring-oauth2-microservices</h1>
+</div>
+
+
+
+<div class="post-content">
+
+   
+
+    
+
+
+    
+
+   <h2 id="repository-information">Repository Information</h2>
+
+<p>Repository: <a href="https://github.com/piomin/sample-spring-oauth2-microservices">GitHub</a></p>
+
+<p>Owner: <a href="https://github.com/piomin">Piotr Mińkowski</a></p>
+
+<p>The repository has 120 stars and was forked 138 times. The codebase consists of 1028 lines of code and makes use of the following technologies:</p>
+
+<p><a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_eureka.html">Eureka</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_ribbon.html">Ribbon</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_spring_oauth.html">Spring OAuth</a>
+<a class="btn btn-primary" style="margin-bottom: 5px" role="button" href="tag_zuul.html">Zuul</a></p>
+
+<h2 id="data-flow-diagram">Data Flow Diagram</h2>
+
+<h3 id="dfd-model">DFD Model</h3>
+<p>Download the <a href="../../../dataset/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices.py">model file</a>
+The images below were generated by executing the model file. The DFD is represented as a CodeableModels file.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">codeable_models</span> <span class="kn">import</span> <span class="n">CClass</span><span class="p">,</span> <span class="n">CBundle</span><span class="p">,</span> <span class="n">add_links</span><span class="p">,</span> <span class="n">CStereotype</span><span class="p">,</span> <span class="n">CMetaclass</span><span class="p">,</span> <span class="n">CEnum</span><span class="p">,</span> <span class="n">CAttribute</span>
+<span class="kn">from</span> <span class="nn">metamodels.microservice_dfds_metamodel</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">plant_uml_renderer</span> <span class="kn">import</span> <span class="n">PlantUMLGenerator</span>
+
+<span class="c1"># Sources:
+#   - https://github.com/piomin/sample-spring-oauth2-microservices/tree/with_database
+#   - https://piotrminkowski.wordpress.com/2017/12/01/part-2-microservices-security-with-oauth2/
+</span>
+<span class="n">plantuml_path</span> <span class="o">=</span> <span class="s">"../../plantuml.jar"</span>
+<span class="n">output_directory</span> <span class="o">=</span> <span class="s">"."</span>
+<span class="n">model_name</span> <span class="o">=</span> <span class="s">"piomin_sample-spring-oauth2-microservices"</span>
+
+
+<span class="s">"""
+Component: Discovery Server (Eureka), "discovery", port 8761
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableEurekaServer
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+      port: ${PORT:8761}
+"""</span>
+
+<span class="n">discovery_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"discovery-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">service_discovery</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Service Discovery'</span><span class="p">:</span> <span class="s">"Eureka"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8761</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component:
+    - API Gateway (Zuul), "gateway", port 8765
+    - gateway database
+    - connection gateway to gateway-database
+    - connection to service discovery
+    - in-memory authentication, plain-text credentials
+    - load balancer (built in with Zuul)
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/master/gateway/src/main/java/pl/piomin/services/gateway/GatewayServer.java
+Artifact (lines[14:1830]):
+    @SpringBootApplication
+    @EnableZuulProxy
+    @EnableOAuth2Sso
+    @EnableDiscoveryClient
+    @EnableJdbcHttpSession
+And artifact (lines[27:28]):
+	return DataSourceBuilder.create().url("jdbc:mysql://192.168.99.100:33306/default?useSSL=false")
+			.username("default").password("default").driverClassName("com.mysql.jdbc.Driver").build();
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+        port: ${PORT:8765}
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java
+Artifact (lines[33:37]):
+    @Override
+    	public void configure(AuthenticationManagerBuilder auth) throws Exception {
+            [...]
+    		auth.inMemoryAuthentication().withUser("root").password("password").roles("USER");
+    	}
+"""</span>
+
+<span class="n">gateway_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"gateway-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">gateway</span><span class="p">,</span> <span class="n">in_memory_authentication</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">authentication_scope_all_requests</span><span class="p">,</span> <span class="n">load_balancer</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Gateway'</span><span class="p">:</span> <span class="s">"Zuul"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"root"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"password"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span> <span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">discovery_server</span><span class="p">:</span> <span class="n">gateway_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">database_gateway_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"database-gateway-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">external_database</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">'Password'</span><span class="p">:</span> <span class="s">"default"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"default"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">database_gateway_server</span><span class="p">:</span> <span class="n">gateway_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Password'</span><span class="p">:</span> <span class="s">"default"</span><span class="p">,</span> <span class="s">'Username'</span><span class="p">:</span> <span class="s">"default"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: User
+Implicit through Gateway
+"""</span>
+
+<span class="n">user</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"User"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">user_stereotype</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Component: connection user to gateway, authenticated
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java
+Artifact (lines[21:31]):
+    @Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
+		.authorizeRequests()
+			.anyRequest().authenticated()
+			.and()
+		.formLogin()
+			.loginPage("/login")
+			.permitAll()
+			.and().httpBasic().disable();
+	}
+
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">user</span><span class="p">:</span> <span class="n">gateway_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">authenticated_request</span><span class="p">])</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">gateway_server</span><span class="p">:</span> <span class="n">user</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - authorization server (Spring OAuth2), "auth", port 9999
+    - connection to discovery service
+    - auth-database (MySQL), "ouath2"
+    - connection auth to auth-database
+    - plaintext credentials
+    - tokenstore in auth-database
+    - encryption
+    - local logging
+    - resource server
+Authorization server:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/AuthServer.java
+Artifact (lines[11:13]):
+    @SpringBootApplication
+    @RestController
+    @EnableDiscoveryClient
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java
+Artifact (lines[17:19]):
+    @Configuration
+    @EnableAuthorizationServer
+    public class OAuth2Config extends AuthorizationServerConfigurerAdapter {
+
+Port:
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+        port: ${PORT:9999}
+
+Database:
+File: https://piotrminkowski.wordpress.com/2017/12/01/part-2-microservices-security-with-oauth2/
+Artifact:
+    "All the authentication credentials and tokens are stored in MySQL database. So, the first step is to start MySQL. The most comfortable way to achieve it is through a Docker container. The command visible below in addition to starting database also creates schema and user oauth2.
+    docker run -d --name mysql -e MYSQL_DATABASE=oauth2 -e MYSQL_USER=oauth2 -e MYSQL_PASSWORD=oauth2 -e MYSQL_ALLOW_EMPTY_PASSWORD=yes -p 33306:3306 mysql"
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml
+Artifact (lines[7:10]):
+    datasource:
+        url: jdbc:mysql://192.168.99.100:33306/oauth2?useSSL=false
+        username: oauth2
+        password: oauth2
+
+Tokenstore in database:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java
+Artifact (lines[21:22]):
+    @Autowired
+	private DataSource dataSource;
+And artifact (lines[47:50]):
+    @Bean
+	public JdbcTokenStore tokenStore() {
+		return new JdbcTokenStore(dataSource);
+	}
+
+Encryption:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/SecurityConfig.java
+Artifact (lines[7:8;24:25;32]):
+    import org.springframework.security.authentication.encoding.PasswordEncoder;
+    import org.springframework.security.authentication.encoding.ShaPasswordEncoder;
+
+        public PasswordEncoder passwordEncoder() {
+        return new ShaPasswordEncoder(256);
+
+                	.passwordEncoder(passwordEncoder());
+
+Local logging:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java
+Artifact (lines[7;24;33]):
+    import org.slf4j.LoggerFactory;
+
+        private final Logger log = LoggerFactory.getLogger(UserDetailsServiceImpl.class);
+
+                log.debug("Authenticating {}", login);
+
+Resource Server:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/05f390ee4351247a9c5803098059238424b58bae/auth/src/main/java/pl/piomin/services/auth/AuthServer.java
+Artifact (line 21):
+    @EnableResourceServer
+"""</span>
+
+<span class="n">auth_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"auth-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">authorization_server</span><span class="p">,</span> <span class="n">encryption</span><span class="p">,</span> <span class="n">infrastructural</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">,</span> <span class="n">token_server</span><span class="p">,</span> <span class="n">local_logging</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Authorization Server'</span><span class="p">:</span> <span class="s">"Spring OAuth2"</span><span class="p">,</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">9999</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+<span class="n">database_auth_server</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">external_component</span><span class="p">,</span> <span class="s">"database-auth-server"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">external_database</span><span class="p">,</span> <span class="n">entrypoint</span><span class="p">,</span> <span class="n">exitpoint</span><span class="p">,</span> <span class="n">plaintext_credentials</span><span class="p">,</span> <span class="n">tokenstore</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Database'</span><span class="p">:</span> <span class="s">"MySQL"</span><span class="p">,</span> <span class="s">"Username"</span><span class="p">:</span> <span class="s">"oauth2"</span><span class="p">,</span> <span class="s">"Password"</span><span class="p">:</span> <span class="s">"oauth2"</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">database_auth_server</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">jdbc</span><span class="p">,</span> <span class="n">plaintext_credentials_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">"Username"</span><span class="p">:</span> <span class="s">"oauth2"</span><span class="p">,</span> <span class="s">"Password"</span><span class="p">:</span> <span class="s">"oauth2"</span><span class="p">})</span>
+
+
+
+<span class="s">"""
+Component: connection gateway to authorization server
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml
+Artifact (lines[37:44]):
+    oauth2:
+        client:
+            accessTokenUri: http://localhost:8765/uua/oauth/token
+            userAuthorizationUri: http://localhost:8765/uua/oauth/authorize
+            clientAuthenticationScheme: form
+        resource:
+            userInfoUri: http://localhost:8765/uaa/user
+            preferTokenInfo: false
+And artifact (lines[16:21]):
+    zuul:
+        routes:
+            uaa:
+                path: /uaa/**
+                sensitiveHeaders:
+                serviceId: auth-server
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">gateway_server</span><span class="p">:</span> <span class="n">auth_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">auth_provider</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Component:
+    - account-service (internal), port 8082
+    - connection to discovery service
+    - pre-authorized method
+    - connection to auth
+    - resource server
+
+Service and connection to discovery service:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/AccountService.java
+Artifact (lines[7:8]):
+    @SpringBootApplication
+    @EnableDiscoveryClient
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/resources/application.yml
+Artifact (lines[1:2]):
+    server:
+        port: ${PORT:8082}
+
+Pre-authorized method:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/OAuth2ResourceServerConfig.java
+Artifact (lines[10:12]):
+    @Configuration
+    @EnableResourceServer
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/api/AccountController.java
+Artifact (lines[16:27]):
+	@GetMapping("/{id}")
+	@PreAuthorize("#oauth2.hasScope('read')")
+	public Account findAccount(@PathVariable("id") Integer id) {
+		return new Account(id, 1, "123456789", 1234);
+	}
+
+	@GetMapping("/")
+	@PreAuthorize("#oauth2.hasScope('read')")
+	public List&lt;Account&gt; findAccounts() {
+		return Arrays.asList(new Account(1, 1, "123456789", 1234), new Account(2, 1, "123456780", 2500),
+				new Account(3, 1, "123456781", 10000));
+	}
+
+Connection to auth:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/resources/application.yml
+Artifact (liens[15:23]):
+    oauth2:
+        client:
+            client-id: account-service
+            client-secret: secret
+            scope: read
+            access-token-uri: http://localhost:9999/oauth/token
+            user-authorization-uri: http://localhost:9999/oauth/authorize
+        resource:
+            token-info-uri: http://localhost:9999/oauth/check_token
+
+Resource Server:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/05f390ee4351247a9c5803098059238424b58bae/account/src/main/java/pl/piomin/services/account/AccountService.java
+Artifact (line 10):
+    @EnableResourceServer
+"""</span>
+
+<span class="n">account_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"account-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">pre_authorized_endpoints</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Pre-authorized Endpoints'</span><span class="p">:</span> <span class="p">[</span><span class="s">"/{id}"</span><span class="p">,</span> <span class="s">"/"</span><span class="p">],</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8082</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">account_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">account_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">auth_provider</span><span class="p">])</span>
+
+
+
+<span class="s">"""
+Component: connection gateway to account-service
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml
+Artifact (lines[16:25]):
+    zuul:
+        routes:
+            [...]
+            account:
+                path: /account/**
+                sensitiveHeaders:
+                serviceId: account-service
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">gateway_server</span><span class="p">:</span> <span class="n">account_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - customer-service (internal), port 8083
+    - connection to service discovery
+    - pre-authorized method
+    - resource server
+Service and connection to service discovery:
+File:
+Artifact (lines[8:10]):
+    @SpringBootApplication
+    @EnableDiscoveryClient
+    @EnableFeignClients
+And file:
+Artifact (lines[1:2]):
+    server:
+        port: ${PORT:8083}
+
+Pre-authorozed method:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/OAuth2ResourceServerConfig.java
+Artifact (lines[10:12]):
+    @Configuration
+    @EnableResourceServer
+    @EnableGlobalMethodSecurity(prePostEnabled = true)
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java
+Artifact (lines[22:23]):
+    @GetMapping("/{id}")
+	@PreAuthorize("#oauth2.hasScope('read')")
+
+Resource Server:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/OAuth2ResourceServerConfig.java
+Artifact (line 11):
+    @EnableResourceServer
+"""</span>
+
+<span class="n">customer_service</span> <span class="o">=</span> <span class="n">CClass</span><span class="p">(</span><span class="n">service</span><span class="p">,</span> <span class="s">"customer-service"</span><span class="p">,</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">internal</span><span class="p">,</span> <span class="n">pre_authorized_endpoints</span><span class="p">,</span> <span class="n">resource_server</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Pre-authorized Endpoints'</span><span class="p">:</span> <span class="p">[</span><span class="s">"/{id}"</span><span class="p">],</span> <span class="s">'Port'</span><span class="p">:</span> <span class="mi">8083</span><span class="p">})</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">customer_service</span><span class="p">:</span> <span class="n">discovery_server</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="n">restful_http</span><span class="p">)</span>
+
+
+
+<span class="s">"""
+Components:
+    - connection customer-service to account-service through FeignClient
+    - OAuth2 for this connection
+    - connection to authorizatino server
+    - load balancer for this connection (Ribbon)
+Connection:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/client/AccountClient.java
+Artifact (line 10):
+    @FeignClient(name = "account-service", configuration = AccountClientConfiguration.class)
+And file:https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/api/AccountController.java
+Artifact (line 24):
+    public List&lt;Account&gt; findAccounts() {
+
+OAuth for Feign (using a FeignInterceptor) and connection to auth:
+File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/client/AccountClientConfiguration.java
+Artifact (lines[26:29]):
+    @Bean
+	RequestInterceptor oauth2FeignRequestInterceptor() {
+		return new OAuth2FeignRequestInterceptor(new DefaultOAuth2ClientContext(), resource());
+	}
+And artifact (lines[36:46]):
+private OAuth2ProtectedResourceDetails resource() {
+		ResourceOwnerPasswordResourceDetails resourceDetails = new ResourceOwnerPasswordResourceDetails();
+		resourceDetails.setUsername("piomin");
+		resourceDetails.setPassword("piot123");
+		resourceDetails.setAccessTokenUri(accessTokenUri);
+		resourceDetails.setClientId(clientId);
+		resourceDetails.setClientSecret(clientSecret);
+		resourceDetails.setGrantType("password");
+		resourceDetails.setScope(Arrays.asList(scope));
+		return resourceDetails;
+	}
+And artifact (lines[17:24]):
+	@Value("${security.oauth2.client.access-token-uri}")
+	private String accessTokenUri;
+	@Value("${security.oauth2.client.client-id}")
+	private String clientId;
+	@Value("${security.oauth2.client.client-secret}")
+	private String clientSecret;
+	@Value("${security.oauth2.client.scope}")
+	private String scope;
+And file: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/resources/application.yml
+Artifact (lines[11:19]):
+    oauth2:
+        client:
+            client-id: customer-service
+            client-secret: secret
+            scope: read
+            access-token-uri: http://localhost:9999/oauth/token
+            user-authorization-uri: http://localhost:9999/oauth/authorize
+        resource:
+            token-info-uri: http://localhost:9999/oauth/check_token
+"""</span>
+
+<span class="n">add_links</span><span class="p">({</span><span class="n">customer_service</span><span class="p">:</span> <span class="n">account_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">authenticated_request</span><span class="p">,</span> <span class="n">feign_connection</span><span class="p">,</span> <span class="n">load_balanced_link</span><span class="p">],</span> <span class="n">tagged_values</span> <span class="o">=</span> <span class="p">{</span><span class="s">'Load Balancer'</span><span class="p">:</span> <span class="s">"Ribbon"</span><span class="p">})</span>
+<span class="n">add_links</span><span class="p">({</span><span class="n">auth_server</span><span class="p">:</span> <span class="n">customer_service</span><span class="p">},</span> <span class="n">stereotype_instances</span> <span class="o">=</span> <span class="p">[</span><span class="n">restful_http</span><span class="p">,</span> <span class="n">auth_provider</span><span class="p">])</span>
+
+
+
+<span class="c1">##### Create model
+</span><span class="n">model</span> <span class="o">=</span> <span class="n">CBundle</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">elements</span> <span class="o">=</span> <span class="n">gateway_server</span><span class="p">.</span><span class="n">class_object</span><span class="p">.</span><span class="n">get_connected_elements</span><span class="p">())</span>
+
+
+<span class="k">def</span> <span class="nf">run</span><span class="p">():</span>
+
+    <span class="n">generator</span> <span class="o">=</span> <span class="n">PlantUMLGenerator</span><span class="p">()</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">plant_uml_jar_path</span> <span class="o">=</span> <span class="n">plantuml_path</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">object_model_renderer</span><span class="p">.</span><span class="n">left_to_right</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">generator</span><span class="p">.</span><span class="n">generate_object_models</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="p">[</span><span class="n">model</span><span class="p">,</span> <span class="p">{}])</span>
+
+    <span class="k">print</span><span class="p">(</span><span class="sa">f</span><span class="s">"Generated models in </span><span class="si">{</span><span class="n">generator</span><span class="p">.</span><span class="n">directory</span><span class="err">!</span><span class="n">s</span><span class="si">}</span><span class="s">/"</span> <span class="o">+</span> <span class="n">model_name</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+    <span class="n">run</span><span class="p">()</span>
+
+
+
+
+<span class="c1">#
+</span>
+</code></pre></div></div>
+
+<h3 id="statistics">Statistics</h3>
+
+<p>The Application consists of a total of 99 elements:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Element</th>
+      <th>Count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Services</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>External Entities</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>Information Flows</td>
+      <td>13</td>
+    </tr>
+    <tr>
+      <td>Annotations</td>
+      <td>78</td>
+    </tr>
+    <tr>
+      <td>Total Items</td>
+      <td>99</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="diagram">Diagram</h3>
+
+<p>Formats:</p>
+<ul>
+  <li><a href="../../dataset/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices.txt">PlantUML Model</a></li>
+  <li><a href="../../dataset/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices.svg">SVG Vector Image</a></li>
+  <li><a href="../../dataset/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices.png">PNG Raster Image</a></li>
+</ul>
+
+<p><img src="../../dataset/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices/piomin_sample-spring-oauth2-microservices.svg" alt="Data Flow Diagram" /></p>
+
+<h2 id="security-rules">Security Rules</h2>
+
+<table>
+  <thead>
+    <tr>
+      <th>R1</th>
+      <th>R2</th>
+      <th>R3</th>
+      <th>R4</th>
+      <th>R5</th>
+      <th>R6</th>
+      <th>R7</th>
+      <th>R8</th>
+      <th>R9</th>
+      <th>R10</th>
+      <th>R11</th>
+      <th>R12</th>
+      <th>R13</th>
+      <th>R14</th>
+      <th>R15</th>
+      <th>R16</th>
+      <th>R17</th>
+      <th>R18</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="#rule01"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule02"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule03"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule04"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule05"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule06"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule07"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule08"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule09"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule10"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule11"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule12"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule13"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule14"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule15"><i class="fa fa-info-circle" style="color: #31708;"></i></a></td>
+      <td><a href="#rule16"><i class="fa fa-check-square-o" style="color: #6be16d;"></i></a></td>
+      <td><a href="#rule17"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+      <td><a href="#rule18"><i class="fa fa-exclamation-circle" style="color: #d72b28;"></i></a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="authentication--authorization">Authentication / Authorization</h3>
+
+<h4 id="rule01">Rule 1: API Gateway</h4>
+
+<p>This rule is observed: User only communicates with the Zuul gateway server.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L2">2</a></li>
+</ul>
+
+<h4 id="rule02">Rule 2: Mutual Authentication</h4>
+
+<p>This rule is disregarded: Services communicate internally over plain HTTP. The communication is not authenticated.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L8">8</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L21">21</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L25">25</a></li>
+</ul>
+
+<h4 id="rule03">Rule 3: Decoupled Authentication</h4>
+
+<p>This rule is observed: Authentication and authorization via OAuth2 is implemented at the AuthServer instance. The AuthServer is a separate service at platform level that provides authentication to all internal services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml#L2">2</a></li>
+  <li>OAuth2Config.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java#L18">18</a></li>
+</ul>
+
+<h4 id="rule04">Rule 4: Internal Identity Represenation</h4>
+
+<p>This rule is observed: Users are authenticated using JWT Tokens and identified by a unique username. All endpoints can verify authorization scopes with the central AuthServer.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>OAuth2Config.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java#L28">28</a></li>
+</ul>
+
+<h4 id="rule05">Rule 5: Authentication Token Validation</h4>
+
+<p>This rule is observed: The authentication tokens are verified by the all services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>AccountController.java: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/api/AccountController.java#L17">17</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/api/AccountController.java#L23">23</a></li>
+  <li>CustomerController.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L23">23</a></li>
+</ul>
+
+<h4 id="rule06">Rule 6: Login Rate Limiting</h4>
+
+<p>This rule is disregarded: No rate limiting of any means is deployed.</p>
+
+<h3 id="encryption">Encryption</h3>
+
+<h4 id="rule07">Rule 7: Edge Encryption</h4>
+
+<p>This rule is disregarded: User external entities can call the gateway service using an unencrypted HTTP connection.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L2">2</a></li>
+</ul>
+
+<h4 id="rule08">Rule 8: Internal Encryption</h4>
+
+<p>This rule is disregarded: All internal services communicate over insecure HTTP connections.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L21">21</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L25">25</a></li>
+</ul>
+
+<h3 id="logging">Logging</h3>
+
+<h4 id="rule09">Rule 9: Central Logging Subsystem</h4>
+
+<p>This rule is disregarded: No central logging system is deployed.</p>
+
+<h4 id="rule10">Rule 10: Local Logging Agent</h4>
+
+<p>This rule is disregarded: No central logging system is deployed. Two internal services perform local logging, however none of the logs are consumed and accessed through monitoring software.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>CustomerController.java: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L26">26</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L28">28</a></li>
+  <li>UserDetailsServiceImpl.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java#L33">33</a></li>
+</ul>
+
+<h4 id="rule11">Rule 11: Log Sanitization</h4>
+
+<p>This rule is disregarded: Logs are not sanitized, but no PII or secrets are explicitly logged.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>UserDetailsServiceImpl.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java#L33">33</a></li>
+</ul>
+
+<h4 id="rule12">Rule 12: Log Message Broker</h4>
+
+<p>This rule is disregarded: No logs are collected and no message broker is deployed.</p>
+
+<h3 id="availability">Availability</h3>
+
+<h4 id="rule13">Rule 13: Circuit Breaker</h4>
+
+<p>This rule is disregarded: No circuit breaker is deployed.</p>
+
+<h4 id="rule14">Rule 14: Load Balancing</h4>
+
+<p>This rule is observed: The gateway server uses load balancing via Ribbon to access dependent services.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L16">16</a></li>
+</ul>
+
+<h4 id="rule15">Rule 15: Service Mesh Usage Limits</h4>
+
+<p>This rule is not applicable: Not a service mesh deployment.</p>
+
+<h3 id="service-registry">Service Registry</h3>
+
+<h4 id="rule16">Rule 16: Service Registry Deployment</h4>
+
+<p>This rule is observed:</p>
+<ol>
+  <li>Registry Service (Eureka Server) with @EnableEurekaServer present.</li>
+  <li>Eureka is started on Port 8765 and can be deployed on a dedicated server.</li>
+</ol>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServer.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java#L8">8</a></li>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L2">2</a></li>
+</ul>
+
+<h4 id="rule17">Rule 17: Service Registry Validation</h4>
+
+<p>This rule is disregarded: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at “eureka.client.serviceUrl.defaultZone”.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>DiscoveryServer.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java#L8">8</a></li>
+  <li>application.yml: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/resources/application.yml#L15">15</a></li>
+</ul>
+
+<h3 id="secret-management">Secret Management</h3>
+
+<h4 id="rule18">Rule 18: Secret Manager</h4>
+
+<p>This rule is disregarded: The OAuth client secrets and database access passwords are supplied via configuration files and hard-coded into the Java code.</p>
+
+<p>Artifacts:</p>
+<ul>
+  <li>application.yml: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L10">10</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L36">36</a></li>
+  <li>SecurityConfig.java: Line: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java#L36">36</a></li>
+  <li>data.sql: Lines: <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/script/data.sql#L11">11</a>, <a href="https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/script/data.sql#L13">13</a></li>
+</ul>
+
+
+    <div class="tags">
+        
+        <b>Tags: </b>
+        
+        
+        
+        <a href="tag_eureka.html" class="btn btn-default navbar-btn cursorNorm" role="button">eureka</a>
+        
+        
+        
+        <a href="tag_ribbon.html" class="btn btn-default navbar-btn cursorNorm" role="button">ribbon</a>
+        
+        
+        
+        <a href="tag_spring_oauth.html" class="btn btn-default navbar-btn cursorNorm" role="button">spring_oauth</a>
+        
+        
+        
+        <a href="tag_zuul.html" class="btn btn-default navbar-btn cursorNorm" role="button">zuul</a>
+        
+        
+        
+    </div>
+
+
+
+
+
+
+
+</div>
+
+<hr class="shaded"/>
+
+<footer>
+            <div class="row">
+                <div class="col-lg-12 footer">
+               &copy;2023 Copyright 2022 TUHH. All rights reserved. <br />
+ Site last generated: Jan 23, 2023 <br />
+<p><img src="images/company_logo.png" alt="Company logo"/></p>
+                </div>
+            </div>
+</footer>
+
+
+
+
+
+
+        </div>
+    <!-- /.row -->
+</div>
+<!-- /.container -->
+</div>
+<!-- /#main -->
+    </div>
+
+</body>
+
+</html>
+
+

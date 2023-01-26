@@ -1,0 +1,150 @@
+1:
+  status: unknown
+  argument:
+    - API-Gateway provided by @EnableFeignClients and the annotated @FeignClients,
+    - No single-entry point as separate access to auth-server as defined in README.md authentication/retrieving token process uses two different ports (8017 is auth server, 8018 is api gateway),
+    - authorizes with @EnableResourceServer annotation
+  artifacts:
+    - file: api-gateway/src/main/java/com/apssouza/BasicApplication.java
+      lines: [8]
+    - file: api-gateway/src/main/java/com/apssouza/clients/TodoClient.java
+      lines: [16]
+    - file: api-gateway/src/main/java/com/apssouza/clients/UserClient.java
+      lines: [16]
+    - file: config-server/src/main/resources/offline-repository/oauth.properties
+      lines: [1]
+    - file: config-server/src/main/resources/offline-repository/api-gateway.properties
+      lines: [1]
+    - file: api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java
+      lines: [19]
+
+2:
+  status: disregarded
+  argument:
+    - Gateway does authorize per @EnableResourceServer annotation,
+    - Downstream services do not include annotation anywhere
+  artifacts:
+    - file: api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java
+      lines: [19]
+
+3:
+  status: observed
+  argument:
+    - The @EnableAuthorizationServer annotation is present,
+    - JWT as tokens as JwtAuthenticationConverter at the authorization server function present,
+    - JWTs are validated by Gateway as JwtAuthenticationConverter includes insertion of public key and @EnableResourceServer annotation. Thus decoupled from the auth server.
+  artifacts:
+    - file: oauth-server/src/main/java/com/apssouza/configuration/OAuth2ServerConfiguration.java
+      lines: [24]
+    - file: oauth-server/src/main/java/com/apssouza/configuration/JwtServerConfiguration.java
+      lines: [27]
+    - file: api-gateway/src/main/java/com/apssouza/configuration/OAuth2ResourceServerConfiguration.java
+      lines: [19]
+    - file: api-gateway/src/main/java/com/apssouza/configuration/JwtConfiguration.java
+      lines: [35]
+
+
+4:
+  status: disregarded
+  argument: Identity representations are not used for all levels of authorization and authentication as only API Gateway authorizes and does not get transformed. See Rule 2 arguments.
+
+5:
+  status: observed
+  argument: Tokens are validated at the API Gateway per annotation and public key inserted at JwtAuthenticationConverter.
+
+6:
+  status: disregarded
+  argument: There is no functionality present that enforcecs any consequences for a specific amount of failed login attempts
+
+7:
+  status: disregarded
+  argument: There are no certificates in the repository and no "server.ssl.key-store"/"server.ssl.trust-store" arguments inserted in the yml of the API gateway
+  artifacts:
+    - file: config-server/src/main/resources/offline-repository/api-gateway.properties
+      lines: [1]
+
+8:
+  status: disregarded
+  argument: See Rule 7 comment, but the arguments are not existent in any other yml configuration
+
+
+9:
+  status: observed
+  argument: This microservice application deploys the ELK stack (Elasticsearch, Logstash, Kibana) as a logging mechanism. Logstash is deployed as a central logging subsystem. Logstash then sends the formatted data to an Elasticsearch indexing server. Additionally Kibana is deployed as a monitoring dashboard on top of the indexing server.
+  artifacts:
+    - file: assets/infra-docker-compose.yml
+      lines: [4]
+
+10:
+  status: observed
+  argument:
+    - Beats configuration in each service that specifies the ElasticSearch container,
+    - Dockerfile that installs beats with said configuration,
+    - then starts own service in Dockerfile
+  artifacts:
+    - file: config-server/src/main/resources/docker/filebeat.yml
+      lines: [2]
+    - file: eureka-server/src/main/resources/docker/Dockerfile
+      lines: [25, 30]
+    - file: eureka-server/src/main/resources/docker/start.sh
+      lines: [5]
+
+
+11:
+  status: disregarded
+  argument: No sanitization mechanism to be found, but also not needed as there is no sensitive data logged.
+  artifacts:
+    - file: proxy/filebeat.yml
+      lines: [11]
+    - file: api-gateway/src/main/resources/docker/filebeat.yml
+      lines: [11]
+    - file: mail-service/src/main/resources/docker/filebeat.yml
+      lines: [11]
+
+12:
+  status: disregarded
+  argument: Kafka is used as message broker, however between services and not used for the logging subsystem.
+  artifacts:
+    - file: remainder-service/src/main/java/com/apssouza/configuration/WebSocketConfig.java
+      lines: [11]
+
+
+13:
+  status: observed
+  argument: Hystrix is enabled using the @EnableHystrix annotation for any routes retrieved by integrated Load balancer from Feign which is Ribbon.
+  artifacts:
+    - file: api-gateway/src/main/java/com/apssouza/BasicApplication.java
+      lines: [10]
+
+14:
+  status: observed
+  argument: The gateway automatically performs load balancing using Ribbon integrated into Feign clients.
+  artifacts:
+    - file: api-gateway/src/main/java/com/apssouza/BasicApplication.java
+      lines: [9]
+
+15:
+  status: not applicable
+  argument: Not a service mesh deployment.
+
+16:
+  status: observed
+  argument:
+    - Registry Service (Eureka) present with @EnableEurekaServer
+    - Starting the Eureka Server via Docker-Compose -> Deployment on dedicated server possible
+  artifacts:
+    - file: eureka-server/src/main/java/com/apssouza/discovery/Application.java
+      lines: [8]
+    - file: docker-compose.yml
+      lines: [16]
+
+17:
+  status: disregarded
+  argument: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+  artifacts:
+    - file: config-server/src/main/resources/offline-repository/api-gateway.properties
+      lines: [3]
+
+18:
+  status: disregarded
+  argument: No secret manager is deployed.
