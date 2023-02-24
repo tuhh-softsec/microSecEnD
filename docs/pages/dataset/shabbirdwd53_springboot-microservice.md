@@ -334,7 +334,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule01">Evidence |  |
+**R1** | <i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence |   |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/shabbirdwd53_springboot-microservice/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/shabbirdwd53_springboot-microservice/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/shabbirdwd53_springboot-microservice/model_variants/4.txt) |
@@ -358,7 +358,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is adhered to: User only communicates with the Spring Cloud gateway server.
+Rule is partially adhered to: User only communicates with the Spring Cloud gateway server. The API gateway does not indicate, that requests are being authenticated/authorized at all.
 
 Artifacts:
 - application.yml: Line: [2](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L2)
@@ -455,7 +455,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-running-eureka-server) present.
 1. Eureka is started on Port 8761 and can be deployed on a dedicated server.
 
 Artifacts:
@@ -464,7 +464,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - ServiceRegistryApplication.java: Line: [8](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/service-registry/src/main/java/com/dailycodebuffer/service/registry/ServiceRegistryApplication.java#L8)

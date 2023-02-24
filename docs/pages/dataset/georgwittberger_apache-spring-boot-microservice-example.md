@@ -159,7 +159,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule01">Evidence |  |
+**R1** |<i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence | |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/georgwittberger_apache-spring-boot-microservice-example/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/georgwittberger_apache-spring-boot-microservice-example/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/georgwittberger_apache-spring-boot-microservice-example/model_variants/4.txt) |
@@ -183,7 +183,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is adhered to: The application uses Apache httpd as a gateway server.
+Rule is partially adhered to: The application uses Apache httpd as a gateway server. The gateway does not perform authentication/authorization of incoming requests.
 
 Artifacts:
 - httpd-microservice-example.conf: Line: [22](https://github.com/georgwittberger/apache-spring-boot-microservice-example/blob/master/apache-configuration/httpd-microservice-example.conf#L22)

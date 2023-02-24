@@ -535,7 +535,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule01">Evidence |  |
+**R1** | <i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence |  |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/4.txt) |
@@ -547,7 +547,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R10** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule10">Evidence |  |
 **R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule11">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/11.txt) |
 **R12** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/12.txt) |
-**R13** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule13">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/13.txt) |
+**R13** | <i class="fa fa-check-square-o" style="color: #6be16d;"> | <a href="#rule13">Evidence | 
 **R14** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule14">Evidence |  |
 **R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
 **R17** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule17">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/mudigal-technologies_microservices-sample/model_variants/17.txt) |
@@ -559,10 +559,13 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is adhered to: User only communicates with the Nginx proxy, that acts proxies all requests.
+Rule is partially adhered to: User only communicates with the NGINX proxy, that proxies all requests. There is no indication of requests being authenticated/authorized at the NGINX Proxy.
+
+Additionally, there is a Spring Cloud Zuul Gateway present, which also does not authenticate/authorize any requests.
 
 Artifacts:
 - Dockerfile: Line: [23](https://github.com/mudigal-technologies/microservices-sample/blob/master/web-application/docker/Dockerfile#L23)
+- Line: ApiGatewayApplication.java [17](https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/java/com/mudigal/ApiGatewayApplication.java#L17)
 
 #### R2  {#rule02}
 
@@ -634,11 +637,14 @@ Artifacts:
 
 #### R13 {#rule13}
 
-Rule is violated: No explicit circuit breaker is deployed.
+Rule is adhered to: The Zuul API gateway includes the [Hystrix Circuit Breaker](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) functionality.
+
+Artifacts:
+- ApiGatewayApplication.java: Line: [17](https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/java/com/mudigal/ApiGatewayApplication.java#L17)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The Zuul API gateway performs load balancing using Ribbon by default.
+Rule is adhered to: The Zuul API gateway performs load balancing using [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) by default.
 
 Artifacts:
 - ApiGatewayApplication.java: Line: [17](https://github.com/mudigal-technologies/microservices-sample/blob/master/api-gateway/src/main/java/com/mudigal/ApiGatewayApplication.java#L17)

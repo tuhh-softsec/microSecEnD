@@ -190,8 +190,8 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R10** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule10">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/10.txt) |
 **R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule11">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/11.txt) |
 **R12** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/12.txt) |
-**R13** | <i class="fa fa-exclamation-circle" style="color: #d72b28;" | <a href="#rule13">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/13.txt) |
-**R14** | <i class="fa fa-exclamation-circle" style="color: #d72b28;" | <a href="#rule14">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/14.txt) |
+**R13** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule13">Evidence  | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/13.txt) |
+**R14** |<i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule14">Evidence  | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/14.txt) |
 **R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
 **R17** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule17">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/17.txt) |
 **R18** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule18">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/koushikkothagal_spring-boot-microservices-workshop/model_variants/18.txt) |
@@ -294,7 +294,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server)   listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - DiscoveryServerApplication.java: Line: [8](https://github.com/koushikkothagal/spring-boot-microservices-workshop/blob/master/discovery-server/src/main/java/io/javabrains/discoveryserver/DiscoveryServerApplication.java#L8)

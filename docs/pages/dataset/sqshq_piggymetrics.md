@@ -697,11 +697,12 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-This rule is unknown:
-1. The @EnableZuulProxy annotation is present,
+This rule is partially adhered to:
+1. The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation is present,
 1. No evidence of separate access to authorization server,
 1. Authorization server route in YML of API Gateway
-1. only file in whole repository is the main class and there is no @EnableResourceServer annotation -> no authorization at gateway
+1. only file in whole directory is the main class and there is no [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) annotation,
+which shows that there is no authentication/authorization at the API gateway.
 
 Artifacts:
 - GatewayApplication.java: Line: [10](https://github.com/sqshq/piggymetrics/blob/master/gateway/src/main/java/com/piggymetrics/gateway/GatewayApplication.java#L10)
@@ -710,7 +711,7 @@ Artifacts:
 #### R2  {#rule02}
 
 Rule is adhered to:
-1. The @EnableResourceServer annotation is present at every downstream service > tokens are required for incoming requests for authorization even between requests between services
+1. The [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) annotation is present at every downstream service > tokens are required for incoming requests for authorization even between requests between services
 1. Tokens need specific scope to be accepted
 
 Artifacts:
@@ -722,9 +723,9 @@ Artifacts:
 
 #### R3 {#rule03}
 
-This rule is unknown:
-1. The @EnableAuthorizationServer annotation is present
-1. No JwtAccessTokenConverter -> Opaque Tokens
+This rule is adhered to:
+1. The [@EnableAuthorizationServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-authorization-server-minimal) annotation is present
+1. No [JwtAccessTokenConverter -> Opaque Tokens](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-authorization-server-spring-security-oauth2-resource-server-jwk)
 1. Endpoint for validating user in tokens present
 
 Artifacts:
@@ -733,7 +734,7 @@ Artifacts:
 
 #### R4 {#rule04}
 
-This rule is unknown: Identity representations (opaque token) are used at all downstream services and between services for authorization due to @EnableResourceServer annotation, however no indication of a transformation present (see Rule 2 arguments).
+This rule is adhered to: Identity representations (opaque token) are used at all downstream services and between services for authorization due to @EnableResourceServer annotation, however no indication of a transformation present (see Rule 2 arguments).
 
 #### R5 {#rule05}
 
@@ -747,7 +748,7 @@ Artifacts:
 
 #### R6 {#rule06}
 
-Rule is violated: There is no functionality present that enforcecs any consequences for a specific amount of failed login attempts
+Rule is violated: There is no functionality present that enforces any consequences for a specific amount of failed login attempts
 
 
 
@@ -792,7 +793,7 @@ Rule is violated: No message broker is deployed and no logs are collected.
 
 #### R13 {#rule13}
 
-Rule is adhered to: Hystrix is deployed as a circuit breaker on the gateway server with the @EnableZuulProxy annotation.
+Rule is adhered to: Hystrix is deployed as a circuit breaker on the gateway server with the [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation.
 
 Artifacts:
 - GatewayApplication.java: Line: [10](https://github.com/sqshq/piggymetrics/blob/master/gateway/src/main/java/com/piggymetrics/gateway/GatewayApplication.java#L10)
@@ -800,7 +801,7 @@ Artifacts:
 
 #### R14 {#rule14}
 
-Rule is adhered to: The gateway server uses load balancing via Ribbon to access dependent services.
+Rule is adhered to: The gateway server uses load balancing via [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) to access dependent services.
 
 Artifacts:
 - GatewayApplication.java: Line: [10](https://github.com/sqshq/piggymetrics/blob/master/gateway/src/main/java/com/piggymetrics/gateway/GatewayApplication.java#L10)
@@ -814,7 +815,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) present with @EnableEurekaServer annotation.
+1. Registry Service (Eureka Server) present with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-running-eureka-server) annotation.
 1. Eureka Server deployed in Docker Compose -> able to start on dedicated server
 
 Artifacts:
@@ -823,7 +824,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - application.yml: Line: [13](https://github.com/sqshq/piggymetrics/blob/master/config/src/main/resources/shared/application.yml#L13)

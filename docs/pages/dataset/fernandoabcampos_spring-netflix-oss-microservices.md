@@ -392,7 +392,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule01">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/1.txt) |
+**R1** | <i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence |  |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/4.txt) |
@@ -404,7 +404,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R10** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule10">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/10.txt) |
 **R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule11">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/11.txt) |
 **R12** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/12.txt) |
-**R13** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule13">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/13.txt) |
+**R13** | <i class="fa fa-check-square-o" style="color: #6be16d;"> | <a href="#rule13">Evidence | 
 **R14** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule14">Evidence |  |
 **R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
 **R17** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule17">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/fernandoabcampos_spring-netflix-oss-microservices/model_variants/17.txt) |
@@ -416,10 +416,13 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is violated: The application uses Zuul as a gateway server, however, the application exposes all microservices with network-bridged docker ports. For this rule to apply, only the edge server may be exposed or an additional access restriction has to be deployed.
+Rule is partially adhered to: The application uses Spring Cloud Zuul as a single entry-point. There is no indication in the repository, that the API gateway does perform authentication/authorization for incoming requests.
 
 Artifacts:
-- docker-compose.yml: Lines: [7](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L7), [16](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L16), [30](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L30), [44](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L44), [82](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L82), [93](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/docker-compose.yml#L93)
+
+- EdgeServerApplication.java: Line: [10](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/java/com/spring/netflix/oss/microservices/EdgeServerApplication.java#L10)
+
+- edge-server.yml: Line: [9](https://github.com/fernandoabcampos/microservices-config/blob/master/MASTER/edge-server.yml#L9)
 
 #### R2  {#rule02}
 
@@ -482,15 +485,16 @@ Rule is violated: RabbitMQ is deployed as a message broker between the circuit b
 
 #### R13 {#rule13}
 
-Rule is violated: Hystrix is deployed as a circuit breaker, however it is not deployed on the gateway server, but in the service application. Several requests are able to pass through the gateway to internal services without circuit breaking (see artifacts).
+Rule is adhered to: Hystrix is deployed as a [circuit breaker](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) in the service application and the gateway (see artifacts).
 
 Artifacts:
+- EdgeServerApplication.java: Line: [10](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/java/com/spring/netflix/oss/microservices/EdgeServerApplication.java#L10)
 - CardServiceApplication.java: Line: [8](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/card-service/src/main/java/com/spring/netflix/oss/microservices/CardServiceApplication.java#L8)
 - StatementServiceApplication.java: Line: [8](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/statement-service/src/main/java/com/spring/netflix/oss/microservices/StatementServiceApplication.java#L8)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The gateway server uses load balancing via Ribbon to access dependent services.
+Rule is adhered to: The gateway server uses load balancing via [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) to access dependent services.
 
 Artifacts:
 - EdgeServerApplication.java: Line: [10](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/edge-server/src/main/java/com/spring/netflix/oss/microservices/EdgeServerApplication.java#L10)
@@ -513,7 +517,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server)  listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - DiscoveryServiceApplication.java: Line: [8](https://github.com/fernandoabcampos/spring-netflix-oss-microservices/blob/master/discovery-service/src/main/java/com/spring/netflix/oss/microservices/DiscoveryServiceApplication.java#L8)

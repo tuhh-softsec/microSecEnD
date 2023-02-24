@@ -58,7 +58,7 @@ Artifact (lines[33:37]):
     	}
 """
 
-gateway_server = CClass(service, "gateway-server", stereotype_instances = [gateway, in_memory_authentication, plaintext_credentials, infrastructural, authentication_scope_all_requests, load_balancer], tagged_values = {'Gateway': "Zuul", 'Username': "root", 'Password': "password", 'Port': 8765, 'Load Balancer': "Ribbon"})
+gateway_server = CClass(service, "gateway-server", stereotype_instances = [gateway, in_memory_authentication, plaintext_credentials, infrastructural, load_balancer], tagged_values = {'Gateway': "Zuul", 'Username': "root", 'Password': "password", 'Port': 8765, 'Load Balancer': "Ribbon"})
 
 add_links({discovery_server: gateway_server}, stereotype_instances = restful_http)
 
@@ -95,7 +95,7 @@ Artifact (lines[21:31]):
 
 """
 
-add_links({user: gateway_server}, stereotype_instances = [restful_http, authenticated_request])
+add_links({user: gateway_server}, stereotype_instances = restful_http)
 
 add_links({gateway_server: user}, stereotype_instances = restful_http)
 
@@ -177,6 +177,11 @@ Resource Server:
 File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/05f390ee4351247a9c5803098059238424b58bae/auth/src/main/java/pl/piomin/services/auth/AuthServer.java
 Artifact (line 21):
     @EnableResourceServer
+
+Logging:
+File: https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/main/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java
+Artifact (line 17):
+    private final static Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 """
 
 auth_server = CClass(service, "auth-server", stereotype_instances = [authorization_server, encryption, infrastructural, resource_server, token_server, local_logging], tagged_values = {'Authorization Server': "Spring OAuth2", 'Port': 9999})
@@ -330,7 +335,7 @@ Artifact (line 11):
     @EnableResourceServer
 """
 
-customer_service = CClass(service, "customer-service", stereotype_instances = [internal, pre_authorized_endpoints, resource_server], tagged_values = {'Pre-authorized Endpoints': ["/{id}"], 'Port': 8083})
+customer_service = CClass(service, "customer-service", stereotype_instances = [internal, pre_authorized_endpoints, resource_server, local_logging], tagged_values = {'Pre-authorized Endpoints': ["/{id}"], 'Port': 8083})
 
 add_links({customer_service: discovery_server}, stereotype_instances = restful_http)
 
@@ -391,7 +396,7 @@ Artifact (lines[11:19]):
             token-info-uri: http://localhost:9999/oauth/check_token
 """
 
-add_links({customer_service: account_service}, stereotype_instances = [restful_http, authenticated_request, feign_connection, load_balanced_link], tagged_values = {'Load Balancer': "Ribbon"})
+add_links({customer_service: account_service}, stereotype_instances = [restful_http, authenticated_request, feign_connection])
 add_links({auth_server: customer_service}, stereotype_instances = [restful_http, auth_provider])
 
 

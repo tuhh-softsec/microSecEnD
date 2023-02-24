@@ -546,14 +546,14 @@ Rule is violated: See rule 9.
 
 #### R13 {#rule13}
 
-Rule is adhered to: The @EnableZuulProxy annotation enables Hystrix and its circuit breaker functionality.
+Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy)) annotation at the API gateway enables Hystrix and its circuit breaker functionality.
 
 Artifacts:
 - Application.java: Line: [51](https://github.com/rohitghatol/spring-boot-microservices/blob/master/api-gateway/src/main/java/com/rohitghatol/microservice/gateway/Application.java#L51)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The @EnableZuulProxy annotation enables Ribbon and its load balancing functionality.
+Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation at the API gateway enables Ribbon and its load balancing functionality.
 
 Artifacts:
 - Application.java: Line: [51](https://github.com/rohitghatol/spring-boot-microservices/blob/master/api-gateway/src/main/java/com/rohitghatol/microservice/gateway/Application.java#L51)
@@ -576,7 +576,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - comments-webservice.yml: Line: [26](https://github.com/anilallewar/sample-config/blob/master/comments-webservice.yml#L26)

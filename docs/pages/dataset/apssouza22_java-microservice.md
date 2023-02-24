@@ -645,14 +645,14 @@ Artifacts:
 
 #### R13 {#rule13}
 
-Rule is adhered to: Hystrix is enabled using the @EnableHystrix annotation for any routes retrieved by integrated Load balancer from Feign which is Ribbon.
+Rule is adhered to: Hystrix is enabled using the [@EnableHystrix](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html#spring-cloud-feign-hystrix) annotation for any routes retrieved by integrated Load balancer from Feign which is Ribbon.
 
 Artifacts:
 - BasicApplication.java: Line: [10](https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L10)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The gateway automatically performs load balancing using Ribbon integrated into Feign clients.
+Rule is adhered to: The gateway automatically performs load balancing [using Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html#netflix-feign-starter) integrated into Feign clients.
 
 Artifacts:
 - BasicApplication.java: Line: [9](https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L9)
@@ -675,7 +675,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule violated: There is no [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - api-gateway.properties: Line: [3](https://github.com/apssouza22/java-microservice/blob/master/config-server/src/main/resources/offline-repository/api-gateway.properties#L3)

@@ -407,11 +407,11 @@ Rule is violated: No logs are collected and no message broker is deployed.
 
 #### R13 {#rule13}
 
-Rule is violated: No circuit breaker is deployed.
+Rule is adhered to: The Zuul API gateway includes the [Hystrix Circuit Breaker](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) functionality.
 
 #### R14 {#rule14}
 
-Rule is adhered to: The gateway server uses load balancing via Ribbon to access dependent services.
+Rule is adhered to: The gateway server uses load balancing via [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) to access dependent services.
 
 Artifacts:
 - application.yml: Line: [16](https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L16)
@@ -434,7 +434,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - DiscoveryServer.java: Line: [8](https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java#L8)

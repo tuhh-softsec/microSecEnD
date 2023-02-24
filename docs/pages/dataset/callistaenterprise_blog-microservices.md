@@ -652,7 +652,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R9** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule09">Evidence |  |
 **R10** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule10">Evidence |  |
 **R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule11">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/callistaenterprise_blog-microservices/model_variants/11.txt) |
-**R12** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule12">Evidence |  |
+**R12** |  <i class="fa fa-exclamation-circle" style="color: #d72b28;">  | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/callistaenterprise_blog-microservices/model_variants/17.txt) |  |
 **R13** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule13">Evidence |  |
 **R14** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule14">Evidence |  |
 **R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
@@ -684,7 +684,7 @@ Artifacts:
 
 #### R3 {#rule03}
 
-This rule is unknown:
+This rule is adhered to:
 1. The @EnableAuthorizationServer annotation is present,
 1. No JwtAccessTokenConverter, thus issues opaque token,
 1. Endpoint for validating token present,
@@ -720,7 +720,7 @@ Artifacts:
 
 #### R8 {#rule08}
 
-This rule is unknown: Only edge-server, auth-server and config service have keystores included in their yml-configuration.
+This rule is violated: Only edge-server, auth-server and config service have keystores included in their yml-configuration.
 
 Artifacts:
 - auth-server.yml: Line: [5](https://github.com/callistaenterprise/blog-microservices-config/blob/master/auth-server.yml#L5)
@@ -749,20 +749,20 @@ Rule is violated: Logs are not explicitly sanitized.
 
 #### R12 {#rule12}
 
-Rule is adhered to: RabbitMQ present but not used for logging subsystem.
+Rule is violated: RabbitMQ present but not used for logging subsystem.
 
 
 
 #### R13 {#rule13}
 
-Rule is adhered to: The @EnableZuulProxy at the API Gateway enables Hystrix circuit breaker functionality.
+Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation at the API Gateway enables Hystrix and its circuit breaker functionality.
 
 Artifacts:
 - ZuulApplication.java: Line: [18](https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L18)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The @EnableZuulProxy at the API Gateway enables Ribbon load balancing functionality.
+Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation at the API Gateway enables Ribbon and its load balancing functionality.
 
 Artifacts:
 - ZuulApplication.java: Line: [18](https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java#L18)
@@ -785,7 +785,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server)  listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - EurekaApplication.java: Line: [9](https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/discovery-server/src/main/java/se/callista/microservises/support/discovery/EurekaApplication.java#L9)

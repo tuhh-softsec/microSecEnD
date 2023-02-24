@@ -547,7 +547,7 @@ Artifacts:
 
 #### R14 {#rule14}
 
-Rule is adhered to: Route URI given with "lb://" for Spring Cloud LoadBalancer to resolve from discovery service to.
+Rule is adhered to: Route URI given with ["lb://"](https://cloud.spring.io/spring-cloud-gateway/reference/html/#the-loadbalancerclient-filter) for Spring Cloud LoadBalancer to resolve from discovery service to.
 
 Artifacts:
 - application.yml: Lines: [10](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L10), [16](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L16), [22](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-api-gateway/src/main/resources/application.yml#L22)
@@ -561,7 +561,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka) present with @EnableEurekaServer annotation,
+1. Registry Service (Eureka) present with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-running-eureka-server) annotation,
 1. Started through Docker-Compose, should also be able to be deployed on dedicated server.
 
 Artifacts:
@@ -570,7 +570,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server)  listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - DiscoveryServerApplication.java: Line: [26](https://github.com/spring-petclinic/spring-petclinic-microservices/blob/master/spring-petclinic-discovery-server/src/main/java/org/springframework/samples/petclinic/discovery/DiscoveryServerApplication.java#L26)

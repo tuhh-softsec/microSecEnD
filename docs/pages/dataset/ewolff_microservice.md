@@ -272,7 +272,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule01">Evidence |  |
+**R1** | <i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence | |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/4.txt) |
@@ -282,11 +282,11 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R8** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule08">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/8.txt) |
 **R9** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule09">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/9.txt) |
 **R10** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule10">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/10.txt) |
-**R11** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule11">Evidence |  |
+**R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/11.txt) |
 **R12** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/12.txt) |
-**R13** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule13">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/13.txt) |
-**R14** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule14">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/14.txt) |
-**R16** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule16">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/16.txt) |
+**R13** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule13">Evidence |  |
+**R14** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule14">Evidence |  |
+**R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
 **R17** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule17">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/17.txt) |
 **R18** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule18">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/ewolff_microservice/model_variants/18.txt) |
 
@@ -296,10 +296,12 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is adhered to:
+Rule is partially adhered to:
 1. The @EnableZuulProxy annotation is present,
 1. No Authorization Server present
 1. No Resource Server present
+
+It is a single entry-point, nonetheless it is not authenticating/authorizing any incoming requests.
 
 Artifacts:
 - ZuulApplication.java: Line: [8](https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/java/com/ewolff/microservice/zuulserver/ZuulApplication.java#L8)
@@ -356,14 +358,14 @@ Rule is violated: See rule 9.
 
 #### R13 {#rule13}
 
-Rule is adhered to: The @EnableZuulProxy annotation enables Hystrix and its circuit breaker functionality.
+Rule is adhered to: [Hystrix Circuit Breaker](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) enabled through @EnableZuulProxy annotation.
 
 Artifacts:
 - ZuulApplication.java: Line: [9](https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/java/com/ewolff/microservice/zuulserver/ZuulApplication.java#L9)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The @EnableZuulProxy annotation enables Ribbon and its load balancing functionality.
+Rule is adhered to: The gateway server uses load balancing via Ribbon to access dependent services through [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation.
 
 Artifacts:
 - ZuulApplication.java: Line: [9](https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-zuul-server/src/main/java/com/ewolff/microservice/zuulserver/ZuulApplication.java#L9)
@@ -386,7 +388,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server)  listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - application.properties: Line: [6](https://github.com/ewolff/microservice/blob/master/microservice-demo/microservice-demo-order/src/main/resources/application.properties#L6)

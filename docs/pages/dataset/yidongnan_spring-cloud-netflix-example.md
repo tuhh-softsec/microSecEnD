@@ -431,7 +431,7 @@ The following table shows the application's adherence to the 17 architectural se
 
 Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Model Variant &nbsp;&nbsp;&nbsp;|
 -- | -- | -- | -- |
-**R1** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule01">Evidence |  |
+**R1** | <i class="fa fa-warning" style="color: #bfc600;"> | <a href="#rule01">Evidence |  |
 **R2** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule02">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/yidongnan_spring-cloud-netflix-example/model_variants/2.txt) |
 **R3** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule03">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/yidongnan_spring-cloud-netflix-example/model_variants/3.txt) |
 **R4** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule04">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/yidongnan_spring-cloud-netflix-example/model_variants/4.txt) |
@@ -455,7 +455,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 
 #### R1 {#rule01}
 
-Rule is adhered to: User only communicates with the Zuul gateway service.
+Rule is partially adhered to: User only communicates with the Zuul gateway service. The gateway does not perform authentication/authorization.
 
 Artifacts:
 - ZuulApplication.java: Line: [17](https://github.com/yidongnan/spring-cloud-netflix-example/blob/master/zuul/src/main/java/net/devh/ZuulApplication.java#L17)
@@ -519,14 +519,14 @@ Rule is violated: No explicit logging mechanism is deployed.
 
 #### R13 {#rule13}
 
-Rule is adhered to: The internal service with indirect connection to the user (via Zuul) is protected using the Hystrix circuit breaker. Note however, that the circuit breaker is not deployed at the proxy node, but at the internal service.
-
+Rule is adhered to: The API gateway enables Hystrix's circuit breaker functionality through the [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation.
+ 
 Artifacts:
-- A1ServiceApplication.java: Line: [30](https://github.com/yidongnan/spring-cloud-netflix-example/blob/master/service-a/src/main/java/net/devh/A1ServiceApplication.java#L30)
+- ZuulApplication.java: Line: [17](https://github.com/yidongnan/spring-cloud-netflix-example/blob/master/zuul/src/main/java/net/devh/ZuulApplication.java#L17)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The Zuul API gateway performs load balancing using Ribbon by default.
+Rule is adhered to: The Zuul API gateway performs load balancing using [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy)  by default.
 
 Artifacts:
 - ZuulApplication.java: Line: [17](https://github.com/yidongnan/spring-cloud-netflix-example/blob/master/zuul/src/main/java/net/devh/ZuulApplication.java#L17)
@@ -540,7 +540,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-running-eureka-server) present.
 1. Started in Docker Container through Compose, thus deployable on dedicated server
 
 Artifacts:
@@ -549,7 +549,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - EurekaServeApplication.java: Line: [10](https://github.com/yidongnan/spring-cloud-netflix-example/blob/master/eureka-server/src/main/java/net/devh/EurekaServeApplication.java#L10)
