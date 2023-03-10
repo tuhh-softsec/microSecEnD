@@ -27,10 +27,10 @@ If you use microSecEnD in academic context, please cite it as:
   author    = {Schneider, Simon and \"Ozen, Tufan and Chen, Michael and Scandariato, Riccardo},  
   booktitle = {2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},   
   year      = {2023},
-  doi       = {10.5281/zenodo.7574138}
+  doi       = {10.5281/zenodo.7714926}
 }
 ```
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7574138.svg)](https://doi.org/10.5281/zenodo.7574138)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7714926.svg)](https://doi.org/10.5281/zenodo.7714926)
 
 ## Table of Contents
 
