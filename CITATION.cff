@@ -1,0 +1,39 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: microSecEnD
+message: 'If you use this dataset, please cite it as below.'
+type: dataset
+authors:
+  - given-names: Simon
+    family-names: Schneider
+    orcid: 'https://orcid.org/0000-0001-8605-615X'
+    affiliation: Hamburg University of Technology
+  - given-names: Tufan
+    family-names: Özen
+    affiliation: Hamburg University of Technology
+  - given-names: Michael
+    family-names: Chen
+    affiliation: Hamburg University of Technology
+  - given-names: Riccardo
+    family-names: Scandariato
+    affiliation: Hamburg University of Technology
+    orcid: 'https://orcid.org/0000-0003-3591-7671'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.7574138
+url: 'https://tuhh-softsec.github.io/microSecEnD/'
+abstract: >-
+  A dataset of dataflow diagrams (DFDs) for microservice
+  applications in Java. The DFDs contain extensive security
+  annotations, full traceability from model to code, and a
+  mapping to a list of architectural security rules (i.e.,
+  which rules are adhered to).
+keywords:
+  - microservices
+  - spring
+  - dataset
+  - dfd
+  - dataflow diagram
+license: Apache-2.0
