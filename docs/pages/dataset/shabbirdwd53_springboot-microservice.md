@@ -434,14 +434,14 @@ Rule is violated: No logs are collected and no message broker is deployed.
 
 #### R13 {#rule13}
 
-Rule is adhered to: Hystrix is deployed as a circuit breaker on the gateway server.
+Rule is adhered to: Hystrix is deployed as a [circuit breaker](https://cloud.spring.io/spring-cloud-netflix/multi/multi__circuit_breaker_hystrix_clients.html#_circuit_breaker_hystrix_clients) on the gateway server.
 
 Artifacts:
 - application.yml: Lines: [30](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L30), [15](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L15), [24](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L24)
 
 #### R14 {#rule14}
 
-Rule is violated: The gateway server uses load balancing to access dependent services.
+Rule is violated: The gateway server uses [load balancing](https://cloud.spring.io/spring-cloud-gateway/reference/html/#the-loadbalancerclient-filter) to access dependent services.
 
 Artifacts:
 - application.yml: Lines: [11](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L11), [20](https://github.com/shabbirdwd53/Springboot-Microservice/blob/master/cloud-gateway/src/main/resources/application.yml#L20)

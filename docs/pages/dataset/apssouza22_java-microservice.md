@@ -545,9 +545,9 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 #### R1 {#rule01}
 
 Rule is partially adhered to:
-1. API-Gateway provided by @EnableFeignClients and the annotated @FeignClients,
+1. API-Gateway provided by [@EnableFeignClients](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html#netflix-feign-starter) and the annotated @FeignClients,
 1. No single-entry point as separate access to auth-server as defined in README.md authentication/retrieving token process uses two different ports (8017 is auth server, 8018 is api gateway),
-1. authorizes with @EnableResourceServer annotation
+1. authorizes with [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-resource-server-minimal) annotation
 
 Artifacts:
 - BasicApplication.java: Line: [8](https://github.com/apssouza22/java-microservice/blob/master/api-gateway/src/main/java/com/apssouza/BasicApplication.java#L8)
@@ -560,7 +560,7 @@ Artifacts:
 #### R2  {#rule02}
 
 Rule is violated:
-1. Gateway does authorize per @EnableResourceServer annotation,
+1. Gateway does authorize per [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-resource-server-minimal) annotation,
 1. Downstream services do not include annotation anywhere
 
 Artifacts:
@@ -569,9 +569,9 @@ Artifacts:
 #### R3 {#rule03}
 
 Rule is adhered to:
-1. The @EnableAuthorizationServer annotation is present,
+1. The [@EnableAuthorizationServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-authorization-server-minimal) annotation is present,
 1. JWT as tokens as JwtAuthenticationConverter at the authorization server function present,
-1. JWTs are validated by Gateway as JwtAuthenticationConverter includes insertion of public key and @EnableResourceServer annotation. Thus decoupled from the auth server.
+1. JWTs are validated by Gateway as JwtAuthenticationConverter includes insertion of public key and [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-resource-server-minimal) annotation. Thus decoupled from the auth server.
 
 Artifacts:
 - OAuth2ServerConfiguration.java: Line: [24](https://github.com/apssouza22/java-microservice/blob/master/oauth-server/src/main/java/com/apssouza/configuration/OAuth2ServerConfiguration.java#L24)
@@ -666,7 +666,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka) present with @EnableEurekaServer
+1. Registry Service (Eureka) present with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/)
 1. Starting the Eureka Server via Docker-Compose -> Deployment on dedicated server possible
 
 Artifacts:

@@ -508,7 +508,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. Started in Docker Container through Compose, thus deployable on dedicated server
 
 Artifacts:

@@ -422,14 +422,14 @@ Rule is violated: No message broker is deployed and no logging is performed.
 
 #### R13 {#rule13}
 
-Rule is adhered to: Hystrix is deployed as a circuit breaker on the gateway server.
+Rule is adhered to: Hystrix is deployed as a [circuit breaker](https://cloud.spring.io/spring-cloud-static/Greenwich.RC1/multi/multi_spring-cloud-consul-hystrix.html) on the gateway server.
 
 Artifacts:
 - FoodTrayServiceApplication.java: Line: [19](https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/FoodTrayService/src/main/java/com/github/joffryferrater/foodtrayservice/FoodTrayServiceApplication.java#L19)
 
 #### R14 {#rule14}
 
-Rule is adhered to: The gateway server uses load balancing via Ribbon to access dependent services.
+Rule is adhered to: The gateway server uses load balancing via [Ribbon](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-feign.html#netflix-feign-starter) to access dependent services.
 
 Artifacts:
 - bootstrap.yml: Line: [11](https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/ItemService/src/main/resources/bootstrap.yml#L11)
@@ -444,7 +444,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is violated:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. The discovery service is missing from the docker compose file.
 
 Artifacts:
@@ -453,7 +453,7 @@ Artifacts:
 
 #### R17 {#rule17}
 
-Rule is violated: No HTTP basic password listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
+Rule is violated: No [HTTP basic password](https://cloud.spring.io/spring-cloud-netflix/reference/html/#authenticating-with-the-eureka-server) listed in any YML-Configuration of format username:password@here-location-of-eureka-server at "eureka.client.serviceUrl.defaultZone".
 
 Artifacts:
 - DiscoveryServiceApplication.java: Line: [13](https://github.com/jferrater/Tap-And-Eat-MicroServices/blob/master/DiscoveryService/src/main/java/com/github/joffry/ferrater/discoveryservice/DiscoveryServiceApplication.java#L13)

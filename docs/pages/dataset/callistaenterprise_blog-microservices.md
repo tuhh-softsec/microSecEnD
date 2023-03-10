@@ -652,7 +652,7 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 **R9** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule09">Evidence |  |
 **R10** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule10">Evidence |  |
 **R11** | <i class="fa fa-exclamation-circle" style="color: #d72b28;"> | <a href="#rule11">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/callistaenterprise_blog-microservices/model_variants/11.txt) |
-**R12** |  <i class="fa fa-exclamation-circle" style="color: #d72b28;">  | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/callistaenterprise_blog-microservices/model_variants/17.txt) |  |
+**R12** |  <i class="fa fa-exclamation-circle" style="color: #d72b28;">  | <a href="#rule12">Evidence | [Variant](https://github.com/tuhh-softsec/microSecEnD/blob/main/dataset/callistaenterprise_blog-microservices/model_variants/12.txt) |  |
 **R13** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule13">Evidence |  |
 **R14** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule14">Evidence |  |
 **R16** | <i class="fa fa-check-square-o" style="color: #6be16d;"></i> | <a href="#rule16">Evidence |  |
@@ -666,8 +666,8 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 #### R1 {#rule01}
 
 Rule is partially adhered to:
-1. The @EnableZuulProxy annotation is present,
-1. The @EnableResourceServer annotation is present,
+1. The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation is present,
+1. The [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) annotation is present,
 1. Article of application does access authorization server directly instead over Gateway.
 
 Artifacts:
@@ -675,7 +675,7 @@ Artifacts:
 
 #### R2  {#rule02}
 
-Rule is violated: Only API gateway, product composite service and authorization server (which is accesses by other services) have @EnableResourceServer, other downstream services do not authorize the requests
+Rule is violated: Only API gateway, product composite service and authorization server (which is accesses by other services) have [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server), other downstream services do not authorize the requests
 
 Artifacts:
 - AuthserverApplication.java: Line: [16](https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/java/se/callista/microservises/support/oauth/AuthserverApplication.java#L16)
@@ -685,7 +685,7 @@ Artifacts:
 #### R3 {#rule03}
 
 This rule is adhered to:
-1. The @EnableAuthorizationServer annotation is present,
+1. The [@EnableAuthorizationServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-authorization-server-minimal) annotation is present,
 1. No JwtAccessTokenConverter, thus issues opaque token,
 1. Endpoint for validating token present,
 1. Endpoint mentioned at YML-Configuration of Resource Server.
@@ -699,11 +699,11 @@ Artifacts:
 Rule is violated:
 1. Identity representations are present in form of opaque tokens per Rule 3,
 1. No transformation present,
-1. No @EnableResourceServer present at every downstream service.
+1. No [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) present at every downstream service.
 
 #### R5 {#rule05}
 
-Rule is adhered to: Token are being validated on endpoint at authorization server and endpoint specified at server with @EnableResourceServer annotation.
+Rule is adhered to: Token are being validated on endpoint at authorization server and endpoint specified at server with [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) annotation.
 
 #### R6 {#rule06}
 
@@ -776,7 +776,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. Started in Docker Container through Compose, thus deployable on dedicated server
 
 Artifacts:

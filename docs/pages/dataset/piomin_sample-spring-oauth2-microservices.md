@@ -90,8 +90,7 @@ Other formats are provided below.
             "stereotypes": [
                 "internal",
                 "pre_authorized_endpoints",
-                "resource_server",
-                "local_logging"
+                "resource_server"
             ],
             "tagged_values": {
                 "Pre-authorized Endpoints": [
@@ -426,7 +425,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. Eureka is started on Port 8765 and can be deployed on a dedicated server.
 
 Artifacts:

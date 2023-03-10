@@ -508,8 +508,8 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 #### R1 {#rule01}
 
 Rule is partially adhered to:
-1. The @EnableZuulProxy annotation is present.
-1. The @EnableOAuth2Sso annotation is present.
+1. The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation is present.
+1. The [@EnableOAuth2Sso](https://docs.spring.io/spring-security-oauth2-boot/docs/current/api/org/springframework/boot/autoconfigure/security/oauth2/client/EnableOAuth2Sso.html) annotation is present.
 1. No routing to the authorization server as mentioned by author, thus no single entrypoint.
 1. The README.md of the authorization server mentions request at port 8899, while API Gateway port is 8765.
 
@@ -523,7 +523,7 @@ Artifacts:
 
 #### R2 {#rule02}
 
-Rule is adhered to: All downstream services are resource servers per @EnableResourceServer annotation, meaning even requests between services need to be authenticated/authorized.
+Rule is adhered to: All downstream services are resource servers per [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-resource-server-minimal) annotation, meaning even requests between services need to be authenticated/authorized.
 
 Artifacts:
 - WebSecurityConfiguration.java: Line: [21](https://github.com/anilallewar/microservices-basics-spring-boot/blob/master/api-gateway/src/main/java/com/anilallewar/microservices/gateway/security/WebSecurityConfiguration.java#L21)
@@ -535,7 +535,7 @@ Artifacts:
 #### R3 {#rule03}
 
 Rule is adhered to:
-1. The @EnableAuthorizationServer annotation is present,
+1. The [@EnableAuthorizationServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-authorization-server-minimal) annotation is present,
 1. JwtAccessTokenConverter bean present, thus using JWTs,
 1. Downstream services like API-Gateway have public key hardcoded in YML.
 
@@ -550,7 +550,7 @@ Rule is violated: As Rule 2 already confirms, every downstream service needs tok
 #### R5 {#rule05}
 
 Rule is adhered to:
-1. All resource servers have the @EnableResourceServer annotation.
+1. All resource servers have the [@EnableResourceServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#oauth2-boot-resource-server-minimal) annotation.
 1. The public key is hardcoded into each Resource Servers YML-Configuration.
 
 Artifacts:
@@ -606,7 +606,7 @@ Artifacts:
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. Started in Docker Container through Compose, thus deployable on dedicated server
 
 Artifacts:

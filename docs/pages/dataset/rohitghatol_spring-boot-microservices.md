@@ -467,8 +467,8 @@ Rule ID &nbsp;&nbsp;| Verdict &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;| Evidence &nbsp;&nb
 #### R1 {#rule01}
 
 This rule is unknown:
-1. The @EnableZuulProxy annotation is present,
-1. The @EnableOAuth2Sso annotation is present,
+1. The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html) annotation is present,
+1. The [@EnableOAuth2Sso](https://docs.spring.io/spring-security-oauth2-boot/docs/current/api/org/springframework/boot/autoconfigure/security/oauth2/client/EnableOAuth2Sso.html) annotation is present,
 1. No routing to the authorization server as mentioned by author, thus no single entrypoint.
 
 Artifacts:
@@ -478,7 +478,7 @@ Artifacts:
 #### R2  {#rule02}
 
 Rule is adhered to:
-1. The @EnableOAuth2Resource annotation is present at downstream services,
+1. The [@EnableOAuth2Resource](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-resource-server) annotation is present at downstream services,
 1. Endpoint at authorization server in yml for authentication and authorization.
 
 Artifacts:
@@ -491,7 +491,7 @@ Artifacts:
 #### R3 {#rule03}
 
 This rule is unknown:
-1. The @EnableAuthorizationServer annotation is present,
+1. The [@EnableAuthorizationServer](https://docs.spring.io/spring-security-oauth2-boot/docs/current/reference/html5/#boot-features-security-oauth2-authorization-server) annotation is present,
 1. No JwtAccessTokenConverter present, hence using opaque token,
 1. Endpoint for validating token and user present
 
@@ -546,7 +546,7 @@ Rule is violated: See rule 9.
 
 #### R13 {#rule13}
 
-Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy)) annotation at the API gateway enables Hystrix and its circuit breaker functionality.
+Rule is adhered to: The [@EnableZuulProxy](https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html#netflix-zuul-reverse-proxy) annotation at the API gateway enables Hystrix and its circuit breaker functionality.
 
 Artifacts:
 - Application.java: Line: [51](https://github.com/rohitghatol/spring-boot-microservices/blob/master/api-gateway/src/main/java/com/rohitghatol/microservice/gateway/Application.java#L51)
@@ -567,7 +567,7 @@ This rule is not applicable: Not a service mesh deployment.
 #### R16 {#rule16}
 
 Rule is adhered to:
-1. Registry Service (Eureka Server) with @EnableEurekaServer present.
+1. Registry Service (Eureka Server) with [@EnableEurekaServer](https://docs.spring.io/spring-cloud-netflix/docs/4.0.1-SNAPSHOT/reference/html/#spring-cloud-eureka-server) present.
 1. Started in Docker Container through Compose, thus deployable on dedicated server
 
 Artifacts:
