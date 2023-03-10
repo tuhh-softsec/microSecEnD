@@ -2,6 +2,8 @@
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7574138.svg)](https://doi.org/10.5281/zenodo.7574138)
 
+**Complete information on our [GitHub Pages](https://tuhh-softsec.github.io/microSecEnD)**
+
 This repository contains manually created dataflow diagrams (DFDs) of microservice applications found on GitHub.
 It is the dataset accompanying a publication at the 20 th International Conference on Mining Software Repository (MSR2023).
 
