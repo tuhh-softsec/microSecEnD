@@ -7,11 +7,9 @@ toc: false
 ---
 
 &nbsp;
-{% include image.html file="images/Logo_TUHH_SoftSEC.png" alt="Logo" max-width="750" %}
+![Logo](images/Logo_TUHH_SoftSEC.png)
 
-<img src="images/Logo_TUHH_SoftSEC.png"
-     alt="Logo
-     style="float: left; margin-right: 10px;" />
+
 &nbsp;
 
 This is microSecEnD, a dataset containing manually created, security-enriched Dataflow Diagrams (DFDs) of microservice applications written in Java.
