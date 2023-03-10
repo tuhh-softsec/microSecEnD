@@ -235,7 +235,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "config_server",
@@ -243,7 +245,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "config_server",
@@ -251,7 +255,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "config_server",
@@ -259,7 +265,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "monitor_dashboard",
@@ -291,7 +299,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "turbine_server",
@@ -315,7 +325,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "product_service",
@@ -331,7 +343,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "recommendation_service",
@@ -347,7 +361,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "review_service",
@@ -363,7 +379,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "auth_server",
@@ -371,7 +389,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "composite_service",
@@ -441,7 +461,9 @@
                 "restful_http",
                 "circuit_breaker_link"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "discovery_server",
@@ -457,7 +479,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "edge_server",
@@ -465,7 +489,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "discovery_server",
@@ -481,7 +507,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "auth_server",
@@ -489,7 +517,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "product_service",
@@ -537,7 +567,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "zipkin_server",

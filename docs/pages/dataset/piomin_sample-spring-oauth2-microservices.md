@@ -90,7 +90,8 @@ Other formats are provided below.
             "stereotypes": [
                 "internal",
                 "pre_authorized_endpoints",
-                "resource_server"
+                "resource_server",
+                "local_logging"
             ],
             "tagged_values": {
                 "Pre-authorized Endpoints": [

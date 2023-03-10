@@ -318,7 +318,7 @@ Artifact (lines[1:2]):
     server:
         port: ${PORT:8083}
 
-Pre-authorozed method:
+Pre-authorized method:
 File: https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/OAuth2ResourceServerConfig.java
 Artifact (lines[10:12]):
     @Configuration

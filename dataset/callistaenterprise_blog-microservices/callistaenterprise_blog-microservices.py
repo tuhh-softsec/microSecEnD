@@ -148,6 +148,10 @@ Artifact (lines [20;25]):
     private static final Logger LOG = LoggerFactory.getLogger(ConfigServerApplication.class);
 
         LOG.info("Connected to RabbitMQ at: {}", ctx.getEnvironment().getProperty("spring.rabbitmq.host"));
+
+HTTPS:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/config-server/src/main/resources/server.jks
+Artifact (lines 0)
 """
 
 config_server = CClass(service, "config-server", stereotype_instances = [infrastructural, configuration_server, local_logging], tagged_values = {'Port': 8888, 'Configuration Server': "Spring Cloud Config"})
@@ -177,7 +181,7 @@ Artifact (line 16):
     @EnableDiscoveryClient
 """
 
-add_links({config_server: discovery_server}, stereotype_instances = restful_http)
+add_links({config_server: discovery_server}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -191,7 +195,7 @@ Artifact (lines [16:18]):
       port: 5672
 """
 
-add_links({config_server: rabbitmq}, stereotype_instances = restful_http)
+add_links({config_server: rabbitmq}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -239,6 +243,10 @@ And artifact (lines [12:14]):
     security.oauth2.client:
       clientId: acme
       clientSecret: acmesecret
+
+HTTPS:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/auth-server/src/main/resources/truststore.jks
+Artifact (lines 0)
 """
 
 auth_server = CClass(service, "auth-server", stereotype_instances = [infrastructural, authorization_server, resource_server, local_logging, plaintext_credentials], tagged_values = {'Port': 9999, 'Authorization Server': "Spring OAuth2", 'Endpoints': "[\'/user\']", 'Username': "acme", 'Password': "acmesecret"})
@@ -256,7 +264,7 @@ Artifact (lines [7:8;18]):
             uri: https://localhost:8888
 """
 
-add_links({config_server: auth_server}, stereotype_instances = restful_http)
+add_links({config_server: auth_server}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -305,7 +313,7 @@ Artifact (lines [7:8;18]):
             uri: https://localhost:8888
 """
 
-add_links({config_server: monitor_dashboard}, stereotype_instances = restful_http)
+add_links({config_server: monitor_dashboard}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -390,7 +398,7 @@ Artifact (lines [4:5;15]):
           uri: https://localhost:8888
 """
 
-add_links({config_server: turbine_server}, stereotype_instances = restful_http)
+add_links({config_server: turbine_server}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 """
@@ -483,7 +491,7 @@ Artifact (lines [7:8;18]):
           uri: https://localhost:8888
 """
 
-add_links({config_server: product_service}, stereotype_instances = restful_http)
+add_links({config_server: product_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -545,7 +553,7 @@ Artifact (lines [7:8;18]):
       uri: https://localhost:8888
 """
 
-add_links({config_server: recommendation_service}, stereotype_instances = restful_http)
+add_links({config_server: recommendation_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -607,7 +615,7 @@ Artifact (lines [7:8;18]):
         uri: https://localhost:8888
 """
 
-add_links({config_server: review_service}, stereotype_instances = restful_http)
+add_links({config_server: review_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -687,7 +695,7 @@ Artifact (lines [7:8;18]):
             uri: https://localhost:8888
 """
 
-add_links({config_server: composite_service}, stereotype_instances = restful_http)
+add_links({config_server: composite_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -702,7 +710,7 @@ Artifact (lines [12:15]):
           userInfoUri: https://localhost:9999/uaa/user
 """
 
-add_links({auth_server: composite_service}, stereotype_instances = restful_http)
+add_links({auth_server: composite_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -790,6 +798,7 @@ Components:
     - circuit breaker
     - user
     - connections bwteen user and gateway
+    - HTTPS enabled
 File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/java/se/callista/microservises/support/edge/ZuulApplication.java
 Artifact (line 18):
     @EnableZuulProxy
@@ -821,6 +830,10 @@ hystrix:
   command:
     default:
       circuitBreaker:
+
+HTTPS:
+File: https://github.com/callistaenterprise/blog-microservices/blob/master/microservices/support/edge-server/src/main/resources/truststore.jks
+Artifact (lines 0)
 """
 
 edge_server = CClass(service, "edge-server", stereotype_instances = [infrastructural, gateway, resource_server, local_logging, circuit_breaker, load_balancer], tagged_values = {'Port': 8765, 'Gateway': "Zuul", 'Load Balancer': "Ribbon"})
@@ -845,7 +858,7 @@ Artifact (lines [60:64]):
         composite-service: /product/**
 """
 
-add_links({edge_server: composite_service}, stereotype_instances = [restful_http, circuit_breaker_link])
+add_links({edge_server: composite_service}, stereotype_instances = [restful_http, circuit_breaker_link], tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -877,7 +890,7 @@ Artifact (lines [7:8;18]):
 
 """
 
-add_links({config_server: edge_server}, stereotype_instances = restful_http)
+add_links({config_server: edge_server}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -892,7 +905,7 @@ Artifact (lines [15:18]):
           userInfoUri: https://localhost:9999/uaa/user
 """
 
-add_links({edge_server: auth_server}, stereotype_instances = restful_http)
+add_links({edge_server: auth_server}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 
@@ -920,9 +933,9 @@ Artifact (lines [58:61;81:84;98:101;118:121;133:136;148:151;163:166;180:183;197:
 
 add_links({discovery_server: logstash}, stereotype_instances = restful_http)
 
-add_links({config_server: logstash}, stereotype_instances = restful_http)
+add_links({config_server: logstash}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
-add_links({auth_server: logstash}, stereotype_instances = restful_http)
+add_links({auth_server: logstash}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 add_links({product_service: logstash}, stereotype_instances = restful_http)
 
@@ -934,7 +947,7 @@ add_links({composite_service: logstash}, stereotype_instances = restful_http)
 
 add_links({monitor_dashboard: logstash}, stereotype_instances = restful_http)
 
-add_links({edge_server: logstash}, stereotype_instances = restful_http)
+add_links({edge_server: logstash}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 add_links({zipkin_server: logstash}, stereotype_instances = restful_http)
 

@@ -25,7 +25,7 @@ digraph dfd2{
         account_service -> discovery_server [label = " --restful_http--\n"]
         auth_server -> account_service [label = " --restful_http--\n--auth_provider--\n"]
         gateway_server -> account_service [label = " --restful_http--\n"]
-        customer_service [label = "{Process: customer_service | --internal--\n--pre_authorized_endpoints--\n--resource_server--\nPre-authorized Endpoints: ['/\{id\}']\nPort: 8083\n}" shape = Mrecord];
+        customer_service [label = "{Process: customer_service | --internal--\n--pre_authorized_endpoints--\n--resource_server--\n--local_logging--\nPre-authorized Endpoints: ['/\{id\}']\nPort: 8083\n}" shape = Mrecord];
         customer_service -> discovery_server [label = " --restful_http--\n"]
         customer_service -> account_service [label = " --restful_http--\n--authenticated_request--\n--feign_connection--\n--load_balanced_link--\n'Load Balancer': Ribbon\n"]
         auth_server -> customer_service [label = " --restful_http--\n--auth_provider--\n"]
