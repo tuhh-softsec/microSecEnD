@@ -20,7 +20,7 @@ digraph dfd2{
         configserver -> auth_server [label = " --restful_http--\n"]
         mysqldb -> auth_server [label = " --restful_http--\n--plaintext_credentials_link--\n'Username': root\n 'Password': password\n"]
         auth_server -> webservice_registry [label = " --restful_http--\n"]
-        web_portal [label = "{Process: web_portal | --infrastructural--\n--monitoring_dashboard--\n--monitoring_server--\n--authentication_scope_all_requests--\nPort: 8090\nMonitoring Server: Turbine\nMonitoring Dashboard: Hystrix\n}" shape = Mrecord];
+        web_portal [label = "{Process: web_portal | --infrastructural--\n--monitoring_dashboard--\n--monitoring_server--\n--authentication_scope_all_requests--\n--local_logging--\nPort: 8090\nMonitoring Server: Turbine\nMonitoring Dashboard: Hystrix\n}" shape = Mrecord];
         web_portal -> webservice_registry [label = " --restful_http--\n"]
         configserver -> web_portal [label = " --restful_http--\n"]
         user_webservice [label = "{Process: user_webservice | --internal--\n--local_logging--\n--resource_server--\n--authentication_scope_all_requests--\nPort: 8091\nEndpoints: ['/', '/\{userName\}']\n}" shape = Mrecord];

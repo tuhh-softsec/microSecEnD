@@ -168,6 +168,11 @@
                     "file": "heuristic",
                     "line": "heuristic",
                     "span": "heuristic"
+                },
+                "local_logging": {
+                    "file": "https://github.com/apssouza22/java-microservice/blob/master/user-service/src/main/java/com/apssouza/bootstrap/UserLoader.java#L38",
+                    "line": 38,
+                    "span": "(0,0)"
                 }
             }
         },

@@ -47,7 +47,8 @@
         {
             "name": "web_portal",
             "stereotypes": [
-                "internal"
+                "internal",
+                "local_logging"
             ],
             "tagged_values": {
                 "Port": 8080

@@ -38,7 +38,7 @@ digraph dfd2{
         api_gateway -> service_one [label = " --restful_http--\n"]
         api_gateway -> service_two [label = " --restful_http--\n"]
         consul -> api_gateway [label = " --restful_http--\n"]
-        web_application [label = "{Process: web_application | --web_application--\n--infrastructural--\nWeb Application: Nginx\nPort: 4200\n}" shape = Mrecord];
+        web_application [label = "{Process: web_application | --web_application--\n--infrastructural--\n--local_logging--\nWeb Application: Nginx\nPort: 4200\n}" shape = Mrecord];
         user [label = "{External Entity: user | --user_stereotype--\n--entrypoint--\n--exitpoint--\n}"];
         user -> web_application [label = " --restful_http--\n"]
         web_application -> user [label = " --restful_http--\n"]

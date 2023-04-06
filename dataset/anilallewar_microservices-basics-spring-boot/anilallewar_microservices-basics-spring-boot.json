@@ -70,7 +70,8 @@
                 "infrastructural",
                 "monitoring_dashboard",
                 "monitoring_server",
-                "authentication_scope_all_requests"
+                "authentication_scope_all_requests",
+                "local_logging"
             ],
             "tagged_values": {
                 "Port": 8090,

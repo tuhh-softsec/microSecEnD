@@ -4,7 +4,8 @@
             "name": "config_server",
             "stereotypes": [
                 "configuration_server",
-                "infrastructural"
+                "infrastructural",
+                "local_logging"
             ],
             "tagged_values": {
                 "Configuration Server": "Spring Cloud Config",
@@ -15,7 +16,8 @@
             "name": "admin",
             "stereotypes": [
                 "administration_server",
-                "infrastructural"
+                "infrastructural",
+                "local_logging"
             ],
             "tagged_values": {
                 "Administration Server": "Spring Boot Admin",
@@ -26,7 +28,8 @@
             "name": "eureka_server",
             "stereotypes": [
                 "service_discovery",
-                "infrastructural"
+                "infrastructural",
+                "local_logging"
             ],
             "tagged_values": {
                 "Service Discovery": "Eureka",
@@ -36,7 +39,8 @@
         {
             "name": "user_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "local_logging"
             ],
             "tagged_values": {
                 "Port": 8016
@@ -80,7 +84,8 @@
                 "circuit_breaker",
                 "resource_server",
                 "infrastructural",
-                "csrf_disabled"
+                "csrf_disabled",
+                "local_logging"
             ],
             "tagged_values": {
                 "Circuit Breaker": "Hystrix",
@@ -93,7 +98,8 @@
                 "authorization_server",
                 "tokenstore",
                 "infrastructural",
-                "circuit_breaker"
+                "circuit_breaker",
+                "local_logging"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -105,7 +111,8 @@
             "name": "proxy",
             "stereotypes": [
                 "web_application",
-                "infrastructural"
+                "infrastructural",
+                "local_logging"
             ],
             "tagged_values": {
                 "Web Application": "Nginx",
