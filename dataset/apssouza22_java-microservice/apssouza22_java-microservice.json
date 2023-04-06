@@ -85,7 +85,8 @@
                 "resource_server",
                 "infrastructural",
                 "csrf_disabled",
-                "local_logging"
+                "local_logging",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Circuit Breaker": "Hystrix",
@@ -99,7 +100,9 @@
                 "tokenstore",
                 "infrastructural",
                 "circuit_breaker",
-                "local_logging"
+                "local_logging",
+                "authentication",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -338,8 +341,8 @@
             "tagged_values": {}
         },
         {
-            "sender": "proxy",
-            "receiver": "user",
+            "sender": "user",
+            "receiver": "oauth",
             "stereotypes": [
                 "restful_http"
             ],
@@ -349,7 +352,8 @@
             "sender": "proxy",
             "receiver": "api_gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated_request"
             ],
             "tagged_values": {}
         },
@@ -438,17 +442,14 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         },
         {
             "name": "logstash",
             "stereotypes": [
-                "logging_server",
-                "exitpoint"
+                "logging_server"
             ],
             "tagged_values": {
                 "Logging Server": "Logstash",

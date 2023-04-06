@@ -16,7 +16,8 @@
             "stereotypes": [
                 "gateway",
                 "load_balancer",
-                "infrastructural"
+                "infrastructural",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -109,14 +110,6 @@
             "tagged_values": {}
         },
         {
-            "sender": "zuul",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
             "sender": "turbine",
             "receiver": "eureka",
             "stereotypes": [
@@ -201,9 +194,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

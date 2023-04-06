@@ -89,7 +89,8 @@
             "stereotypes": [
                 "gateway",
                 "infrastructural",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -102,8 +103,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/fernandoabcampos/microservices-config.git"
@@ -112,9 +112,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -280,14 +278,6 @@
         {
             "sender": "user",
             "receiver": "edge_server",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "edge_server",
-            "receiver": "user",
             "stereotypes": [
                 "restful_http"
             ],

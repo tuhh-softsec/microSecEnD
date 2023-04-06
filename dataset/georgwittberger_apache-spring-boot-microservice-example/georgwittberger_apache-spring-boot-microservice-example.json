@@ -4,7 +4,8 @@
             "name": "apache_server",
             "stereotypes": [
                 "web_server",
-                "infrastructural"
+                "infrastructural",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Web Server": "Apache httpd"
@@ -42,9 +43,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -53,14 +52,6 @@
         {
             "sender": "user",
             "receiver": "apache_server",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "apache_server",
-            "receiver": "user",
             "stereotypes": [
                 "restful_http"
             ],

@@ -115,7 +115,8 @@
             "stereotypes": [
                 "gateway",
                 "infrastructural",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Spring Cloud Gateway",
@@ -132,8 +133,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/spring-petclinic/spring-petclinic-microservices-config"
@@ -142,9 +142,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -315,15 +313,6 @@
             "receiver": "api_gateway",
             "stereotypes": [
                 "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "api_gateway",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http",
-                "load_balanced_link"
             ],
             "tagged_values": {}
         },

@@ -76,7 +76,8 @@
                 "local_logging",
                 "infrastructural",
                 "circuit_breaker",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 9000,
@@ -102,8 +103,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/mdeket/spring-cloud-example-config-repo.git"
@@ -112,8 +112,6 @@
         {
             "name": "database_movie_service",
             "stereotypes": [
-                "entrypoint",
-                "exitpoint",
                 "external_database"
             ],
             "tagged_values": {}
@@ -121,8 +119,6 @@
         {
             "name": "database_user_service",
             "stereotypes": [
-                "entrypoint",
-                "exitpoint",
                 "external_database",
                 "plaintext_credentials"
             ],
@@ -136,8 +132,6 @@
         {
             "name": "database_recommendation_service",
             "stereotypes": [
-                "exitpoint",
-                "entrypoint",
                 "external_database",
                 "plaintext_credentials"
             ],
@@ -151,9 +145,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -266,14 +258,6 @@
         {
             "sender": "user",
             "receiver": "recommendation_client",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "recommendation_client",
-            "receiver": "user",
             "stereotypes": [
                 "restful_http"
             ],

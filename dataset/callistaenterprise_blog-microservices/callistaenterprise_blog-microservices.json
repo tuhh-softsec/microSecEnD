@@ -195,7 +195,8 @@
                 "resource_server",
                 "local_logging",
                 "circuit_breaker",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8765,
@@ -439,8 +440,8 @@
             "tagged_values": {}
         },
         {
-            "sender": "edge_server",
-            "receiver": "user",
+            "sender": "user",
+            "receiver": "edge_server",
             "stereotypes": [
                 "restful_http"
             ],
@@ -448,7 +449,7 @@
         },
         {
             "sender": "user",
-            "receiver": "edge_server",
+            "receiver": "auth_server",
             "stereotypes": [
                 "restful_http"
             ],
@@ -584,8 +585,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/callistaenterprise/blog-microservices-config"
@@ -594,9 +594,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

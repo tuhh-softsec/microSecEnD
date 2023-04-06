@@ -18,7 +18,7 @@ digraph dfd2{
         database_auth_server -> auth_server [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': root\n 'Password': password\n"]
         configserver -> auth_server [label = " --restful_http--\n"]
         auth_server -> webservice_registry [label = " --restful_http--\n--auth_provider--\n"]
-        web_portal [label = "{Process: web_portal | --internal--\nPort: 8080\n}" shape = Mrecord];
+        web_portal [label = "{Process: web_portal | --internal--\n--local_logging--\nPort: 8080\n}" shape = Mrecord];
         configserver -> web_portal [label = " --restful_http--\n"]
         web_portal -> webservice_registry [label = " --restful_http--\n"]
         user_webservice [label = "{Process: user_webservice | --internal--\n--resource_server--\n--authentication_scope_all_requests--\nPort: 8080\nEndpoints: ['/', '/\{userName\}']\n}" shape = Mrecord];

@@ -106,8 +106,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/jferrater/ConfigData"

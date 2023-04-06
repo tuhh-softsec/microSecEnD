@@ -31,7 +31,9 @@
                 "tokenstore",
                 "plaintext_credentials",
                 "resource_server",
-                "authorization_scope_all_requests"
+                "authorization_scope_all_requests",
+                "authentication",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -107,7 +109,8 @@
                 "gateway",
                 "infrastructural",
                 "authentication_scope_all_requests",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -120,8 +123,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/anilallewar/sample-config"
@@ -131,9 +133,7 @@
             "name": "database_auth_server",
             "stereotypes": [
                 "external_database",
-                "plaintext_credentials",
-                "entrypoint",
-                "exitpoint"
+                "plaintext_credentials"
             ],
             "tagged_values": {
                 "Database": "MySQL",
@@ -145,9 +145,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -303,13 +301,14 @@
             "sender": "user",
             "receiver": "api_gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated_request"
             ],
             "tagged_values": {}
         },
         {
-            "sender": "api_gateway",
-            "receiver": "user",
+            "sender": "user",
+            "receiver": "auth_server",
             "stereotypes": [
                 "restful_http"
             ],

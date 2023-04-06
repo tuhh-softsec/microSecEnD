@@ -57,7 +57,8 @@
             "name": "apache",
             "stereotypes": [
                 "web_server",
-                "infrastructural"
+                "infrastructural",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Web Server": "Apache httpd",
@@ -68,8 +69,7 @@
             "name": "postgres",
             "stereotypes": [
                 "database",
-                "plaintext_credentials",
-                "exitpoint"
+                "plaintext_credentials"
             ],
             "tagged_values": {
                 "Database": "PostgreSQL",
@@ -153,14 +153,6 @@
             "tagged_values": {}
         },
         {
-            "sender": "apache",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
             "sender": "postgres",
             "receiver": "order",
             "stereotypes": [
@@ -201,9 +193,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

@@ -52,7 +52,9 @@
                 "authorization_server",
                 "resource_server",
                 "authentication_scope_all_requests",
-                "plaintext_credentials"
+                "plaintext_credentials",
+                "authentication",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8899,
@@ -118,7 +120,8 @@
                 "authentication_scope_all_requests",
                 "resource_server",
                 "circuit_breaker",
-                "load_balancer"
+                "load_balancer",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 8082,
@@ -138,7 +141,8 @@
                 "gateway",
                 "load_balancer",
                 "circuit_breaker",
-                "csrf_disabled"
+                "csrf_disabled",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8765,
@@ -152,8 +156,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/anilallewar/microservices-basics-cloud-config"
@@ -162,9 +165,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -345,18 +346,20 @@
             "tagged_values": {}
         },
         {
-            "sender": "api_gateway",
-            "receiver": "user",
+            "sender": "user",
+            "receiver": "api_gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated_request"
             ],
             "tagged_values": {}
         },
         {
             "sender": "user",
-            "receiver": "api_gateway",
+            "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated_request"
             ],
             "tagged_values": {}
         },

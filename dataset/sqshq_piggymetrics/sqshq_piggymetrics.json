@@ -7,7 +7,8 @@
                 "plaintext_credentials",
                 "infrastructural",
                 "csrf_disabled",
-                "basic_authentication"
+                "basic_authentication",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 8888,
@@ -93,7 +94,8 @@
                 "pre_authorized_endpoints",
                 "local_logging",
                 "resource_server",
-                "circuit_breaker"
+                "circuit_breaker",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 6000,
@@ -132,7 +134,8 @@
                 "internal",
                 "local_logging",
                 "pre_authorized_endpoints",
-                "resource_server"
+                "resource_server",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 7000,
@@ -199,7 +202,8 @@
             "stereotypes": [
                 "gateway",
                 "infrastructural",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -497,14 +501,6 @@
             "tagged_values": {}
         },
         {
-            "sender": "gateway",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
             "sender": "config",
             "receiver": "gateway",
             "stereotypes": [
@@ -572,9 +568,7 @@
             "name": "mail_server",
             "stereotypes": [
                 "mail_server",
-                "plaintext_credentials",
-                "exitpoint",
-                "entrypoint"
+                "plaintext_credentials"
             ],
             "tagged_values": {
                 "Mail Server": "Gmail",
@@ -587,9 +581,7 @@
         {
             "name": "external_website",
             "stereotypes": [
-                "external_website",
-                "entrypoint",
-                "exitpoint"
+                "external_website"
             ],
             "tagged_values": {
                 "URL": "https://api.exchangeratesapi.io"
@@ -598,9 +590,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

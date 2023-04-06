@@ -95,7 +95,8 @@
                 "gateway",
                 "infrastructural",
                 "load_balancer",
-                "csrf_disabled"
+                "csrf_disabled",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -246,14 +247,6 @@
             "tagged_values": {}
         },
         {
-            "sender": "zuul",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
             "sender": "user",
             "receiver": "zuul",
             "stereotypes": [
@@ -354,9 +347,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

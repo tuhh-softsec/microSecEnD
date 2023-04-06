@@ -131,7 +131,8 @@
             "stereotypes": [
                 "gateway",
                 "infrastructural",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -338,14 +339,6 @@
         },
         {
             "sender": "web_application",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "web_application",
             "receiver": "api_gateway",
             "stereotypes": [
                 "restful_http"
@@ -461,9 +454,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }

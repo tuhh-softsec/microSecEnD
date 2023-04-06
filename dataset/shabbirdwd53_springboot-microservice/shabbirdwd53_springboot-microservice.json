@@ -83,7 +83,8 @@
                 "infrastructural",
                 "gateway",
                 "circuit_breaker",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 9191,
@@ -100,8 +101,7 @@
         {
             "name": "github_repository",
             "stereotypes": [
-                "github_repository",
-                "entrypoint"
+                "github_repository"
             ],
             "tagged_values": {
                 "URL": "https://github.com/shabbirdwd53/config-server"
@@ -110,9 +110,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         }
@@ -204,14 +202,6 @@
         {
             "sender": "hystrix_dashboard",
             "receiver": "service_registry",
-            "stereotypes": [
-                "restful_http"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "api_gateway",
-            "receiver": "user",
             "stereotypes": [
                 "restful_http"
             ],

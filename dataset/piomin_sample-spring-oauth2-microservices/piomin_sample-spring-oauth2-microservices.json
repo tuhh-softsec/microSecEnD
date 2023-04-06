@@ -19,7 +19,9 @@
                 "plaintext_credentials",
                 "infrastructural",
                 "authentication_scope_all_requests",
-                "load_balancer"
+                "load_balancer",
+                "authentication",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -37,7 +39,8 @@
                 "infrastructural",
                 "resource_server",
                 "token_server",
-                "local_logging"
+                "local_logging",
+                "authentication"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -102,14 +105,6 @@
             "stereotypes": [
                 "restful_http",
                 "authenticated_request"
-            ],
-            "tagged_values": {}
-        },
-        {
-            "sender": "gateway_server",
-            "receiver": "user",
-            "stereotypes": [
-                "restful_http"
             ],
             "tagged_values": {}
         },
@@ -202,9 +197,7 @@
         {
             "name": "database_gateway_server",
             "stereotypes": [
-                "external_database",
-                "entrypoint",
-                "exitpoint",
+                "external_database"
                 "plaintext_credentials"
             ],
             "tagged_values": {
@@ -216,9 +209,7 @@
         {
             "name": "user",
             "stereotypes": [
-                "user_stereotype",
-                "entrypoint",
-                "exitpoint"
+                "user_stereotype"
             ],
             "tagged_values": {}
         },
@@ -226,8 +217,6 @@
             "name": "database_auth_server",
             "stereotypes": [
                 "external_database",
-                "entrypoint",
-                "exitpoint",
                 "plaintext_credentials",
                 "tokenstore"
             ],
