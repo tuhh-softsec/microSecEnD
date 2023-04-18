@@ -11,7 +11,7 @@ If you use microSecEnD in academic context, please cite it as:
 
 ```bibtex
 @inproceedings{microSecEnD23,
-  title     = {microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications},  
+  title     = {{microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications}},  
   author    = {Schneider, Simon and \"Ozen, Tufan and Chen, Michael and Scandariato, Riccardo},  
   booktitle = {2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},   
   year      = {2023},
