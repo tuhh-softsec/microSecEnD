@@ -19,4 +19,6 @@ If you use microSecEnD in academic context, please cite it as:
 }
 ```
 
+This work was partly funded by the European Union’s Horizon 2020 programme under grant agreement No. 952647 (AssureMOSS).
+
 ## We have a GitHub Pages site for this repository which contains all information. Please go [here](https://tuhh-softsec.github.io/microSecEnD) to access it.
