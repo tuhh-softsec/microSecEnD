@@ -29,7 +29,7 @@ config_service = CClass(service, "config-service", stereotype_instances = [confi
 
 github_repository = CClass(external_component, "github-repository", stereotype_instances = [github_repository, entrypoint], tagged_values = {'URL': "https://github.com/mdeket/spring-cloud-example-config-repo.git"})
 
-add_links({github_repository: config_service}, stereotype_instances = restful_http)
+add_links({github_repository: config_service}, stereotype_instances = restful_http, tagged_values: {'Protocol': "HTTPS"})
 
 
 

@@ -65,7 +65,7 @@ Artifact (lines [7:12]):
 
 github_repository = CClass(external_component, "github-repository", stereotype_instances = [github_repository, entrypoint], tagged_values = {'URL': "https://github.com/jferrater/ConfigData"})
 
-add_links({github_repository: config_service}, stereotype_instances = restful_http)
+add_links({github_repository: config_service}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 

@@ -177,7 +177,9 @@
             "stereotypes": [
                 "restful_http"
             ],
-            "tagged_values": {}
+            "tagged_values": {
+                "Protocol": "HTTPS"
+            }
         },
         {
             "sender": "configserver",

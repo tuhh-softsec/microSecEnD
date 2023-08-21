@@ -56,7 +56,7 @@ And artifact (lines [65:66]):
 
 github_repository = CClass(external_component, "github-repository", stereotype_instances = [github_repository, entrypoint], tagged_values = {'URL': "https://github.com/anilallewar/sample-config"})
 
-add_links({github_repository: configserver}, stereotype_instances = restful_http)
+add_links({github_repository: configserver}, stereotype_instances = restful_http, tagged_values = {'Protocol': "HTTPS"})
 
 
 

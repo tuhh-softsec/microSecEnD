@@ -40,7 +40,7 @@ config_server = CClass(service, "config-server", stereotype_instances = [configu
 
 github_repository = CClass(external_component, "github-repository", stereotype_instances = [github_repository, entrypoint], tagged_values = {'URL': "https://github.com/fernandoabcampos/microservices-config.git"})
 
-add_links({github_repository: config_server}, stereotype_instances = restful_http)
+add_links({github_repository: config_server}, stereotype_instances = restful_http, tagged_values = {'Protocol' : "HTTPS"})
 
 
 

@@ -10,7 +10,7 @@ digraph dfd2{
     node[shape=record]
         configserver [label = "{Process: configserver | --infrastructural--\n--configuration_server--\nPort: 8888\nConfiguration Server: Spring Cloud Config\n}" shape = Mrecord];
         github_repository [label = "{External Entity: github_repository | --github_repository--\n--entrypoint--\nURL: https\n}"];
-        github_repository -> configserver [label = " --restful_http--\n"]
+        github_repository -> configserver [label = " --restful_http--\nProtocol: HTTPS\n"]
         webservice_registry [label = "{Process: webservice_registry | --infrastructural--\n--service_discovery--\nPort: 8761\nService Discovery: Eureka\n}" shape = Mrecord];
         configserver -> webservice_registry [label = " --restful_http--\n"]
         zipkin_tracing [label = "{Process: zipkin_tracing | --infrastructural--\n--tracing_server--\nPort: 9411\nTracing Server: Zipkin\n}" shape = Mrecord];

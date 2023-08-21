@@ -10,7 +10,7 @@ digraph dfd2{
     node[shape=record]
         configserver [label = "{Process: configserver | --configuration_server--\n--infrastructural--\nConfiguration Server: Spring Cloud Config\nPort: 8888\n}" shape = Mrecord];
         github_repository [label = "{External Entity: github_repository | --github_repository--\n--entrypoint--\nURL: https\n}"];
-        github_repository -> configserver [label = " --restful_http--\n"]
+        github_repository -> configserver [label = " --restful_http--\nProtocol: HTTPS\n"]
         webservice_registry [label = "{Process: webservice_registry | --service_discovery--\n--infrastructural--\nService Discovery: Eureka\nPort: 8761\n}" shape = Mrecord];
         configserver -> webservice_registry [label = " --restful_http--\n"]
         auth_server [label = "{Process: auth_server | --authorization_server--\n--infrastructural--\n--encryption--\n--tokenstore--\n--plaintext_credentials--\n--resource_server--\n--authorization_scope_all_requests--\nAuthorization Server: Spring OAuth2\nPort: 8899\nEndpoints: ['/me', '/']\nUsername: dave\nPassword: secret\n}" shape = Mrecord];
