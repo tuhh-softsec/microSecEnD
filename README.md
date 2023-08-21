@@ -11,12 +11,14 @@ If you use microSecEnD in academic context, please cite it as:
 
 ```bibtex
 @inproceedings{microSecEnD23,
-  title     = {microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications},  
+  title     = {{microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications}},  
   author    = {Schneider, Simon and \"Ozen, Tufan and Chen, Michael and Scandariato, Riccardo},  
   booktitle = {2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},   
   year      = {2023},
   doi       = {10.5281/zenodo.7714926}
 }
 ```
+
+This work was partly funded by the European Union’s Horizon 2020 programme under grant agreement No. 952647 (AssureMOSS).
 
 ## We have a GitHub Pages site for this repository which contains all information. Please go [here](https://tuhh-softsec.github.io/microSecEnD) to access it.
