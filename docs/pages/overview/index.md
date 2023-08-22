@@ -23,14 +23,15 @@ The dataset is accompanying a publication at the 20<sup>th</sup> International C
 If you use microSecEnD in academic context, please cite it as:
 ```bibtex
 @inproceedings{microSecEnD23,
-  title     = {microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications},  
-  author    = {Schneider, Simon and \"Ozen, Tufan and Chen, Michael and Scandariato, Riccardo},  
-  booktitle = {2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},   
-  year      = {2023},
-  doi       = {10.5281/zenodo.7714926}
+    author    = {Schneider, Simon and \"Ozen, Tufan and Chen, Michael and Scandariato, Riccardo},
+    booktitle = {2023 IEEE/ACM 20th International Conference on Mining Software Repositories (MSR)},
+    title     = {{microSecEnD: A Dataset of Security-Enriched Dataflow Diagrams for Microservice Applications}},
+    year      = {2023},
+    pages     = {125-129},
+    doi       = {10.1109/MSR59073.2023.00030}
 }
 ```
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.7714926.svg)](https://doi.org/10.5281/zenodo.7714926)
+[![DOI](https://zenodo.org/badge/DOI/10.1109/MSR59073.2023.00030.svg)](https://doi.org/10.1109/MSR59073.2023.00030)
 
 ## Table of Contents
 
