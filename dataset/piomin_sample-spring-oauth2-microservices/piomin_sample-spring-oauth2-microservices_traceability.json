@@ -1,32 +1,32 @@
 {
     "nodes": {
         "auth-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/resources/application.yml#L6",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml#L6",
             "line": 6,
             "span": "(10:21)",
             "sub_items": {
                 "Port": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/resources/application.yml#L2",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml#L2",
                     "line": 2,
                     "span": "(8, 20)"
                 },
                 "authorization_server": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java#L18",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2Config.java#L18",
                     "line": "18",
                     "span": "(0, 26)"
                 },
                 "resource_server": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/java/pl/piomin/services/auth/OAuth2ResourceServerConfig.java#L11",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/OAuth2ResourceServerConfig.java#L11",
                     "line": "11",
                     "span": "(0, 21)"
                 },
                 "token_server": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/resources/application.yml#L16",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/resources/application.yml#L16",
                     "line": 16,
                     "span": "(25, 58)"
                 },
                 "local_logging": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java#L7",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/security/UserDetailsServiceImpl.java#L7",
                     "line": "7",
                     "span": "(17, 30)"
                 },
@@ -43,17 +43,17 @@
             }
         },
         "discovery-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/discovery/src/main/resources/application.yml#L6",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/resources/application.yml#L6",
             "line": 6,
             "span": "(10:26)",
             "sub_items": {
                 "Port": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/discovery/src/main/resources/application.yml#L2",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/resources/application.yml#L2",
                     "line": 2,
                     "span": "(8, 20)"
                 },
                 "service_discovery": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java#L8",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/discovery/src/main/java/pl/piomin/services/discovery/DiscoveryServer.java#L8",
                     "line": "8",
                     "span": "(0, 19)"
                 },
@@ -65,22 +65,22 @@
             }
         },
         "account-service": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/resources/application.yml#L6",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/resources/application.yml#L6",
             "line": 6,
             "span": "(10:25)",
             "sub_items": {
                 "Port": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/resources/application.yml#L2",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/resources/application.yml#L2",
                     "line": 2,
                     "span": "(8, 20)"
                 },
                 "resource_server": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/java/pl/piomin/services/account/OAuth2ResourceServerConfig.java#L11",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/OAuth2ResourceServerConfig.java#L11",
                     "line": "11",
                     "span": "(0, 21)"
                 },
                 "pre_authorized_endpoints": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/java/pl/piomin/services/account/api/AccountController.java#L17",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/api/AccountController.java#L17",
                     "line": "17",
                     "span": "(1, 14)"
                 },
@@ -92,27 +92,27 @@
             }
         },
         "customer-service": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/resources/application.yml#L6",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/resources/application.yml#L6",
             "line": 6,
             "span": "(10:26)",
             "sub_items": {
                 "Port": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/resources/application.yml#L2",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/resources/application.yml#L2",
                     "line": 2,
                     "span": "(8, 20)"
                 },
                 "resource_server": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/java/pl/piomin/services/customer/OAuth2ResourceServerConfig.java#L11",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/OAuth2ResourceServerConfig.java#L11",
                     "line": "11",
                     "span": "(0, 21)"
                 },
                 "pre_authorized_endpoints": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L23",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L23",
                     "line": "23",
                     "span": "(1, 14)"
                 },
                 "local_logging": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L4",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/api/CustomerController.java#L4",
                     "line": "4",
                     "span": "(17, 30)"
                 },
@@ -124,22 +124,22 @@
             }
         },
         "gateway-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L6",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L6",
             "line": 6,
             "span": "(10:24)",
             "sub_items": {
                 "Port": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L2",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L2",
                     "line": 2,
                     "span": "(8, 20)"
                 },
                 "authentication_scope_all_requests": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java#L9",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/SecurityConfig.java#L9",
                     "line": "9",
                     "span": "(67, 79)"
                 },
                 "gateway": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/java/pl/piomin/services/gateway/GatewayServer.java#L15",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/GatewayServer.java#L15",
                     "line": "15",
                     "span": "(0, 16)"
                 },
@@ -154,7 +154,7 @@
                   "span": "(54, 74)"
                 },
                 "load_balancer": {
-                    "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/java/pl/piomin/services/gateway/GatewayServer.java#L15",
+                    "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/java/pl/piomin/services/gateway/GatewayServer.java#L15",
                     "line": "15",
                     "span": "(0, 16)"
                 },
@@ -166,12 +166,12 @@
             }
         },
         "database-auth-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/resources/application.yml#L8",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml#L8",
             "line": 8,
             "span": "(10, 63)"
         },
         "database-gateway-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L8",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L8",
             "line": 8,
             "span": "(10, 64)"
         },
@@ -200,22 +200,22 @@
     },
     "edges": {
         "database-auth-server -> auth-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/resources/application.yml#L8",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/resources/application.yml#L8",
             "line": 8,
             "span": "(10, 63)"
         },
         "database-gateway-server -> gateway-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L8",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L8",
             "line": 8,
             "span": "(10, 64)"
         },
         "account-service -> discovery-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/java/pl/piomin/services/account/AccountService.java#L5",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/java/pl/piomin/services/account/AccountService.java#L5",
             "line": "5",
             "span": "(50, 71)"
         },
         "customer-service -> discovery-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/java/pl/piomin/services/customer/CustomerApplication.java#L5",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/java/pl/piomin/services/customer/CustomerApplication.java#L5",
             "line": "5",
             "span": "(50, 71)"
         },
@@ -225,12 +225,12 @@
             "span": "(0, 12)"
         },
         "auth-server -> discovery-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/auth/src/main/java/pl/piomin/services/auth/AuthServer.java#L7",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/auth/src/main/java/pl/piomin/services/auth/AuthServer.java#L7",
             "line": "7",
             "span": "(50, 71)"
         },
         "discovery-server -> gateway-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L31",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L31",
             "line": 31,
             "span": "(20, 49)"
         },
@@ -245,27 +245,27 @@
             "span": "implicit"
         },
         "gateway-server -> account-service": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L25",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L25",
             "line": 25,
             "span": "(17, 32)"
         },
         "gateway-server -> auth-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L21",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L21",
             "line": 21,
             "span": "(17, 28)"
         },
         "auth-server -> account-service": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/account/src/main/resources/application.yml#L20",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/account/src/main/resources/application.yml#L20",
             "line": 20,
             "span": "(25, 58)"
         },
         "auth-server -> customer-service": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/customer/src/main/resources/application.yml#L16",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/customer/src/main/resources/application.yml#L16",
             "line": 16,
             "span": "(25, 58)"
         },
         "gateway-server -> gateway-server": {
-            "file": "https://github.com/blaugmail/clone-sample-spring-oauth2-microservices/blob/master/gateway/src/main/resources/application.yml#L39",
+            "file": "https://github.com/piomin/sample-spring-oauth2-microservices/blob/with_database/gateway/src/main/resources/application.yml#L39",
             "line": 39,
             "span": "(23, 60)"
         }
