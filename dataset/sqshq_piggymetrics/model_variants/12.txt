@@ -66,7 +66,7 @@ digraph dfd2{
         registry -> rabbitmq [label = " --restful_http--"]
         rabbitmq -> monitoring [label = " --restful_http--"]
         account_service -> rabbitmq [label = " --restful_http--"]
-        auth_server -> rabbitmq [label = " --restful_http--"]
+        auth_service -> rabbitmq [label = " --restful_http--"]
         notification_service -> rabbitmq [label = " --restful_http--"]
         statistics_service -> rabbitmq [label = " --restful_http--"]
         gateway -> rabbitmq [label = " --restful_http--"]

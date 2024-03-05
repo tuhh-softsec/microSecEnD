@@ -197,7 +197,7 @@
         {
             "name": "database_gateway_server",
             "stereotypes": [
-                "external_database"
+                "external_database",
                 "plaintext_credentials"
             ],
             "tagged_values": {
