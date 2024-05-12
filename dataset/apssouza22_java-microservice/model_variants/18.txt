@@ -57,7 +57,7 @@ digraph dfd2{
         mailer -> logstash [label = " --restful_http--\n"]
         jmx_monitoring [label = "{Process: jmx_monitoring | --internal--\n}" shape = Mrecord];
         todo_infra [label = "{Process: todo_infra | --internal--\n}" shape = Mrecord];
-        secret_manager [label = "{Process: secret_manager | --infrastructural-- \n --secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural-- \n --secret_manager--\n}" shape = Mrecord];
         config_server -> secret_manager [label = " --restful_http--\n"]
         admin -> secret_manager [label = " --restful_http--\n"]
         eureka_server -> secret_manager [label = " --restful_http--\n"]

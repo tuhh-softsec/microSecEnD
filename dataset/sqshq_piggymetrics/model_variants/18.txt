@@ -63,7 +63,7 @@ digraph dfd2{
         gateway -> notification_service [label = " --restful_http--\n--circuit_breaker_link--\n--load_balanced_link--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
         gateway -> auth_service [label = " --restful_http--\n--circuit_breaker_link--\n--load_balanced_link--\n--auth_provider--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         config -> secret_manager [label = " --restful_http--\n"]
         registry -> secret_manager [label = " --restful_http--\n"]
         monitoring -> secret_manager [label = " --restful_http--\n"]

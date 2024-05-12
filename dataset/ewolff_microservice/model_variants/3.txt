@@ -29,7 +29,7 @@ digraph dfd2{
         zuul -> catalog [label = " --restful_http--\n"]
         zuul -> order [label = " --restful_http--\n"]
 
-        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--}" shape = Mrecord];
+        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n}" shape = Mrecord];
         eureka -> authorization_server [label = " --restful_http--\n"]
         zuul -> authorization_server [label = " --restful_http--\n"]
         turbine -> authorization_server [label = " --restful_http--\n"]

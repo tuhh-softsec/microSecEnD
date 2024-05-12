@@ -46,8 +46,8 @@ digraph dfd2{
         configserver -> api_gateway [label = " --restful_http--\n"]
         webservice_registry -> api_gateway [label = " --restful_http--\n"]
 
-        logging_server [label = "{Process: logging_server | \n--infrastructural--\n--logging_server--\n--monitoring_dashboard--}" shape = Mrecord];
-        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--}" shape = Mrecord];
+        logging_server [label = "{Process: logging_server | \n--infrastructural--\n--logging_server--\n--monitoring_dashboard--\n}" shape = Mrecord];
+        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--\n}" shape = Mrecord];
         message_broker -> logging_server [label = " --restful_http--\n"]
         configserver -> message_broker [label = " --restful_http--\n"]
         webservice_registry -> message_broker [label = " --restful_http--\n"]

@@ -36,7 +36,7 @@ digraph dfd2{
         api_gateway -> department_service [label = " --restful_http--\n--circuit_breaker_link--\n"]
         zipkin_server -> hystrix_dashboard [label = " --restful_http--\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         secret_manager -> service_registry [label = " --restful_http--\n"]
         secret_manager -> config_server [label = " --restful_http--\n"]
         secret_manager -> zipkin_server [label = " --restful_http--\n"]

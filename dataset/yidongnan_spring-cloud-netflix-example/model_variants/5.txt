@@ -48,7 +48,7 @@ digraph dfd2{
         zuul -> zipkin [label = " --restful_http--\n"]
         zuul -> config_server [label = " --restful_http--\n"]
 
-        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--}" shape = Mrecord];
+        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n}" shape = Mrecord];
         authorization_server -> admin_dashboard [label = " --restful_http--\n"]
         authorization_server -> eureka_server [label = " --restful_http--\n"]
         authorization_server -> rabbitmq [label = " --restful_http--\n"]

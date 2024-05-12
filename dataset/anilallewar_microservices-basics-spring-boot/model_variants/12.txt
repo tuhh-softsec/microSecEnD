@@ -49,7 +49,7 @@ digraph dfd2{
         auth_server -> api_gateway [label = " --restful_http--\n"]
         api_gateway -> user_webservice [label = " --restful_http--\n--load_balanced_link--\n--circuit_breaker_link--\n"]
         api_gateway -> task_webservice [label = " --restful_http--\n--load_balanced_link--\n--circuit_breaker_link--\n"]
-        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--}" shape = Mrecord];
+        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--\n}" shape = Mrecord];
         message_broker -> web_portal [label = " --restful_http--\n"]
         user_webservice -> message_broker [label = " --restful_http--\n"]
         comments_webservice -> message_broker [label = " --restful_http--\n"]

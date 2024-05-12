@@ -29,8 +29,8 @@ digraph dfd2{
         postgres -> shipping [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
         postgres -> invoicing [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
 
-        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--\n--local_logging--}" shape = Mrecord];
-        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--}" shape = Mrecord];
+        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--\n--local_logging--\n}" shape = Mrecord];
+        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--\n}" shape = Mrecord];
         logging_server -> monitoring_dashboard [label = " --restful_http--\n"]
         kafka -> logging_server [label = " --restful_http--\n"]
         zookeeper -> kafka [label = " --restful_http--\n"]

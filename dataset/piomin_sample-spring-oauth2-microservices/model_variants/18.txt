@@ -30,7 +30,7 @@ digraph dfd2{
         customer_service -> account_service [label = " --restful_http--\n--authenticated_request--\n--feign_connection--\n--load_balanced_link--\n'Load Balancer': Ribbon\n"]
         auth_server -> customer_service [label = " --restful_http--\n--auth_provider--\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         secret_manager -> discovery_server [label = " --restful_http--\n"]
         secret_manager -> gateway_server [label = " --restful_http--\n"]
         secret_manager -> auth_server [label = " --restful_http--\n"]

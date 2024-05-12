@@ -34,7 +34,7 @@ digraph dfd2{
         foodtray_service -> item_service [label = " --restful_http--\n--feign_connection--\n--load_balanced_link--\n--circuit_breaker_link--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
         foodtray_service -> price_service [label = " --restful_http--\n--feign_connection--\n--load_balanced_link--\n--circuit_breaker_link--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
 
-        gateway [label = "{Process: gateway | --infrastructural--\n--gateway--}" shape = Mrecord];
+        gateway [label = "{Process: gateway | --infrastructural--\n--gateway--\n}" shape = Mrecord];
         gateway -> account_service [label = " --restful_http--\n"]
         gateway -> customer_service [label = " --restful_http--\n"]
         gateway -> foodtray_service [label = " --restful_http--\n"]

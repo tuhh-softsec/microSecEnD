@@ -20,8 +20,8 @@ digraph dfd2{
         movie_catalog_service -> ratings_data_service [label = " --restful_http--\n--load_balanced_link--\n"]
         movie_catalog_service -> movie_info_service [label = " --restful_http--\n--load_balanced_link--\n"]
 
-        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--}" shape = Mrecord];
-        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--}" shape = Mrecord];
+        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--\n}" shape = Mrecord];
+        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--\n}" shape = Mrecord];
         logging_server -> monitoring_dashboard [label = " --restful_http--\n"]
         discovery_server -> logging_server [label = " --restful_http--\n"]
         ratings_data_service -> logging_server [label = " --restful_http--\n"]

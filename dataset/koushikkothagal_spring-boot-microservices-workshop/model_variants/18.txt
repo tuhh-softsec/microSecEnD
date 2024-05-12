@@ -20,7 +20,7 @@ digraph dfd2{
         movie_catalog_service -> ratings_data_service [label = " --restful_http--\n--load_balanced_link--\n"]
         movie_catalog_service -> movie_info_service [label = " --restful_http--\n--load_balanced_link--\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         secret_manager -> discovery_server [label = " --restful_http--\n"]
         secret_manager -> movie_info_service [label = " --restful_http--\n"]
         secret_manager -> movie_catalog_service [label = " --restful_http--\n"]

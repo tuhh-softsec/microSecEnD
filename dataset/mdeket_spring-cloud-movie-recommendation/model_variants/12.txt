@@ -38,7 +38,7 @@ digraph dfd2{
         recommendation_client -> movie_service [label = " --restful_http--\n--circuit_breaker_link--\n--load_balanced_link--\n--feign_connection--\n'Circuit Breaker': Hystrix\n 'Load Balancer': Ribbon\n"]
         recommendation_client -> user_service [label = " --restful_http--\n--load_balanced_link--\n--circuit_breaker_link--\n--feign_connection--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
 
-        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--}" shape = Mrecord];
+        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--\n}" shape = Mrecord];
         message_broker -> recommendation_client [label = " --restful_http--\n"]
         config_service -> message_broker [label = " --restful_http--\n"]
         eureka_service -> message_broker [label = " --restful_http--\n"]

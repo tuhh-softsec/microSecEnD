@@ -58,7 +58,7 @@ digraph dfd2{
         elasticsearch -> scope [label = " --restful_http--\n"]
         logstash -> scope [label = " --restful_http--\n"]
 
-        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--}" shape = Mrecord];
+        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--\n}" shape = Mrecord];
         consul -> authorization_server [label = " --restful_http--\n"]
         consul2 -> authorization_server [label = " --restful_http--\n"]
         consul3 -> authorization_server [label = " --restful_http--\n"]

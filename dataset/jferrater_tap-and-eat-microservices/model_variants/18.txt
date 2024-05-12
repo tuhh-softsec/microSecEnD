@@ -34,7 +34,7 @@ digraph dfd2{
         foodtray_service -> item_service [label = " --restful_http--\n--feign_connection--\n--load_balanced_link--\n--circuit_breaker_link--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
         foodtray_service -> price_service [label = " --restful_http--\n--feign_connection--\n--load_balanced_link--\n--circuit_breaker_link--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         discovery_service -> secret_manager [label = " --restful_http--\n"]
         config_service -> secret_manager [label = " --restful_http--\n"]
         account_service -> secret_manager [label = " --restful_http--\n"]
