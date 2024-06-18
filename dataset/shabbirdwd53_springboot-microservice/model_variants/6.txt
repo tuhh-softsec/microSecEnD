@@ -36,7 +36,7 @@ digraph dfd2{
         api_gateway -> department_service [label = " --restful_http--\n--circuit_breaker_link--\n"]
         zipkin_server -> hystrix_dashboard [label = " --restful_http--\n"]
 
-        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--}" shape = Mrecord];
+        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--\n}" shape = Mrecord];
         auth_server -> service_registry [label = " --restful_http--\n"]
         auth_server -> config_server [label = " --restful_http--\n"]
         auth_server -> zipkin_server [label = " --restful_http--\n"]

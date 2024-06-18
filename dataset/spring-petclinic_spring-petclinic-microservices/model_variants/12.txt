@@ -49,9 +49,9 @@ digraph dfd2{
         api_gateway -> customers_service [label = " --restful_http--\n--load_balanced_link--\n--circuit_breaker_link--\n"]
         api_gateway -> tracing_server [label = " --restful_http--\n--load_balanced_link--\n"]
 
-        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--}" shape = Mrecord];
+        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--\n}" shape = Mrecord];
         logging_server -> grafana_server [label = " --restful_http--\n"]
-        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--}" shape = Mrecord];
+        message_broker [label = "{Process: message_broker | --infrastructural--\n--message_broker--\n}" shape = Mrecord];
         message_broker -> logging_server [label = " --restful_http--\n"]
         config_server -> message_broker [label = " --restful_http--\n"]
         discovery_server -> message_broker [label = " --restful_http--\n"]

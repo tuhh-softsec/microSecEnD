@@ -44,7 +44,7 @@ digraph dfd2{
         edge_server -> statement_service [label = " --restful_http--\n"]
         edge_server -> card_statement_composite [label = " --restful_http--\n"]
 
-        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--}" shape = Mrecord];
+        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--\n}" shape = Mrecord];
         config_server -> auth_server [label = " --restful_http--\n"]
         discovery_service -> auth_server [label = " --restful_http--\n"]
         rabbitmq -> auth_server [label = " --restful_http--\n"]

@@ -46,7 +46,7 @@ digraph dfd2{
         configserver -> api_gateway [label = " --restful_http--\n"]
         webservice_registry -> api_gateway [label = " --restful_http--\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         configserver -> secret_manager [label = " --restful_http--\n"]
         webservice_registry -> secret_manager [label = " --restful_http--\n"]
         auth_server -> secret_manager [label = " --restful_http--\n"]

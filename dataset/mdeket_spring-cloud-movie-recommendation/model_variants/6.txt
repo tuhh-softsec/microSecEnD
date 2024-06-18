@@ -38,7 +38,7 @@ digraph dfd2{
         recommendation_client -> movie_service [label = " --restful_http--\n--circuit_breaker_link--\n--load_balanced_link--\n--feign_connection--\n'Circuit Breaker': Hystrix\n 'Load Balancer': Ribbon\n"]
         recommendation_client -> user_service [label = " --restful_http--\n--load_balanced_link--\n--circuit_breaker_link--\n--feign_connection--\n'Load Balancer': Ribbon\n 'Circuit Breaker': Hystrix\n"]
 
-        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--}" shape = Mrecord];
+        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--\n}" shape = Mrecord];
         config_service -> authorization_server [label = " --restful_http--\n"]
         eureka_service -> authorization_server [label = " --restful_http--\n"]
         movie_service -> authorization_server [label = " --restful_http--\n"]

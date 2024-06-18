@@ -30,8 +30,8 @@ digraph dfd2{
         customer_service -> account_service [label = " --restful_http--\n--authenticated_request--\n--feign_connection--\n--load_balanced_link--\n'Load Balancer': Ribbon\n"]
         auth_server -> customer_service [label = " --restful_http--\n--auth_provider--\n"]
 
-        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--}" shape = Mrecord];
-        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--}" shape = Mrecord];
+        monitoring_dashboard [label = "{Process: monitoring_dashboard | \n--infrastructural--\n--monitoring_dashboard--\n}" shape = Mrecord];
+        logging_server [label = "{Process: logging_server | --infrastructural--\n--logging_server--\n}" shape = Mrecord];
         logging_server -> monitoring_dashboard [label = " --restful_http--\n"]
 
 

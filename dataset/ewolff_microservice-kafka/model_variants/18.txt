@@ -29,7 +29,7 @@ digraph dfd2{
         postgres -> shipping [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
         postgres -> invoicing [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
 
-        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--}" shape = Mrecord];
+        secret_manager [label = "{Process: secret_manager | --infrastructural--\n--secret_manager--\n}" shape = Mrecord];
         zookeeper -> secret_manager [label = " --restful_http--\n"]
         kafka -> secret_manager [label = " --restful_http--\n"]
         order -> secret_manager [label = " --restful_http--\n"]

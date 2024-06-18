@@ -29,7 +29,7 @@ digraph dfd2{
         postgres -> shipping [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
         postgres -> invoicing [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
 
-        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--}" shape = Mrecord];
+        authorization_server [label = "{Process: authorization_server | --infrastructural--\n--authorization_server--\n}" shape = Mrecord];
         authorization_server -> zookeeper [label = " --restful_http--\n"]
         authorization_server -> kafka [label = " --restful_http--\n"]
         authorization_server -> order [label = " --restful_http--\n"]

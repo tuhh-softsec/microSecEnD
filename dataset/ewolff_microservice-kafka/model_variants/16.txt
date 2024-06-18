@@ -29,7 +29,7 @@ digraph dfd2{
         postgres -> shipping [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
         postgres -> invoicing [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': dbuser\n 'Password': dbpass\n"]
 
-        service_discovery [label = "{Process: service_discovery | --infrastructural--\n--service_discovery--}" shape = Mrecord];
+        service_discovery [label = "{Process: service_discovery | --infrastructural--\n--service_discovery--\n}" shape = Mrecord];
         zookeeper -> service_discovery [label = " --restful_http--\n"]
         kafka -> service_discovery [label = " --restful_http--\n"]
         order -> service_discovery [label = " --restful_http--\n"]

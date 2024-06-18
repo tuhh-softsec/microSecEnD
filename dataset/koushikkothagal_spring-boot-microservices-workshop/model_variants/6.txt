@@ -20,7 +20,7 @@ digraph dfd2{
         movie_catalog_service -> ratings_data_service [label = " --restful_http--\n--load_balanced_link--\n"]
         movie_catalog_service -> movie_info_service [label = " --restful_http--\n--load_balanced_link--\n"]
 
-        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--}" shape = Mrecord];
+        auth_server [label = "{Process: auth_server | --infrastructural--\n--authorization_server--\n--login_attempts_regulation--\n}" shape = Mrecord];
         auth_server -> discovery_server [label = " --restful_http--\n"]
         auth_server -> movie_info_service [label = " --restful_http--\n"]
         auth_server -> movie_catalog_service [label = " --restful_http--\n"]
