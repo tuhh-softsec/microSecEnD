@@ -20,7 +20,7 @@ digraph dfd2{
         movie_catalog_service -> ratings_data_service [label = " --restful_http--\n--load_balanced_link--\n"]
         movie_catalog_service -> movie_info_service [label = " --restful_http--\n--load_balanced_link--\n"]
 
-        gateway [label = "{Process: gateway | --infrastructural--\n--gateway--" shape = Mrecord];
+        gateway [label = "{Process: gateway | --infrastructural--\n--gateway--\n}" shape = Mrecord];
         gateway -> movie_info_service [label = " --restful_http--\n"]
         gateway -> ratings_data_service [label = " --restful_http--\n"]
         gateway -> movie_catalog_service [label = " --restful_http--\n"]
