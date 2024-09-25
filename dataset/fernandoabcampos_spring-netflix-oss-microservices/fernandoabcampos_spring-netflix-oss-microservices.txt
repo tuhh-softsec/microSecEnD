@@ -14,7 +14,7 @@ digraph dfd2{
         discovery_service [label = "{Service: discovery_service | --service_discovery--\n--infrastructural--\nService Discovery: Eureka\nPort: 8761\n}" shape = Mrecord];
         config_server -> discovery_service [label = " --restful_http--\n"]
         rabbitmq [label = "{Service: rabbitmq | --message_broker--\n--infrastructural--\nMessage Broker: RabbitMQ\nPort: 5672\n}" shape = Mrecord];
-        monitor_dashboard [label = "{Service: monitor_dashboard | --monitoring_dashboard--\n--infrastructural--\nMonitoring Dashboard: Hystrix\nPort: 8179\n}" shape = Mrecord];
+        monitor_dashboard [label = "{Service: monitor_dashboard | --monitoring_dashboard--\n--infrastructural--\nMonitoring Dashboard: Hystrix\nPort: 8179\nEndpoints: ['/']}" shape = Mrecord];
         monitor_dashboard -> discovery_service [label = " --restful_http--\n"]
         config_server -> monitor_dashboard [label = " --restful_http--\n"]
         turbine [label = "{Service: turbine | --monitoring_server--\n--infrastructural--\nMonitoring Server: Turbine\nPort: 8989\n}" shape = Mrecord];
@@ -22,13 +22,13 @@ digraph dfd2{
         rabbitmq -> turbine [label = " --restful_http--\n"]
         config_server -> turbine [label = " --restful_http--\n"]
         turbine -> monitor_dashboard [label = " --restful_http--\n"]
-        statement_service [label = "{Service: statement_service | --internal--\nPort: 8080\n}" shape = Mrecord];
+        statement_service [label = "{Service: statement_service | --internal--\nPort: 8080\nEndpoints: ['/api', '/api/statement/\{statementId\}', '/api/statement', /api/statements']}" shape = Mrecord];
         statement_service -> discovery_service [label = " --restful_http--\n"]
         config_server -> statement_service [label = " --restful_http--\n"]
-        card_service [label = "{Service: card_service | --internal--\nPort: 8080\n}" shape = Mrecord];
+        card_service [label = "{Service: card_service | --internal--\nPort: 8080\nEndpoints: ['/api', '/api/cards', '/api/card/\{cardId\}', '/api/new-card']}" shape = Mrecord];
         card_service -> discovery_service [label = " --restful_http--\n"]
         config_server -> card_service [label = " --restful_http--\n"]
-        card_statement_composite [label = "{Service: card_statement_composite | --internal--\n--circuit_breaker--\nPort: 8080\nCircuit Breaker: Hystrix\n}" shape = Mrecord];
+        card_statement_composite [label = "{Service: card_statement_composite | --internal--\n--circuit_breaker--\nPort: 8080\nCircuit Breaker: Hystrix\nEndpoints: ['/api', '/api/cards', '/api/card/\{cardId\}', '/api/new-card', '/api/statement-by-card', '/api/statement/\{statementId\}', '/api/statement', '/api/statements']}" shape = Mrecord];
         card_statement_composite -> discovery_service [label = " --restful_http--\n--circuit_breaker_link--\n"]
         card_statement_composite -> card_service [label = " --restful_http--\n--circuit_breaker_link--\n--feign_connection--\n--load_balanced_link--\n'Circuit Breaker': Hystrix\n 'Load Balancer': Ribbon\n"]
         card_statement_composite -> statement_service [label = " --restful_http--\n--circuit_breaker_link--\n--feign_connection--\n--load_balanced_link--\n'Circuit Breaker': Hystrix\n 'Load Balancer': Ribbon\n"]

@@ -14,21 +14,21 @@ digraph dfd2{
         eureka_server [label = "{Service: eureka_server | --service_discovery--\n--infrastructural--\n--local_logging--\nService Discovery: Eureka\nPort: 8010\n}" shape = Mrecord];
         config_server -> eureka_server [label = " --restful_http--\n"]
         eureka_server -> admin [label = " --restful_http--\n"]
-        user_service [label = "{Service: user_service | --internal--\n--local_logging--\nPort: 8016\n}" shape = Mrecord];
+        user_service [label = "{Service: user_service | --internal--\n--local_logging--\nPort: 8016\nEndpoints: ['/accounts', '/accounts/{id}', '/accounts/search', '/users']}" shape = Mrecord];
         admin -> user_service [label = " --restful_http--\n"]
         config_server -> user_service [label = " --restful_http--\n"]
         kafka [label = "{Service: kafka | --message_broker--\n--infrastructural--\nMessage Broker: Kafka\nPort: 9092\n}" shape = Mrecord];
-        mailer [label = "{Service: mailer | --internal--\n--local_logging--\nPort: 8020\n}" shape = Mrecord];
+        mailer [label = "{Service: mailer | --internal--\n--local_logging--\nPort: 8020\nEndpoints: ['/emails', '/send', '/send/email']}" shape = Mrecord];
         admin -> mailer [label = " --restful_http--\n"]
         config_server -> mailer [label = " --restful_http--\n"]
         mailer -> eureka_server [label = " --restful_http--\n"]
         kafka -> mailer [label = " --restful_http--\n--message_consumer_kafka--\n'Consumer Topic': todo-mail\n"]
-        reminder [label = "{Service: reminder | --internal--\n--local_logging--\nPort: 8015\n}" shape = Mrecord];
+        reminder [label = "{Service: reminder | --internal--\n--local_logging--\nPort: 8015\nEndpoints: ['/todo-changes', '/todos', '/todos/search', '/todos/{id}', '/todos/{id}/status', '/todo-statistics']}" shape = Mrecord];
         reminder -> eureka_server [label = " --restful_http--\n"]
         admin -> reminder [label = " --restful_http--\n"]
         config_server -> reminder [label = " --restful_http--\n"]
         reminder -> kafka [label = " --restful_http--\n--message_producer_kafka--\n'Producer Topic': todo-mail\n"]
-        api_gateway [label = "{Service: api_gateway | --gateway--\n--circuit_breaker--\n--resource_server--\n--infrastructural--\n--csrf_disabled--\n--local_logging--\nCircuit Breaker: Hystrix\nPort: 8018\n}" shape = Mrecord];
+        api_gateway [label = "{Service: api_gateway | --gateway--\n--circuit_breaker--\n--resource_server--\n--infrastructural--\n--csrf_disabled--\n--local_logging--\nCircuit Breaker: Hystrix\nPort: 8018\nEndpoints: ['/todos', '/accounts', '/accounts/me', '/accounts/me/todos']}" shape = Mrecord];
         eureka_server -> api_gateway [label = " --restful_http--\n"]
         admin -> api_gateway [label = " --restful_http--\n"]
         config_server -> api_gateway [label = " --restful_http--\n"]

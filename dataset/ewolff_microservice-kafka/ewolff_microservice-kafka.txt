@@ -11,11 +11,11 @@ digraph dfd2{
         zookeeper [label = "{Service: zookeeper | --configuration_server--\n--infrastructural--\nConfiguration Server: ZooKeeper\n}" shape = Mrecord];
         kafka [label = "{Service: kafka | --message_broker--\n--infrastructural--\nMessage Broker: Kafka\nPort: 9092\n}" shape = Mrecord];
         zookeeper -> kafka [label = " --restful_http--\n"]
-        order [label = "{Service: order | --internal--\nPort: 8080\nEndpoints: ['/order']\n}" shape = Mrecord];
+        order [label = "{Service: order | --internal--\nPort: 8080\nEndpoints: ['/', '/form.html', '/line', '/\{id\}']\n}" shape = Mrecord];
         order -> kafka [label = " --restful_http--\n--message_producer_kafka--\n'Producer Topic': order\n"]
-        invoicing [label = "{Service: invoicing | --internal--\n--local_logging--\nPort: 8080\n}" shape = Mrecord];
+        invoicing [label = "{Service: invoicing | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/', '/\{id\}']}" shape = Mrecord];
         kafka -> invoicing [label = " --restful_http--\n--message_consumer_kafka--\n'Consumer Topic': order\n"]
-        shipping [label = "{Service: shipping | --internal--\n--local_logging--\nPort: 8080\n}" shape = Mrecord];
+        shipping [label = "{Service: shipping | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/', '/\{id\}']}" shape = Mrecord];
         kafka -> shipping [label = " --restful_http--\n--message_consumer_kafka--\n'Consumer Topic': order\n"]
         apache [label = "{Service: apache | --web_server--\n--infrastructural--\nWeb Server: Apache httpd\nPort: 80\n}" shape = Mrecord];
         apache -> order [label = " --restful_http--\n"]

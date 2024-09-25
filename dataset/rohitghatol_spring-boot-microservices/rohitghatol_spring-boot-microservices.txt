@@ -13,7 +13,7 @@ digraph dfd2{
         github_repository -> configserver [label = " --restful_http--\nProtocol: HTTPS\n"]
         webservice_registry [label = "{Service: webservice_registry | --service_discovery--\n--infrastructural--\nService Discovery: Eureka\nPort: 8761\n}" shape = Mrecord];
         configserver -> webservice_registry [label = " --restful_http--\n"]
-        auth_server [label = "{Service: auth_server | --authorization_server--\n--infrastructural--\n--encryption--\n--tokenstore--\n--plaintext_credentials--\n--resource_server--\n--authorization_scope_all_requests--\nAuthorization Server: Spring OAuth2\nPort: 8899\nEndpoints: ['/me', '/']\nUsername: dave\nPassword: secret\n}" shape = Mrecord];
+        auth_server [label = "{Service: auth_server | --authorization_server--\n--infrastructural--\n--encryption--\n--tokenstore--\n--plaintext_credentials--\n--resource_server--\n--authorization_scope_all_requests--\nAuthorization Server: Spring OAuth2\nPort: 8899\nEndpoints: ['/me']\nUsername: dave\nPassword: secret\n}" shape = Mrecord];
         database_auth_server [label = "{External Entity: database_auth_server | --external_database--\n--plaintext_credentials--\n--entrypoint--\n--exitpoint--\nDatabase: MySQL\nPort: 3306\nUsername: root\nPassword: password\n}"];
         database_auth_server -> auth_server [label = " --jdbc--\n--plaintext_credentials_link--\n'Username': root\n 'Password': password\n"]
         configserver -> auth_server [label = " --restful_http--\n"]

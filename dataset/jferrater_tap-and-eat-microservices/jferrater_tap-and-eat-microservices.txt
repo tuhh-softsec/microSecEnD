@@ -22,10 +22,10 @@ digraph dfd2{
         store_service [label = "{Service: store_service | --internal--\nPort: 8003\nEndpoints: ['/stores']\n}" shape = Mrecord];
         config_service -> store_service [label = " --restful_http--\n"]
         store_service -> discovery_service [label = " --restful_http--\n"]
-        item_service [label = "{Service: item_service | --internal--\nPort: 8004\nEndpoints: ['/items']\n}" shape = Mrecord];
+        item_service [label = "{Service: item_service | --internal--\nPort: 8004\nEndpoints: ['/items/search/findByItemCode?itemCode=\{itemCode\}']\n}" shape = Mrecord];
         config_service -> item_service [label = " --restful_http--\n"]
         item_service -> discovery_service [label = " --restful_http--\n"]
-        price_service [label = "{Service: price_service | --internal--\nPort: 8001\nEndpoints: ['/prices']\n}" shape = Mrecord];
+        price_service [label = "{Service: price_service | --internal--\nPort: 8001\nEndpoints: ['/prices/search/findByItemCode?itemCode=\{itemCode\}']\n}" shape = Mrecord];
         config_service -> price_service [label = " --restful_http--\n"]
         price_service -> discovery_service [label = " --restful_http--\n"]
         foodtray_service [label = "{Service: foodtray_service | --infrastructural--\n--monitoring_dashboard--\n--circuit_breaker--\nMonitoring Dashboard: Hystrix\nCircuit Breaker: Hystrix\nPort: 8005\nEndpoints: ['/foodtrays', '/foodtrays/\{itemCode\}', '/foodtrays/price/\{itemCode\}', '/foodtrays/item/\{itemCode\}']\n}" shape = Mrecord];

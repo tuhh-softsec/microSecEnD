@@ -32,13 +32,13 @@ digraph dfd2{
         turbine_server -> monitor_dashboard [label = " --restful_http--\n"]
         zipkin_server [label = "{Service: zipkin_server | --infrastructural--\n--tracing_server--\nPort: 9411\nTracing Server: Zipkin\n}" shape = Mrecord];
         rabbitmq -> zipkin_server [label = " --restful_http--\n"]
-        product_service [label = "{Service: product_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/product/\{productId\}', '/set-Serviceing-time']\n}" shape = Mrecord];
+        product_service [label = "{Service: product_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/product/\{productId\}', '/set-processing-time']\n}" shape = Mrecord];
         config_server -> product_service [label = " --restful_http--\nProtocol: HTTPS"]
         product_service -> discovery_server [label = " --restful_http--\n"]
-        recommendation_service [label = "{Service: recommendation_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/recommendation', '/set-Serviceing-time']\n}" shape = Mrecord];
+        recommendation_service [label = "{Service: recommendation_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/recommendation', '/set-processing-time']\n}" shape = Mrecord];
         config_server -> recommendation_service [label = " --restful_http--\nProtocol: HTTPS"]
         recommendation_service -> discovery_server [label = " --restful_http--\n"]
-        review_service [label = "{Service: review_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/review', '/set-Serviceing-time']\n}" shape = Mrecord];
+        review_service [label = "{Service: review_service | --internal--\n--local_logging--\nPort: 8080\nEndpoints: ['/review', '/set-processing-time']\n}" shape = Mrecord];
         config_server -> review_service [label = " --restful_http--\nProtocol: HTTPS"]
         review_service -> discovery_server [label = " --restful_http--\n"]
         composite_service [label = "{Service: composite_service | --internal--\n--local_logging--\n--load_balancer--\n--circuit_breaker--\n--resource_server--\nPort: 8080\nEndpoints: ['/', '/\{productId\}']\nLoad Balancer: Spring Cloud\n}" shape = Mrecord];

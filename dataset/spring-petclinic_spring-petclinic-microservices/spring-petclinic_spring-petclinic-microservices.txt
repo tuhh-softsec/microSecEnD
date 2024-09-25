@@ -22,7 +22,7 @@ digraph dfd2{
         prometheus_server [label = "{Service: prometheus_server | --metrics_server--\n--infrastructural--\nMetrics Server: Prometheus\nPort: 9090\n}" shape = Mrecord];
         grafana_server [label = "{Service: grafana_server | --monitoring_dashboard--\n--infrastructural--\nMonitoring Dashboard: Grafana\nPort: 3000\n}" shape = Mrecord];
         prometheus_server -> grafana_server [label = " --restful_http--\n"]
-        customers_service [label = "{Service: customers_service | --in_memory_data_store--\n--local_logging--\n--internal--\nPort: 8081\nIn-Memory Data Store: HSQLDB\nLogging Technology: Lombok\nEndpoints: ['/owners', '/owners/\{ownerId\}']\n}" shape = Mrecord];
+        customers_service [label = "{Service: customers_service | --in_memory_data_store--\n--local_logging--\n--internal--\nPort: 8081\nIn-Memory Data Store: HSQLDB\nLogging Technology: Lombok\nEndpoints: ['/owners', '/owners/\{ownerId\}', '/petTypes', '/owners/\{ownerId\}/pets', '/owners/*/pets/\{petId\}']\n}" shape = Mrecord];
         customers_service -> discovery_server [label = " --restful_http--\n"]
         config_server -> customers_service [label = " --restful_http--\n"]
         customers_service -> tracing_server [label = " --restful_http--\n"]
@@ -32,12 +32,12 @@ digraph dfd2{
         config_server -> vets_service [label = " --restful_http--\n"]
         vets_service -> tracing_server [label = " --restful_http--\n"]
         vets_service -> prometheus_server [label = " --restful_http--\n"]
-        visits_service [label = "{Service: visits_service | --in_memory_data_store--\n--local_logging--\n--internal--\nPort: 8082\nIn-Memory Data Store: HSQLDB\nLogging Technology: Lombok\n}" shape = Mrecord];
+        visits_service [label = "{Service: visits_service | --in_memory_data_store--\n--local_logging--\n--internal--\nPort: 8082\nIn-Memory Data Store: HSQLDB\nLogging Technology: Lombok\nEndpoints: ['/owners/*/pets/\{petId\}/visits', '/pets/visits']}" shape = Mrecord];
         visits_service -> discovery_server [label = " --restful_http--\n"]
         config_server -> visits_service [label = " --restful_http--\n"]
         visits_service -> tracing_server [label = " --restful_http--\n"]
         visits_service -> prometheus_server [label = " --restful_http--\n"]
-        api_gateway [label = "{Service: api_gateway | --gateway--\n--infrastructural--\n--load_balancer--\nGateway: Spring Cloud Gateway\nPort: 8080\nLoad Balancer: Spring Cloud\nEndpoints: ['/api/gatewayowners/\{ownerId\}', '/api/gateway']\n}" shape = Mrecord];
+        api_gateway [label = "{Service: api_gateway | --gateway--\n--infrastructural--\n--load_balancer--\nGateway: Spring Cloud Gateway\nPort: 8080\nLoad Balancer: Spring Cloud\nEndpoints: ['/api/gateway/owners/\{ownerId\}', '/api/gateway']\n}" shape = Mrecord];
         discovery_server -> api_gateway [label = " --restful_http--\n"]
         user [label = "{External Entity: user | --user_stereotype--\n--entrypoint--\n--exitpoint--\n}"];
         user -> api_gateway [label = " --restful_http--\n"]

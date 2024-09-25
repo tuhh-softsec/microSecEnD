@@ -16,11 +16,11 @@ digraph dfd2{
         zuul -> user [label = " --restful_http--\n"]
         turbine [label = "{Service: turbine | --monitoring_server--\n--monitoring_dashboard--\n--infrastructural--\nMonitoring Server: Turbine\nMonitoring Dashboard: Hystrix\nPort: 8989\n}" shape = Mrecord];
         turbine -> eureka [label = " --restful_http--\n"]
-        catalog [label = "{Service: catalog | --internal--\nPort: 8080\nEndpoints: ['/catalog', '/\{id\}.html', '/list.html', '/form.html', '/searchForm.html', '/searchByName.html']\n}" shape = Mrecord];
+        catalog [label = "{Service: catalog | --internal--\nPort: 8080\nEndpoints: ['/\{id\}.html', '/list.html', '/form.html', '/searchForm.html', '/searchByName.html']\n}" shape = Mrecord];
         catalog -> eureka [label = " --restful_http--\n"]
-        customer [label = "{Service: customer | --internal--\nPort: 8080\nEndpoints: ['/form.html', '/list.html', '/\{id\}.html', '/customer']\n}" shape = Mrecord];
+        customer [label = "{Service: customer | --internal--\nPort: 8080\nEndpoints: ['/form.html', '/list.html', '/\{id\}.html']\n}" shape = Mrecord];
         customer -> eureka [label = " --restful_http--\n"]
-        order [label = "{Service: order | --internal--\n--load_balancer--\n--circuit_breaker--\n--local_logging--\nLoad Balancer: Ribbon\nCircuit Breaker: Hystrix\nPort: 8080\nEndpoints: ['/', '/form.html', '/\{id\}', '/line', '/order']\n}" shape = Mrecord];
+        order [label = "{Service: order | --internal--\n--load_balancer--\n--circuit_breaker--\n--local_logging--\nLoad Balancer: Ribbon\nCircuit Breaker: Hystrix\nPort: 8080\nEndpoints: ['/', '/form.html', '/\{id\}', '/line']\n}" shape = Mrecord];
         order -> eureka [label = " --restful_http--\n"]
         order -> catalog [label = " --restful_http--\n"]
         order -> customer [label = " --restful_http--\n"]
