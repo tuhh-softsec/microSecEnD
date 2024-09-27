@@ -22,7 +22,7 @@ digraph dfd2{
         rabbitmq -> turbine [label = " --restful_http--\n"]
         config_server -> turbine [label = " --restful_http--\n"]
         turbine -> monitor_dashboard [label = " --restful_http--\n"]
-        statement_service [label = "{Service: statement_service | --internal--\nPort: 8080\nEndpoints: ['/api', '/api/statement/\{statementId\}', '/api/statement', /api/statements']}" shape = Mrecord];
+        statement_service [label = "{Service: statement_service | --internal--\nPort: 8080\nEndpoints: ['/api', '/api/statement/\{statementId\}', '/api/statement', '/api/statements']}" shape = Mrecord];
         statement_service -> discovery_service [label = " --restful_http--\n"]
         config_server -> statement_service [label = " --restful_http--\n"]
         card_service [label = "{Service: card_service | --internal--\nPort: 8080\nEndpoints: ['/api', '/api/cards', '/api/card/\{cardId\}', '/api/new-card']}" shape = Mrecord];

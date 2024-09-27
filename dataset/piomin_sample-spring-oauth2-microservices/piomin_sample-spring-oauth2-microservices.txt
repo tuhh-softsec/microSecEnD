@@ -21,7 +21,7 @@ digraph dfd2{
         database_auth_server [label = "{External Entity: database_auth_server | --external_database--\n--entrypoint--\n--exitpoint--\n--plaintext_credentials--\n--tokenstore--\nDatabase: MySQL\nUsername: oauth2\nPassword: oauth2\n}"];
         database_auth_server -> auth_server [label = " --jdbc--\n--plaintext_credentials_link--\nUsername: oauth2\n Password: oauth2\n"]
         gateway_server -> auth_server [label = " --restful_http--\n--auth_provider--\n"]
-        account_service [label = "{Service: account_service | --internal--\n--pre_authorized_endpoints--\n--resource_server--\nPre-authorized Endpoints: ['/\{id\}', '/']\nPort: 8082\nEndpoints: ['/']}" shape = Mrecord];
+        account_service [label = "{Service: account_service | --internal--\n--pre_authorized_endpoints--\n--resource_server--\nPre-authorized Endpoints: ['/\{id\}', '/']\nPort: 8082}" shape = Mrecord];
         account_service -> discovery_server [label = " --restful_http--\n"]
         auth_server -> account_service [label = " --restful_http--\n--auth_provider--\n"]
         gateway_server -> account_service [label = " --restful_http--\n"]

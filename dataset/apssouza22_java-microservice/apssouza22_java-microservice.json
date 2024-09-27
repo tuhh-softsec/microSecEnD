@@ -43,7 +43,13 @@
                 "local_logging"
             ],
             "tagged_values": {
-                "Port": 8016
+                "Port": 8016,
+                "Endpoints": [
+                    "/accounts", 
+                    "/accounts/{id}",
+                    "/accounts/search",
+                    "/users"
+                ]
             }
         },
         {
@@ -64,7 +70,12 @@
                 "local_logging"
             ],
             "tagged_values": {
-                "Port": 8020
+                "Port": 8020,
+                "Endpoints": [
+                    "/emails",
+                    "/send", 
+                    "/send/email"
+                ]
             }
         },
         {
@@ -74,7 +85,15 @@
                 "local_logging"
             ],
             "tagged_values": {
-                "Port": 8015
+                "Port": 8015,
+                "Endpoints": [
+                    "/todo-changes", 
+                    "/todos", 
+                    "/todos/search", 
+                    "/todos/{id}", 
+                    "/todos/{id}/status", 
+                    "/todo-statistics"
+                ]
             }
         },
         {
@@ -90,7 +109,13 @@
             ],
             "tagged_values": {
                 "Circuit Breaker": "Hystrix",
-                "Port": 8018
+                "Port": 8018,
+                "Endpoints": [
+                    "/todos", 
+                    "/accounts", 
+                    "/accounts/me", 
+                    "/accounts/me/todos"
+                ]
             }
         },
         {

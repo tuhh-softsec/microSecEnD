@@ -46,7 +46,6 @@
             "tagged_values": {
                 "Port": 8080,
                 "Endpoints": [
-                    "/catalog",
                     "/{id}.html",
                     "/list.html",
                     "/form.html",
@@ -65,8 +64,7 @@
                 "Endpoints": [
                     "/form.html",
                     "/list.html",
-                    "/{id}.html",
-                    "/customer"
+                    "/{id}.html"
                 ]
             }
         },
@@ -86,8 +84,7 @@
                     "/",
                     "/form.html",
                     "/{id}",
-                    "/line",
-                    "/order"
+                    "/line"
                 ]
             }
         }

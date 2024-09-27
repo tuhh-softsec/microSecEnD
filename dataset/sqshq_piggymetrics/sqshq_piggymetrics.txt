@@ -19,7 +19,7 @@ digraph dfd2{
         turbine_stream_service -> monitoring [label = " --restful_http--\n"]
         rabbitmq [label = "{Service: rabbitmq | --message_broker--\n--infrastructural--\nMessage Broker: RabbitMQ\nPort: 15672\n}" shape = Mrecord];
         rabbitmq -> turbine_stream_service [label = " --restful_http--\n"]
-        auth_service [label = "{Service: auth_service | --authorization_server--\n--pre_authorized_endpoints--\n--infrastructural--\n--token_server--\n--encryption--\n--local_logging--\n--resource_server--\n--csrf_disabled--\n--authentication_scope_all_requests--\nAuthorization Server: Spring OAuth2\nPort: 5000\nPre-authorized Endpoints: ['/users']\nEndpoints: ['uaa/users']\n}" shape = Mrecord];
+        auth_service [label = "{Service: auth_service | --authorization_server--\n--pre_authorized_endpoints--\n--infrastructural--\n--token_server--\n--encryption--\n--local_logging--\n--resource_server--\n--csrf_disabled--\n--authentication_scope_all_requests--\nAuthorization Server: Spring OAuth2\nPort: 5000\nPre-authorized Endpoints: ['uaa/users']\nEndpoints: ['uaa/users']\n}" shape = Mrecord];
         auth_service -> registry [label = " --restful_http--\n"]
         config -> auth_service [label = " --plaintext_credentials_link--\n--restful_http--\n"]
         account_service [label = "{Service: account_service | --internal--\n--pre_authorized_endpoints--\n--local_logging--\n--resource_server--\n--circuit_breaker--\nPort: 6000\nPre-authorized Endpoints: ['/\{name\}']\nCircuit Breaker: Hystrix\nEndpoints: ['/\{name\}', '/', '/accounts/\{accountName\}', '/current']\n}" shape = Mrecord];

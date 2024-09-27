@@ -79,7 +79,10 @@
                 "Logging Technology": "Lombok",
                 "Endpoints": [
                     "/owners",
-                    "/owners/{ownerId}"
+                    "/owners/{ownerId}",
+                    "/petTypes", 
+                    "/owners/{ownerId}/pets", 
+                    "/owners/*/pets/{petId}"
                 ]
             }
         },
@@ -107,7 +110,11 @@
             "tagged_values": {
                 "Port": 8082,
                 "In-Memory Data Store": "HSQLDB",
-                "Logging Technology": "Lombok"
+                "Logging Technology": "Lombok",
+                "Endpoints": [
+                    "/owners/*/pets/{petId}/visits", 
+                    "/pets/visits"
+                ]
             }
         },
         {

@@ -87,7 +87,10 @@
                 "local_logging"
             ],
             "tagged_values": {
-                "Port": 8082
+                "Port": 8082,
+                "Endpoints": [
+                    "/"
+                ]
             }
         },
         {
@@ -97,7 +100,10 @@
                 "local_logging"
             ],
             "tagged_values": {
-                "Port": 8084
+                "Port": 8084,
+                "Endpoints": [
+                    "/"
+                ]
             }
         },
         {
@@ -137,7 +143,10 @@
             "tagged_values": {
                 "Gateway": "Zuul",
                 "Load Balancer": "Ribbon",
-                "Port": 8080
+                "Port": 8080,
+                "Endpoints": [
+                    "/"
+                ]
             }
         },
         {

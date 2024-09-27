@@ -41,7 +41,10 @@
             ],
             "tagged_values": {
                 "Monitoring Dashboard": "Hystrix",
-                "Port": 8179
+                "Port": 8179,
+                "Endpoints": [
+                    "/"
+                ]
             }
         },
         {
@@ -61,7 +64,13 @@
                 "internal"
             ],
             "tagged_values": {
-                "Port": 8080
+                "Port": 8080,
+                "Endpoints": [
+                    "/api", 
+                    "/api/statement/{statementId}", 
+                    "/api/statement", 
+                    "/api/statements"
+                ]
             }
         },
         {
@@ -70,7 +79,13 @@
                 "internal"
             ],
             "tagged_values": {
-                "Port": 8080
+                "Port": 8080,
+                "Endpoints": [
+                    "/api", 
+                    "/api/cards", 
+                    "/api/card/{cardId}", 
+                    "/api/new-card"
+                ]
             }
         },
         {
@@ -81,7 +96,17 @@
             ],
             "tagged_values": {
                 "Port": 8080,
-                "Circuit Breaker": "Hystrix"
+                "Circuit Breaker": "Hystrix",
+                "Endpoints": [
+                    "/api", 
+                    "/api/cards", 
+                    "/api/card/{cardId}", 
+                    "/api/new-card", 
+                    "/api/statement-by-card", 
+                    "/api/statement/{statementId}", 
+                    "/api/statement", 
+                    "/api/statements"
+                ]
             }
         },
         {

@@ -46,7 +46,8 @@
                 "Port": 8001,
                 "Endpoints": [
                     "/user",
-                    "/user/{userId}"
+                    "/user/{userId}",
+                    "/newuser"
                 ]
             }
         },
@@ -86,15 +87,9 @@
                 "Circuit Breaker": "Hystrix",
                 "Load Balancer": "Ribbon",
                 "Endpoints": [
-                    "/user/{userId}",
-                    "/api/userDetails/{userId}",
-                    "/user",
-                    "/api",
-                    "/recommendation/dummyData",
-                    "/movie/dummyData",
-                    "/newuser",
-                    "/api/recommendation/user/{userId}",
-                    "/movie"
+                    "/api/userDetails/{userId}", 
+                    "/api", 
+                    "/api/recommendation/user/{userId}"
                 ]
             }
         }

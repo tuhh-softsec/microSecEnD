@@ -39,8 +39,7 @@
                 "Authorization Server": "Spring OAuth2",
                 "Port": 8899,
                 "Endpoints": [
-                    "/me",
-                    "/"
+                    "/me"
                 ],
                 "Username": "dave",
                 "Password": "secret"

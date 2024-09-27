@@ -66,7 +66,7 @@
             "tagged_values": {
                 "Port": 8004,
                 "Endpoints": [
-                    "/items"
+                    "/items/search/findByItemCode?itemCode={itemCode}"
                 ]
             }
         },
@@ -78,7 +78,7 @@
             "tagged_values": {
                 "Port": 8001,
                 "Endpoints": [
-                    "/prices"
+                    "/prices/search/findByItemCode?itemCode={itemCode}"
                 ]
             }
         },
