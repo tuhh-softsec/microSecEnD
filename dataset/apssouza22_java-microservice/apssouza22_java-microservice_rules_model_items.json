@@ -64,7 +64,6 @@
                 "oauth -> user_service", 
                 "oauth -> eureka_server", 
                 "admin -> oauth", 
-                "proxy -> api_gateway", 
                 "zookeeper -> kafka",
                 "oauth"
             ]
@@ -93,7 +92,6 @@
                 "oauth -> user_service", 
                 "oauth -> eureka_server", 
                 "admin -> oauth", 
-                "proxy -> api_gateway", 
                 "zookeeper -> kafka",
                 "oauth"
             ]
@@ -117,7 +115,7 @@
             ]
         },
         "R09": {
-            "rule_text": "There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": true,
             "related_model_items": [
                 "config_server",
@@ -215,16 +213,7 @@
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
-                "config_server",
-                "admin",
-                "eureka_server",
-                "user_service",
                 "kafka",
-                "mailer",
-                "reminder",
-                "api_gateway",
-                "oauth",
-                "proxy",
                 "zookeeper",
                 "jmx_monitoring"
             ]
@@ -262,8 +251,6 @@
                 "admin",
                 "eureka_server",
                 "user_service",
-                "mailer",
-                "reminder",
                 "api_gateway",
                 "oauth",
                 "proxy",
@@ -274,11 +261,9 @@
                 "admin -> mailer", 
                 "config_server -> mailer", 
                 "mailer -> eureka_server", 
-                "kafka -> mailer", 
                 "reminder -> eureka_server", 
                 "admin -> reminder", 
                 "config_server -> reminder", 
-                "reminder -> kafka", 
                 "eureka_server -> api_gateway", 
                 "admin -> api_gateway", 
                 "config_server -> api_gateway", 
@@ -287,8 +272,7 @@
                 "oauth -> user_service", 
                 "oauth -> eureka_server", 
                 "admin -> oauth", 
-                "proxy -> api_gateway", 
-                "zookeeper -> kafka"
+                "proxy -> api_gateway"
             ]
         },
         "R19": {

@@ -105,7 +105,9 @@
                 "infrastructural",
                 "csrf_disabled",
                 "local_logging",
-                "entrypoint"
+                "entrypoint",
+                "authorization",
+                "authentication"
             ],
             "tagged_values": {
                 "Circuit Breaker": "Hystrix",
@@ -126,6 +128,7 @@
                 "infrastructural",
                 "circuit_breaker",
                 "local_logging",
+                "authorization",
                 "authentication",
                 "entrypoint"
             ],
@@ -361,7 +364,9 @@
             "sender": "user",
             "receiver": "proxy",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -369,7 +374,9 @@
             "sender": "user",
             "receiver": "oauth",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -378,7 +385,8 @@
             "receiver": "api_gateway",
             "stereotypes": [
                 "restful_http",
-                "authenticated_request"
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
