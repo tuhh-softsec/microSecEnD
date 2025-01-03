@@ -2,7 +2,7 @@
     "rules": {
         "R01": {
             "rule_text": "There should be a single type of service as an entry point.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
                 "elasticsearch",
                 "kibana",
@@ -23,14 +23,14 @@
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
                 "edge_server"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
                 "edge_server"
             ]

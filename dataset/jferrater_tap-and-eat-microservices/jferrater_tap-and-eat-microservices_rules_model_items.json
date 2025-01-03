@@ -8,13 +8,13 @@
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
             ]
         },

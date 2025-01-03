@@ -18,7 +18,7 @@
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
                 "api_gateway",
                 "oauth"
