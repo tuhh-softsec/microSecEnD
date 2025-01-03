@@ -77,7 +77,8 @@
                 "authorization_server",
                 "resource_server",
                 "local_logging",
-                "plaintext_credentials"
+                "plaintext_credentials",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 9999,

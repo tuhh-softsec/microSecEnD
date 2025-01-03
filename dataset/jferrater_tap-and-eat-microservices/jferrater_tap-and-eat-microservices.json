@@ -25,7 +25,8 @@
         {
             "name": "account_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8000,
@@ -37,7 +38,8 @@
         {
             "name": "customer_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8002,
@@ -49,7 +51,8 @@
         {
             "name": "store_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8003,
@@ -61,7 +64,8 @@
         {
             "name": "item_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8004,
@@ -73,7 +77,8 @@
         {
             "name": "price_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8001,
@@ -87,7 +92,8 @@
             "stereotypes": [
                 "infrastructural",
                 "monitoring_dashboard",
-                "circuit_breaker"
+                "circuit_breaker",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Monitoring Dashboard": "Hystrix",

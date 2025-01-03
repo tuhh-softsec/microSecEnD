@@ -21,7 +21,8 @@
                 "authentication_scope_all_requests",
                 "load_balancer",
                 "authentication",
-                "entrypoint"
+                "entrypoint",
+                "circuit_breaker"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",

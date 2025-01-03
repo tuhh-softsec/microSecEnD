@@ -96,7 +96,8 @@
                 "infrastructural",
                 "load_balancer",
                 "csrf_disabled",
-                "entrypoint"
+                "entrypoint", 
+                "circuit_breaker"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",

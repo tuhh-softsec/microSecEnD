@@ -2,74 +2,144 @@
     "rules": {
         "R01": {
             "rule_text": "There should be a single type of service as an entry point.",
-            "verdict": false,
+            "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": true,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": true,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": true,
             "related_model_items": [
+                "edge_server",
+                "auth_server"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": true,
             "related_model_items": [
+                "edge_server",
+                "auth_server"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R10": {
             "rule_text": "No service that performs authorization should perform any other business functionality.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R11": {
             "rule_text": "No service that performs authentication should perform any other business functionality.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R12": {
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R13": {
@@ -88,66 +158,179 @@
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": true,
             "related_model_items": [
+                "rabbitmq"
             ]
         },
         "R18": {
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R19": {
             "rule_text": "No service that performs logging should be connected to a central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server",
+
             ]
         },
         "R20": {
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "kibana"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server",
+
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "elasticsearch",
+                "kibana",
+                "logstash",
+                "rabbitmq",
+                "discovery_server",
+                "config_server",
+                "auth_server",
+                "monitor_dashboard",
+                "turbine_server",
+                "zipkin_server",
+                "product_service",
+                "recommendation_service",
+                "review_service",
+                "composite_service",
+                "edge_server"
             ]
         }
     }

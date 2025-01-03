@@ -14,7 +14,8 @@
         {
             "name": "ratings_data_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8083,
@@ -28,7 +29,8 @@
         {
             "name": "movie_info_service",
             "stereotypes": [
-                "internal"
+                "internal",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8082,
@@ -42,7 +44,8 @@
             "name": "movie_catalog_service",
             "stereotypes": [
                 "internal",
-                "load_balancer"
+                "load_balancer",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Port": 8081,

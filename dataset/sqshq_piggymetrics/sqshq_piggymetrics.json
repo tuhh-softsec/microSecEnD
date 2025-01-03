@@ -200,7 +200,8 @@
                 "gateway",
                 "infrastructural",
                 "load_balancer",
-                "entrypoint"
+                "entrypoint", 
+                "circuit_breaker"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",

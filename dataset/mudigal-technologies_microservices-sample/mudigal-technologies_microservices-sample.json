@@ -137,8 +137,7 @@
             "stereotypes": [
                 "gateway",
                 "infrastructural",
-                "load_balancer",
-                "entrypoint"
+                "load_balancer"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -154,7 +153,8 @@
             "stereotypes": [
                 "web_application",
                 "infrastructural",
-                "local_logging"
+                "local_logging",
+                "entrypoint"
             ],
             "tagged_values": {
                 "Web Application": "Nginx",
