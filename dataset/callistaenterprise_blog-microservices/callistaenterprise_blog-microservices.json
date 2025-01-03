@@ -78,7 +78,9 @@
                 "resource_server",
                 "local_logging",
                 "plaintext_credentials",
-                "entrypoint"
+                "entrypoint",
+                "authorization",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 9999,
@@ -197,7 +199,9 @@
                 "local_logging",
                 "circuit_breaker",
                 "load_balancer",
-                "entrypoint"
+                "entrypoint",
+                "authorization",
+                "authentication"
             ],
             "tagged_values": {
                 "Port": 8765,
@@ -227,7 +231,8 @@
             "sender": "github_repository",
             "receiver": "config_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "encrypted"
             ],
             "tagged_values": {}
         },
@@ -255,7 +260,9 @@
             "sender": "config_server",
             "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"
@@ -379,7 +386,9 @@
             "sender": "config_server",
             "receiver": "composite_service",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"
@@ -389,7 +398,9 @@
             "sender": "auth_server",
             "receiver": "composite_service",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"
@@ -444,7 +455,10 @@
             "sender": "user",
             "receiver": "edge_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized",
+                "encrypted"
             ],
             "tagged_values": {}
         },
@@ -452,7 +466,10 @@
             "sender": "user",
             "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized",
+                "encrypted"
             ],
             "tagged_values": {}
         },
@@ -461,7 +478,9 @@
             "receiver": "composite_service",
             "stereotypes": [
                 "restful_http",
-                "circuit_breaker_link"
+                "circuit_breaker_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"
@@ -471,7 +490,9 @@
             "sender": "discovery_server",
             "receiver": "edge_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -479,7 +500,9 @@
             "sender": "config_server",
             "receiver": "edge_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"
@@ -489,7 +512,9 @@
             "sender": "edge_server",
             "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "Protocol": "HTTPS"

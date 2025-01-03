@@ -4,20 +4,7 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": false,
             "related_model_items": [
-                "elasticsearch",
-                "kibana",
-                "logstash",
-                "rabbitmq",
-                "discovery_server",
-                "config_server",
                 "auth_server",
-                "monitor_dashboard",
-                "turbine_server",
-                "zipkin_server",
-                "product_service",
-                "recommendation_service",
-                "review_service",
-                "composite_service",
                 "edge_server"
             ]
         },
@@ -25,14 +12,14 @@
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": false,
             "related_model_items": [
-                "edge_server"
+                "auth_server"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": false,
             "related_model_items": [
-                "edge_server"
+                "auth_server"
             ]
         },
         "R04": {
@@ -146,12 +133,54 @@
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": true,
             "related_model_items": [
+                "user -> edge_server",
+                "user -> auth_server",
+                "github_repository -> config_server"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "elasticsearch -> kibana",
+                "logstash -> elasticsearch",
+                "config_server -> discovery_server", 
+                "config_server -> rabbitmq", 
+                "config_server -> auth_server", 
+                "config_server -> monitor_dashboard", 
+                "monitor_dashboard -> discovery_server", 
+                "rabbitmq -> turbine_server", 
+                "turbine_server -> discovery_server", 
+                "config_server -> turbine_server", 
+                "turbine_server -> monitor_dashboard", 
+                "rabbitmq -> zipkin_server", 
+                "config_server -> product_service", 
+                "product_service -> discovery_server", 
+                "config_server -> recommendation_service", 
+                "recommendation_service -> discovery_server", 
+                "config_server -> review_service", 
+                "review_service -> discovery_server", 
+                "config_server -> composite_service", 
+                "auth_server -> composite_service", 
+                "composite_service -> discovery_server", 
+                "composite_service -> rabbitmq", 
+                "composite_service -> product_service", 
+                "composite_service -> recommendation_service", 
+                "composite_service -> review_service", 
+                "edge_server -> composite_service", 
+                "discovery_server -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> auth_server", 
+                "discovery_server -> logstash", 
+                "config_server -> logstash",
+                "auth_server -> logstash", 
+                "product_service -> logstash", 
+                "recommendation_service -> logstash", 
+                "review_service -> logstash", 
+                "composite_service -> logstash", 
+                "monitor_dashboard -> logstash", 
+                "edge_server -> logstash", 
+                "zipkin_server -> logstash"
             ]
         },
         "R15": {
@@ -163,16 +192,7 @@
                 "logstash",
                 "rabbitmq",
                 "discovery_server",
-                "config_server",
-                "auth_server",
-                "monitor_dashboard",
-                "turbine_server",
-                "zipkin_server",
-                "product_service",
-                "recommendation_service",
-                "review_service",
-                "composite_service",
-                "edge_server"
+                "zipkin_server"
             ]
         },
         "R16": {
@@ -207,15 +227,36 @@
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
-                "config_server",
                 "auth_server",
                 "monitor_dashboard",
-                "turbine_server",
                 "product_service",
                 "recommendation_service",
                 "review_service",
-                "composite_service",
-                "edge_server"
+                "edge_server",
+                "config_server -> auth_server", 
+                "config_server -> monitor_dashboard", 
+                "monitor_dashboard -> discovery_server", 
+                "turbine_server -> monitor_dashboard", 
+                "config_server -> product_service", 
+                "product_service -> discovery_server", 
+                "config_server -> recommendation_service", 
+                "recommendation_service -> discovery_server", 
+                "config_server -> review_service", 
+                "review_service -> discovery_server", 
+                "auth_server -> composite_service", 
+                "composite_service -> product_service", 
+                "composite_service -> recommendation_service", 
+                "composite_service -> review_service", 
+                "edge_server -> composite_service", 
+                "discovery_server -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> auth_server", 
+                "auth_server -> logstash", 
+                "product_service -> logstash", 
+                "recommendation_service -> logstash", 
+                "review_service -> logstash", 
+                "monitor_dashboard -> logstash", 
+                "edge_server -> logstash"
             ]
         },
         "R19": {
@@ -224,14 +265,18 @@
             "related_model_items": [
                 "config_server",
                 "auth_server",
-                "monitor_dashboard",
-                "turbine_server",
                 "product_service",
                 "recommendation_service",
                 "review_service",
                 "composite_service",
                 "edge_server",
-
+                "config_server -> logstash",
+                "auth_server -> logstash", 
+                "product_service -> logstash", 
+                "recommendation_service -> logstash", 
+                "review_service -> logstash", 
+                "composite_service -> logstash", 
+                "edge_server -> logstash"
             ]
         },
         "R20": {
@@ -252,15 +297,24 @@
                 "discovery_server",
                 "config_server",
                 "auth_server",
-                "monitor_dashboard",
-                "turbine_server",
                 "zipkin_server",
                 "product_service",
                 "recommendation_service",
                 "review_service",
                 "composite_service",
                 "edge_server",
-
+                "elasticsearch -> kibana",
+                "logstash -> elasticsearch",
+                "discovery_server -> logstash", 
+                "config_server -> logstash",
+                "auth_server -> logstash", 
+                "product_service -> logstash", 
+                "recommendation_service -> logstash", 
+                "review_service -> logstash", 
+                "composite_service -> logstash", 
+                "monitor_dashboard -> logstash", 
+                "edge_server -> logstash", 
+                "zipkin_server -> logstash"
             ]
         },
         "R22": {
