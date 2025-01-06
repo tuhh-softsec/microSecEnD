@@ -4,54 +4,100 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": true,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": false,
             "related_model_items": [
+                "apache"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": false,
             "related_model_items": [
+                "apache"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "apache"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "apache"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper -> kafka", 
+                "order -> kafka", 
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> order", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> order", 
+                "postgres -> shipping",
+                "postgres -> invoicing"
+
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper -> kafka", 
+                "order -> kafka", 
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> order", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> order", 
+                "postgres -> shipping",
+                "postgres -> invoicing"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R10": {
@@ -70,72 +116,157 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "user -> apache"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper -> kafka", 
+                "order -> kafka", 
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> order", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> order", 
+                "postgres -> shipping",
+                "postgres -> invoicing"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "apache",
+                "postgres"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": true,
             "related_model_items": [
+                "kafka"
             ]
         },
         "R18": {
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
+                "invoicing",
+                "shipping",
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> shipping",
+                "postgres -> invoicing"
             ]
         },
         "R19": {
             "rule_text": "No service that performs logging should be connected to a central logging subsystem.",
             "verdict": true,
             "related_model_items": [
+                "invoicing",
+                "shipping",
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> shipping",
+                "postgres -> invoicing"                
             ]
         },
         "R20": {
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres",
+                "zookeeper -> kafka", 
+                "order -> kafka", 
+                "kafka -> invoicing", 
+                "kafka -> shipping", 
+                "apache -> order", 
+                "apache -> shipping", 
+                "apache -> invoicing", 
+                "postgres -> order", 
+                "postgres -> shipping",
+                "postgres -> invoicing"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         },
         "R24": {
@@ -148,6 +279,13 @@
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "zookeeper",
+                "kafka",
+                "order",
+                "invoicing",
+                "shipping",
+                "apache",
+                "postgres"
             ]
         }
     }
