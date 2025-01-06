@@ -26,6 +26,7 @@
             "name": "auth_server",
             "stereotypes": [
                 "authorization_server",
+                "authentication_server",
                 "infrastructural",
                 "encryption",
                 "tokenstore",
@@ -33,6 +34,7 @@
                 "resource_server",
                 "authorization_scope_all_requests",
                 "authentication",
+                "authorization",
                 "entrypoint"
             ],
             "tagged_values": {
@@ -60,7 +62,9 @@
             "stereotypes": [
                 "internal",
                 "resource_server",
-                "authentication_scope_all_requests"
+                "authentication_scope_all_requests",
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Port": 8080,
@@ -75,7 +79,9 @@
             "stereotypes": [
                 "internal",
                 "resource_server",
-                "authentication_scope_all_requests"
+                "authentication_scope_all_requests",
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Port": 8080,
@@ -91,7 +97,9 @@
                 "internal",
                 "circuit_breaker",
                 "resource_server",
-                "authentication_scope_all_requests"
+                "authentication_scope_all_requests",
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Port": 8080,
@@ -110,7 +118,9 @@
                 "authentication_scope_all_requests",
                 "load_balancer",
                 "entrypoint",
-                "circuit_breaker"
+                "circuit_breaker",
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -165,7 +175,9 @@
             "sender": "configserver",
             "receiver": "webservice_registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -185,7 +197,9 @@
             "sender": "configserver",
             "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -194,7 +208,9 @@
             "receiver": "webservice_registry",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -202,7 +218,9 @@
             "sender": "configserver",
             "receiver": "web_portal",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -210,7 +228,9 @@
             "sender": "web_portal",
             "receiver": "webservice_registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -218,7 +238,9 @@
             "sender": "configserver",
             "receiver": "user_webservice",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -226,7 +248,9 @@
             "sender": "user_webservice",
             "receiver": "webservice_registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -235,7 +259,9 @@
             "receiver": "user_webservice",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -243,7 +269,9 @@
             "sender": "configserver",
             "receiver": "comments_webservice",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -251,7 +279,9 @@
             "sender": "comments_webservice",
             "receiver": "webservice_registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -260,7 +290,9 @@
             "receiver": "comments_webservice",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -269,7 +301,9 @@
             "receiver": "webservice_registry",
             "stereotypes": [
                 "restful_http",
-                "circuit_breaker_link"
+                "circuit_breaker_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -278,7 +312,9 @@
             "receiver": "task_webservice",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -286,7 +322,9 @@
             "sender": "configserver",
             "receiver": "task_webservice",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -295,7 +333,9 @@
             "receiver": "comments_webservice",
             "stereotypes": [
                 "restful_http",
-                "circuit_breaker_link"
+                "circuit_breaker_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -304,7 +344,9 @@
             "receiver": "api_gateway",
             "stereotypes": [
                 "restful_http",
-                "authenticated_request"
+                "authenticated_request",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -312,7 +354,9 @@
             "sender": "user",
             "receiver": "auth_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -321,7 +365,9 @@
             "receiver": "auth_server",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -341,7 +387,9 @@
             "sender": "api_gateway",
             "receiver": "user_webservice",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -349,7 +397,9 @@
             "sender": "api_gateway",
             "receiver": "task_webservice",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -357,7 +407,9 @@
             "sender": "api_gateway",
             "receiver": "web_portal",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -365,7 +417,9 @@
             "sender": "configserver",
             "receiver": "api_gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -373,7 +427,9 @@
             "sender": "webservice_registry",
             "receiver": "api_gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         }

@@ -4,150 +4,347 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": false,
             "related_model_items": [
+                "auth_server",
+                "api_gateway"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": false,
             "related_model_items": [
+                "auth_server",
+                "api_gateway"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": false,
             "related_model_items": [
+                "auth_server",
+                "api_gateway"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": true,
             "related_model_items": [
+                "auth_server",
+                "api_gateway"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": true,
             "related_model_items": [
+                "auth_server",
+                "api_gateway"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": true,
             "related_model_items": [
+                "configserver -> webservice_registry", 
+                "configserver -> auth_server", 
+                "auth_server -> webservice_registry", 
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "configserver -> user_webservice", 
+                "user_webservice -> webservice_registry", 
+                "auth_server -> user_webservice", 
+                "configserver -> comments_webservice", 
+                "comments_webservice -> webservice_registry", 
+                "auth_server -> ", "comments_webservice", 
+                "task_webservice -> webservice_registry", 
+                "auth_server -> task_webservice", 
+                "configserver -> task_webservice", 
+                "task_webservice -> ", "comments_webservice", 
+                "api_gateway -> auth_server", 
+                "api_gateway -> user_webservice", 
+                "api_gateway -> ", "task_webservice", 
+                "api_gateway -> web_portal", 
+                "configserver -> api_gateway", 
+                "webservice_registry -> api_gateway"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": true,
             "related_model_items": [
+                "configserver -> webservice_registry", 
+                "configserver -> auth_server", 
+                "auth_server -> webservice_registry", 
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "configserver -> user_webservice", 
+                "user_webservice -> webservice_registry", 
+                "auth_server -> user_webservice", 
+                "configserver -> comments_webservice", 
+                "comments_webservice -> webservice_registry", 
+                "auth_server -> ", "comments_webservice", 
+                "task_webservice -> webservice_registry", 
+                "auth_server -> task_webservice", 
+                "configserver -> task_webservice", 
+                "task_webservice -> ", "comments_webservice", 
+                "api_gateway -> auth_server", 
+                "api_gateway -> user_webservice", 
+                "api_gateway -> ", "task_webservice", 
+                "api_gateway -> web_portal", 
+                "configserver -> api_gateway", 
+                "webservice_registry -> api_gateway"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": true,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": true,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R10": {
             "rule_text": "No service that performs authorization should perform any other business functionality.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R11": {
             "rule_text": "No service that performs authentication should perform any other business functionality.",
             "verdict": false,
             "related_model_items": [
+                "auth_server"
             ]
         },
         "R12": {
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "github_repository -> configserver",
+                "database_auth_server -> auth_server",
+                "user -> api_gateway", 
+                "user -> auth_server", 
+                "database_auth_server -> api_gateway"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "configserver -> webservice_registry", 
+                "configserver -> auth_server", 
+                "auth_server -> webservice_registry", 
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "configserver -> user_webservice", 
+                "user_webservice -> webservice_registry", 
+                "auth_server -> user_webservice", 
+                "configserver -> comments_webservice", 
+                "comments_webservice -> webservice_registry", 
+                "auth_server -> ", "comments_webservice", 
+                "task_webservice -> webservice_registry", 
+                "auth_server -> task_webservice", 
+                "configserver -> task_webservice", 
+                "task_webservice -> ", "comments_webservice", 
+                "api_gateway -> auth_server", 
+                "api_gateway -> user_webservice", 
+                "api_gateway -> ", "task_webservice", 
+                "api_gateway -> web_portal", 
+                "configserver -> api_gateway", 
+                "webservice_registry -> api_gateway"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R18": {
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
+                "web_portal",
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "api_gateway -> web_portal"
             ]
         },
         "R19": {
             "rule_text": "No service that performs logging should be connected to a central logging subsystem.",
             "verdict": true,
             "related_model_items": [
+                "web_portal", 
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "api_gateway -> web_portal"
             ]
         },
         "R20": {
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway",
+                "configserver -> webservice_registry", 
+                "configserver -> auth_server", 
+                "auth_server -> webservice_registry", 
+                "configserver -> web_portal", 
+                "web_portal -> webservice_registry", 
+                "configserver -> user_webservice", 
+                "user_webservice -> webservice_registry", 
+                "auth_server -> user_webservice", 
+                "configserver -> comments_webservice", 
+                "comments_webservice -> webservice_registry", 
+                "auth_server -> ", "comments_webservice", 
+                "task_webservice -> webservice_registry", 
+                "auth_server -> task_webservice", 
+                "configserver -> task_webservice", 
+                "task_webservice -> ", "comments_webservice", 
+                "api_gateway -> auth_server", 
+                "api_gateway -> user_webservice", 
+                "api_gateway -> ", "task_webservice", 
+                "api_gateway -> web_portal", 
+                "configserver -> api_gateway", 
+                "webservice_registry -> api_gateway"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "webservice_registry"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "configserver",
+                "webservice_registry",
+                "auth_server",
+                "web_portal",
+                "user_webservice",
+                "comments_webservice",
+                "task_webservice",
+                "api_gateway"
             ]
         }
     }
