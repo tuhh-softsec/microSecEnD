@@ -4,54 +4,127 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": true,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": true,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": true,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "edge_server"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "config_server -> discovery_service", 
+                "monitor_dashboard -> discovery_service", 
+                "config_server -> monitor_dashboard", 
+                "turbine -> discovery_service", 
+                "rabbitmq -> turbine", 
+                "config_server -> turbine", 
+                "turbine -> monitor_dashboard", 
+                "statement_service -> discovery_service", 
+                "config_server -> statement_service", 
+                "card_service -> discovery_service", 
+                "config_server -> card_service", 
+                "card_statement_composite -> discovery_service", 
+                "card_statement_composite -> card_service", 
+                "card_statement_composite -> statement_service", 
+                "config_server -> card_statement_composite", 
+                "card_statement_composite -> rabbitmq", 
+                "discovery_service -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> card_service", 
+                "edge_server -> statement_service", 
+                "edge_server -> card_statement_composite"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "config_server -> discovery_service", 
+                "monitor_dashboard -> discovery_service", 
+                "config_server -> monitor_dashboard", 
+                "turbine -> discovery_service", 
+                "rabbitmq -> turbine", 
+                "config_server -> turbine", 
+                "turbine -> monitor_dashboard", 
+                "statement_service -> discovery_service", 
+                "config_server -> statement_service", 
+                "card_service -> discovery_service", 
+                "config_server -> card_service", 
+                "card_statement_composite -> discovery_service", 
+                "card_statement_composite -> card_service", 
+                "card_statement_composite -> statement_service", 
+                "config_server -> card_statement_composite", 
+                "card_statement_composite -> rabbitmq", 
+                "discovery_service -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> card_service", 
+                "edge_server -> statement_service", 
+                "edge_server -> card_statement_composite"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R10": {
@@ -70,36 +143,87 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "github_repository -> config_server",
+                "user -> edge_server"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "config_server -> discovery_service", 
+                "monitor_dashboard -> discovery_service", 
+                "config_server -> monitor_dashboard", 
+                "turbine -> discovery_service", 
+                "rabbitmq -> turbine", 
+                "config_server -> turbine", 
+                "turbine -> monitor_dashboard", 
+                "statement_service -> discovery_service", 
+                "config_server -> statement_service", 
+                "card_service -> discovery_service", 
+                "config_server -> card_service", 
+                "card_statement_composite -> discovery_service", 
+                "card_statement_composite -> card_service", 
+                "card_statement_composite -> statement_service", 
+                "config_server -> card_statement_composite", 
+                "card_statement_composite -> rabbitmq", 
+                "discovery_service -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> card_service", 
+                "edge_server -> statement_service", 
+                "edge_server -> card_statement_composite"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": true,
             "related_model_items": [
+                "rabbitmq"
             ]
         },
         "R18": {
@@ -118,36 +242,95 @@
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "monitor_dashboard"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server",
+                "config_server -> discovery_service", 
+                "monitor_dashboard -> discovery_service", 
+                "config_server -> monitor_dashboard", 
+                "turbine -> discovery_service", 
+                "rabbitmq -> turbine", 
+                "config_server -> turbine", 
+                "turbine -> monitor_dashboard", 
+                "statement_service -> discovery_service", 
+                "config_server -> statement_service", 
+                "card_service -> discovery_service", 
+                "config_server -> card_service", 
+                "card_statement_composite -> discovery_service", 
+                "card_statement_composite -> card_service", 
+                "card_statement_composite -> statement_service", 
+                "config_server -> card_statement_composite", 
+                "card_statement_composite -> rabbitmq", 
+                "discovery_service -> edge_server", 
+                "config_server -> edge_server", 
+                "edge_server -> card_service", 
+                "edge_server -> statement_service", 
+                "edge_server -> card_statement_composite"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "discovery_service"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "config_server",
+                "discovery_service",
+                "rabbitmq",
+                "monitor_dashboard",
+                "turbine",
+                "statement_service",
+                "card_service",
+                "card_statement_composite",
+                "edge_server"
             ]
         }
     }
