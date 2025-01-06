@@ -4,54 +4,164 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": true,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": false,
             "related_model_items": [
+                "web_application"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": false,
             "related_model_items": [
+                "web_application"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "web_application"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "web_application"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "consul2 -> consul", 
+                "consul3 -> consul", 
+                "consul3 -> consul2",
+                "logstash -> elasticsearch", 
+                "elasticsearch -> kibana",
+                "consul -> service_one",
+                "service_one -> logstash",
+                "service_one -> rabbit", 
+                "rabbit -> service_one", 
+                "consul -> service_two", 
+                "service_two -> logstash", 
+                "service_two -> rabbit", 
+                "rabbit -> service_two", 
+                "service_one_db -> service_one", 
+                "service_two_db -> service_two", 
+                "api_gateway -> service_one", 
+                "api_gateway -> service_two", 
+                "consul -> api_gateway", 
+                "web_application -> ", 
+                "api_gateway -> scope", 
+                "service_one -> scope", 
+                "service_one_db -> scope", 
+                "service_two -> scope", 
+                "service_two_db -> scope", 
+                "web_application -> scope", 
+                "rabbit -> scope", 
+                "consul -> scope", 
+                "consul2 -> scope", 
+                "consul3 -> scope", 
+                "kibana -> ", "scope", 
+                "elasticsearch -> scope", 
+                "logstash -> scope"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "consul2 -> consul", 
+                "consul3 -> consul", 
+                "consul3 -> consul2",
+                "logstash -> elasticsearch", 
+                "elasticsearch -> kibana",
+                "consul -> service_one",
+                "service_one -> logstash",
+                "service_one -> rabbit", 
+                "rabbit -> service_one", 
+                "consul -> service_two", 
+                "service_two -> logstash", 
+                "service_two -> rabbit", 
+                "rabbit -> service_two", 
+                "service_one_db -> service_one", 
+                "service_two_db -> service_two", 
+                "api_gateway -> service_one", 
+                "api_gateway -> service_two", 
+                "consul -> api_gateway", 
+                "web_application -> ", 
+                "api_gateway -> scope", 
+                "service_one -> scope", 
+                "service_one_db -> scope", 
+                "service_two -> scope", 
+                "service_two_db -> scope", 
+                "web_application -> scope", 
+                "rabbit -> scope", 
+                "consul -> scope", 
+                "consul2 -> scope", 
+                "consul3 -> scope", 
+                "kibana -> ", "scope", 
+                "elasticsearch -> scope", 
+                "logstash -> scope"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         },
         "R10": {
@@ -70,84 +180,219 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "user -> web_application"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "consul2 -> consul", 
+                "consul3 -> consul", 
+                "consul3 -> consul2",
+                "logstash -> elasticsearch", 
+                "elasticsearch -> kibana",
+                "consul -> service_one",
+                "service_one -> logstash",
+                "service_one -> rabbit", 
+                "rabbit -> service_one", 
+                "consul -> service_two", 
+                "service_two -> logstash", 
+                "service_two -> rabbit", 
+                "rabbit -> service_two", 
+                "service_one_db -> service_one", 
+                "service_two_db -> service_two", 
+                "api_gateway -> service_one", 
+                "api_gateway -> service_two", 
+                "consul -> api_gateway", 
+                "web_application -> api_gateway", 
+                "api_gateway -> scope", 
+                "service_one -> scope", 
+                "service_one_db -> scope", 
+                "service_two -> scope", 
+                "service_two_db -> scope", 
+                "web_application -> scope", 
+                "rabbit -> scope", 
+                "consul -> scope", 
+                "consul2 -> scope", 
+                "consul3 -> scope", 
+                "kibana -> ", "scope", 
+                "elasticsearch -> scope", 
+                "logstash -> scope"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "scope"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": true,
             "related_model_items": [
+                "logstash",
+                "kibana",
+                "elasticsearch",
+                "logstash -> elasticsearch", 
+                "elasticsearch -> kibana"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": true,
             "related_model_items": [
+                "rabbit"
             ]
         },
         "R18": {
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
+                "web_application",
+                "web_application -> api_gateway", 
+                "web_application -> scope"
             ]
         },
         "R19": {
             "rule_text": "No service that performs logging should be connected to a central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "service_one",
+                "service_two",
+                "service_one -> logstash",
+                "service_two -> logstash"
             ]
         },
         "R20": {
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "scope",
+                "kibana"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "api_gateway -> scope", 
+                "service_one -> scope", 
+                "service_one_db -> scope", 
+                "service_two -> scope", 
+                "service_two_db -> scope", 
+                "web_application -> scope", 
+                "rabbit -> scope", 
+                "consul -> scope", 
+                "consul2 -> scope", 
+                "consul3 -> scope", 
+                "kibana -> ", "scope", 
+                "elasticsearch -> scope", 
+                "logstash -> scope",
+                "service_one -> logstash",
+                "service_two -> logstash"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "consul",
+                "consul2",
+                "consul3",
+                "elasticsearch",
+                "logstash",
+                "kibana",
+                "rabbit",
+                "service_one",
+                "service_two",
+                "service_one_db",
+                "service_two_db",
+                "api_gateway",
+                "web_application",
+                "scope"
             ]
         }
     }
