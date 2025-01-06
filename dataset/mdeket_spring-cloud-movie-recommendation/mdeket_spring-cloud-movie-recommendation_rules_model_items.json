@@ -4,54 +4,100 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": true,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": true,
             "related_model_items": [
+                "recommendation_client"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": true,
             "related_model_items": [
+                "recommendation_client"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "recommendation_client"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "recommendation_client"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "config_service -> eureka_service", 
+                "movie_service -> eureka_service", 
+                "config_service -> movie_service", 
+                "user_service -> eureka_service", 
+                "config_service -> user_service",
+                "recommendation_service -> eureka_service", 
+                "config_service -> recommendation_service", 
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "config_service -> eureka_service", 
+                "movie_service -> eureka_service", 
+                "config_service -> movie_service", 
+                "user_service -> eureka_service", 
+                "config_service -> user_service",
+                "recommendation_service -> eureka_service", 
+                "config_service -> recommendation_service", 
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R10": {
@@ -70,84 +116,166 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "github_repository -> config_service",
+                "database_movie_service -> movie_service",
+                "database_user_service -> user_service",
+                "database_recommendation_service -> recommendation_service",
+                "user -> recommendation_client"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "config_service -> eureka_service", 
+                "movie_service -> eureka_service", 
+                "config_service -> movie_service", 
+                "user_service -> eureka_service", 
+                "config_service -> user_service",
+                "recommendation_service -> eureka_service", 
+                "config_service -> recommendation_service", 
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R18": {
             "rule_text": "All services that perform logging should be connected to a message broker.",
             "verdict": false,
             "related_model_items": [
+                "recommendation_client",
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R19": {
             "rule_text": "No service that performs logging should be connected to a central logging subsystem.",
             "verdict": true,
             "related_model_items": [
+                "recommendation_client",
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R20": {
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "recommendation_client"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "eureka_service -> recommendation_client", 
+                "config_service -> recommendation_client", 
+                "recommendation_client -> recommendation_service", 
+                "recommendation_client -> movie_service", 
+                "recommendation_client -> user_service"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "eureka_service"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "config_service",
+                "eureka_service",
+                "movie_service",
+                "user_service",
+                "recommendation_service",
+                "recommendation_client"
             ]
         }
     }
