@@ -4,54 +4,87 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service -> discovery_server", 
+                "movie_info_service -> discovery_server", 
+                "movie_catalog_service -> discovery_server", 
+                "movie_catalog_service -> ratings_data_service", 
+                "movie_catalog_service -> movie_info_service"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service -> discovery_server", 
+                "movie_info_service -> discovery_server", 
+                "movie_catalog_service -> discovery_server", 
+                "movie_catalog_service -> ratings_data_service", 
+                "movie_catalog_service -> movie_info_service"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R10": {
@@ -70,36 +103,58 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "external_website -> movie_info_service"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "ratings_data_service -> discovery_server", 
+                "movie_info_service -> discovery_server", 
+                "movie_catalog_service -> discovery_server", 
+                "movie_catalog_service -> ratings_data_service", 
+                "movie_catalog_service -> movie_info_service"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R18": {
@@ -118,36 +173,62 @@
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service",
+                "ratings_data_service -> discovery_server", 
+                "movie_info_service -> discovery_server", 
+                "movie_catalog_service -> discovery_server", 
+                "movie_catalog_service -> ratings_data_service", 
+                "movie_catalog_service -> movie_info_service"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "discovery_server",
+                "ratings_data_service",
+                "movie_info_service",
+                "movie_catalog_service"
             ]
         }
     }
