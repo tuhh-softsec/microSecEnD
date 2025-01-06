@@ -4,54 +4,139 @@
             "rule_text": "There should be a single type of service as an entry point.",
             "verdict": true,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R02": {
             "rule_text": "All entry points should have a circuit breaker.",
             "verdict": true,
             "related_model_items": [
+                "zuul"
             ]
         },
         "R03": {
             "rule_text": "All entry points should have a load balancer.",
             "verdict": true,
             "related_model_items": [
+                "zuul"
             ]
         },
         "R04": {
             "rule_text": "All entry points should perform authorization.",
             "verdict": false,
             "related_model_items": [
+                "zuul"
             ]
         },
         "R05": {
             "rule_text": "All entry points should perform authentication.",
             "verdict": false,
             "related_model_items": [
+                "zuul"
             ]
         },
         "R06": {
             "rule_text": "All connections between services should be authorized.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard -> config_server", 
+                "config_server -> eureka_server", 
+                "config_server -> rabbitmq", 
+                "admin_dashboard -> eureka_server", 
+                "admin_dashboard -> hystrix_dashboard", 
+                "hystrix_dashboard -> eureka_server", 
+                "admin_dashboard -> service_a", 
+                "service_a -> rabbitmq", 
+                "config_server -> service_a", 
+                "service_a -> eureka_server", 
+                "service_a -> hystrix_dashboard", 
+                "admin_dashboard -> service_b", 
+                "service_b -> rabbitmq", 
+                "config_server -> service_b", 
+                "service_b -> eureka_server", 
+                "service_a -> service_b", 
+                "zuul -> service_a", 
+                "eureka_server -> zuul", 
+                "rabbitmq -> zipkin", 
+                "service_b -> zipkin", 
+                "service_b -> hystrix_dashboard", 
+                "service_a -> zipkin", 
+                "admin_dashboard -> rabbitmq", 
+                "admin_dashboard -> zuul", 
+                "zuul -> rabbitmq", 
+                "zuul -> zipkin", 
+                "zuul -> config_server"
             ]
         },
         "R07": {
             "rule_text": "All connections between services should be authenticated.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard -> config_server", 
+                "config_server -> eureka_server", 
+                "config_server -> rabbitmq", 
+                "admin_dashboard -> eureka_server", 
+                "admin_dashboard -> hystrix_dashboard", 
+                "hystrix_dashboard -> eureka_server", 
+                "admin_dashboard -> service_a", 
+                "service_a -> rabbitmq", 
+                "config_server -> service_a", 
+                "service_a -> eureka_server", 
+                "service_a -> hystrix_dashboard", 
+                "admin_dashboard -> service_b", 
+                "service_b -> rabbitmq", 
+                "config_server -> service_b", 
+                "service_b -> eureka_server", 
+                "service_a -> service_b", 
+                "zuul -> service_a", 
+                "eureka_server -> zuul", 
+                "rabbitmq -> zipkin", 
+                "service_b -> zipkin", 
+                "service_b -> hystrix_dashboard", 
+                "service_a -> zipkin", 
+                "admin_dashboard -> rabbitmq", 
+                "admin_dashboard -> zuul", 
+                "zuul -> rabbitmq", 
+                "zuul -> zipkin", 
+                "zuul -> config_server"
             ]
         },
         "R08": {
             "rule_text": "There should be a single type of authorization service.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R09": {
-            "rule_text": "    R09 & There should be a single type of authentication service. \\",
+            "rule_text": "There should be a single type of authentication service.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R10": {
@@ -70,36 +155,92 @@
             "rule_text": "There should be a service limiting the number of login attempts.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R13": {
             "rule_text": "All connections between a service and an external entity should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "user -> zuul"
             ]
         },
         "R14": {
             "rule_text": "All connections between two services should be encrypted.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard -> config_server", 
+                "config_server -> eureka_server", 
+                "config_server -> rabbitmq", 
+                "admin_dashboard -> eureka_server", 
+                "admin_dashboard -> hystrix_dashboard", 
+                "hystrix_dashboard -> eureka_server", 
+                "admin_dashboard -> service_a", 
+                "service_a -> rabbitmq", 
+                "config_server -> service_a", 
+                "service_a -> eureka_server", 
+                "service_a -> hystrix_dashboard", 
+                "admin_dashboard -> service_b", 
+                "service_b -> rabbitmq", 
+                "config_server -> service_b", 
+                "service_b -> eureka_server", 
+                "service_a -> service_b", 
+                "zuul -> service_a", 
+                "eureka_server -> zuul", 
+                "rabbitmq -> zipkin", 
+                "service_b -> zipkin", 
+                "service_b -> hystrix_dashboard", 
+                "service_a -> zipkin", 
+                "admin_dashboard -> rabbitmq", 
+                "admin_dashboard -> zuul", 
+                "zuul -> rabbitmq", 
+                "zuul -> zipkin", 
+                "zuul -> config_server"
             ]
         },
         "R15": {
             "rule_text": "All services should perform logging.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R16": {
             "rule_text": "There should be a single type of central logging subsystem.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R17": {
             "rule_text": "There should be a message broker.",
             "verdict": true,
             "related_model_items": [
+                "rabbitmq"
             ]
         },
         "R18": {
@@ -118,36 +259,85 @@
             "rule_text": "There should be a monitoring dashboard.",
             "verdict": true,
             "related_model_items": [
+                "hystrix_dashboard"
             ]
         },
         "R21": {
             "rule_text": "All services should be connected to a monitoring dashboard.",
-            "verdict": true,
+            "verdict": false,
             "related_model_items": [
+                "rabbitmq",
+                "config_server",
+                "zuul",
+                "zipkin", 
+                "admin_dashboard -> config_server", 
+                "config_server -> eureka_server", 
+                "config_server -> rabbitmq", 
+                "config_server -> service_a", 
+                "service_b -> rabbitmq", 
+                "config_server -> service_b", 
+                "zuul -> service_a", 
+                "eureka_server -> zuul", 
+                "rabbitmq -> zipkin", 
+                "service_b -> zipkin", 
+                "service_a -> zipkin", 
+                "admin_dashboard -> rabbitmq", 
+                "admin_dashboard -> zuul", 
+                "zuul -> rabbitmq", 
+                "zuul -> zipkin", 
+                "zuul -> config_server"
             ]
         },
         "R22": {
             "rule_text": "All services should sanitize logs.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R23": {
             "rule_text": "There should be a single type of service registry.",
             "verdict": true,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         },
         "R24": {
             "rule_text": "All service registries should have validation checks for incoming requests.",
             "verdict": false,
             "related_model_items": [
+                "eureka_server"
             ]
         },
         "R25": {
             "rule_text": "There should be a single type of central secret store.",
             "verdict": false,
             "related_model_items": [
+                "admin_dashboard",
+                "eureka_server",
+                "rabbitmq",
+                "config_server",
+                "hystrix_dashboard",
+                "service_a",
+                "service_b",
+                "zuul",
+                "zipkin"
             ]
         }
     }
