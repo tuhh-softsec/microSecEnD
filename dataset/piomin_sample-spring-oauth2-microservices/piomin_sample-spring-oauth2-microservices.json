@@ -22,7 +22,9 @@
                 "load_balancer",
                 "authentication",
                 "entrypoint",
-                "circuit_breaker"
+                "circuit_breaker",
+                "authorization",
+                "authentication"
             ],
             "tagged_values": {
                 "Gateway": "Zuul",
@@ -36,12 +38,14 @@
             "name": "auth_server",
             "stereotypes": [
                 "authorization_server",
+                "authentication_server",
                 "encryption",
                 "infrastructural",
                 "resource_server",
                 "token_server",
                 "local_logging",
-                "authentication"
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -87,7 +91,9 @@
             "sender": "discovery_server",
             "receiver": "gateway_server",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -108,7 +114,9 @@
             "receiver": "gateway_server",
             "stereotypes": [
                 "restful_http",
-                "authenticated_request"
+                "authenticated_request",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -137,7 +145,9 @@
             "receiver": "auth_server",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -154,7 +164,9 @@
             "receiver": "account_service",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -181,7 +193,9 @@
                 "restful_http",
                 "authenticated_request",
                 "feign_connection",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\""
@@ -192,7 +206,9 @@
             "receiver": "customer_service",
             "stereotypes": [
                 "restful_http",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         }
