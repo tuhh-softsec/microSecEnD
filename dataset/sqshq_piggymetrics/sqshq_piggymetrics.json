@@ -66,6 +66,7 @@
             "name": "auth_service",
             "stereotypes": [
                 "authorization_server",
+                "authentication_server",
                 "pre_authorized_endpoints",
                 "infrastructural",
                 "token_server",
@@ -73,7 +74,9 @@
                 "local_logging",
                 "resource_server",
                 "csrf_disabled",
-                "authentication_scope_all_requests"
+                "authentication_scope_all_requests",
+                "authorization",
+                "authentication"
             ],
             "tagged_values": {
                 "Authorization Server": "Spring OAuth2",
@@ -94,7 +97,8 @@
                 "local_logging",
                 "resource_server",
                 "circuit_breaker",
-                "authentication"
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Port": 6000,
@@ -132,7 +136,8 @@
                 "local_logging",
                 "pre_authorized_endpoints",
                 "resource_server",
-                "authentication"
+                "authentication",
+                "authorization"
             ],
             "tagged_values": {
                 "Port": 7000,
@@ -216,7 +221,9 @@
             "receiver": "registry",
             "stereotypes": [
                 "restful_http",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -225,7 +232,9 @@
             "receiver": "monitoring",
             "stereotypes": [
                 "restful_http",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -233,7 +242,9 @@
             "sender": "turbine_stream_service",
             "receiver": "registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -242,7 +253,9 @@
             "receiver": "turbine_stream_service",
             "stereotypes": [
                 "restful_http",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -250,7 +263,9 @@
             "sender": "turbine_stream_service",
             "receiver": "monitoring",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -258,7 +273,9 @@
             "sender": "rabbitmq",
             "receiver": "turbine_stream_service",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -266,7 +283,9 @@
             "sender": "auth_service",
             "receiver": "registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -275,7 +294,9 @@
             "receiver": "auth_service",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -284,7 +305,9 @@
             "receiver": "registry",
             "stereotypes": [
                 "restful_http",
-                "circuit_breaker_link"
+                "circuit_breaker_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Circuit Breaker'": "\"Hystrix\""
@@ -297,7 +320,9 @@
                 "restful_http",
                 "plaintext_credentials_link",
                 "auth_provider",
-                "authentication_with_plaintext_credentials"
+                "authentication_with_plaintext_credentials",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -307,7 +332,9 @@
             "stereotypes": [
                 "restful_http",
                 "feign_connection",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\""
@@ -318,7 +345,9 @@
             "receiver": "account_service",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -327,7 +356,9 @@
             "receiver": "rabbitmq",
             "stereotypes": [
                 "restful_http",
-                "circuit_breaker_link"
+                "circuit_breaker_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -335,7 +366,9 @@
             "sender": "notification_service",
             "receiver": "registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -346,7 +379,9 @@
                 "restful_http",
                 "plaintext_credentials_link",
                 "auth_provider",
-                "authentication_with_plaintext_credentials"
+                "authentication_with_plaintext_credentials",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -355,7 +390,9 @@
             "receiver": "notification_service",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -363,7 +400,9 @@
             "sender": "notification_service",
             "receiver": "rabbitmq",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -372,7 +411,9 @@
             "receiver": "mail_server",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -380,7 +421,9 @@
             "sender": "statistics_service",
             "receiver": "registry",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -391,7 +434,9 @@
                 "restful_http",
                 "plaintext_credentials_link",
                 "auth_provider",
-                "authentication_with_plaintext_credentials"
+                "authentication_with_plaintext_credentials",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -400,7 +445,9 @@
             "receiver": "statistics_service",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -408,7 +455,9 @@
             "sender": "statistics_service",
             "receiver": "rabbitmq",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -416,7 +465,9 @@
             "sender": "external_website",
             "receiver": "statistics_service",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -427,7 +478,9 @@
                 "restful_http",
                 "feign_connection",
                 "circuit_breaker_link",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Circuit Breaker'": "\"Hystrix\"",
@@ -440,7 +493,9 @@
             "stereotypes": [
                 "restful_http",
                 "feign_connection",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\""
@@ -451,7 +506,9 @@
             "receiver": "account_service",
             "stereotypes": [
                 "jdbc",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -460,7 +517,9 @@
             "receiver": "notification_service",
             "stereotypes": [
                 "jdbc",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -469,7 +528,9 @@
             "receiver": "statistics_service",
             "stereotypes": [
                 "jdbc",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -478,7 +539,9 @@
             "receiver": "auth_service",
             "stereotypes": [
                 "jdbc",
-                "plaintext_credentials_link"
+                "plaintext_credentials_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -486,7 +549,9 @@
             "sender": "registry",
             "receiver": "gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -494,7 +559,9 @@
             "sender": "user",
             "receiver": "gateway",
             "stereotypes": [
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -503,7 +570,9 @@
             "receiver": "gateway",
             "stereotypes": [
                 "plaintext_credentials_link",
-                "restful_http"
+                "restful_http",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {}
         },
@@ -513,7 +582,9 @@
             "stereotypes": [
                 "restful_http",
                 "circuit_breaker_link",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\"",
@@ -526,7 +597,9 @@
             "stereotypes": [
                 "restful_http",
                 "circuit_breaker_link",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\"",
@@ -539,7 +612,9 @@
             "stereotypes": [
                 "restful_http",
                 "circuit_breaker_link",
-                "load_balanced_link"
+                "load_balanced_link",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\"",
@@ -553,7 +628,9 @@
                 "restful_http",
                 "circuit_breaker_link",
                 "load_balanced_link",
-                "auth_provider"
+                "auth_provider",
+                "authenticated",
+                "authorized"
             ],
             "tagged_values": {
                 "'Load Balancer'": "\"Ribbon\"",
